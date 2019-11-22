@@ -11,9 +11,12 @@ class HomeController extends Controller
 
        //return $this->view->render('home');
         //$this->db;
-  $this->db->data(['name' => 'ahmed'])->insert('users_groups');
+    //$this->db->data(['name' => 'احمد'])->insert('users_groups');
 
-//echo 'welcom';
+//        $user = $this->db->select('*')->from('users_groups')->orderBy('id')->fetchAll();
+//        pre($user);
+
+    // echo $this->url->link('home/t');
 
 
 

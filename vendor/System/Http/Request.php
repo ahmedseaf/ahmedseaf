@@ -41,7 +41,7 @@ class Request
             list($requestUri, $queryString) = explode('?' , $requestUri);
         }
 
-        $this->url = preg_replace('#^'.$script.'$#', '' , $requestUri);
+        $this->url = rtrim(preg_replace('#^'.$script.'$#', '' , $requestUri), '/');
 
         if (! $this->url) {
             $this->url = '/';
