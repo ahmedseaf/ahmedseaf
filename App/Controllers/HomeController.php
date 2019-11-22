@@ -11,8 +11,9 @@ class HomeController extends Controller
 
        //return $this->view->render('home');
         //$this->db;
+  $this->db->data(['name' => 'ahmed'])->insert('users_groups');
 
-
+//echo 'welcom';
 
 
 
