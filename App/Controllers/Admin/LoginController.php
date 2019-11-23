@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-ob_start();
+//ob_start();
 //        $this->db->data([
 //            'firstname' => 'Ahmed',
 //            'lastname' => 'Seaf',
@@ -26,7 +26,7 @@ ob_start();
 
         //pre($this->db->where('id', 1)->fetch('users'));
 
-        pre($_COOKIE);
+        //pre($_COOKIE);
         $loginModel = $this->load->model('Login');
 //        if ($loginModel->isLogged()) {
 //            return $this->url->redirectTo('/admin');
@@ -50,9 +50,14 @@ ob_start();
 
             }
 
-            return $this->url->redirectTo('/admin');
+            $json = [];
+            $json['success'] = 'Welcome back ' . $loginUserModel->firstname . ' ' . $loginUserModel->lastname ;
+            $json['redirect'] = $this->url->link('/admin');
+            return $this->json($json);
         } else {
-            return $this->index();
+            $json = [] ;
+            $json['errors'] = implode('<br>' , $this->errors);
+            return $this->json($json);
         }
     }
 

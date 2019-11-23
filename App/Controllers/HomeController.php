@@ -18,8 +18,7 @@ class HomeController extends Controller
 
     // echo $this->url->link('home/t');
 
-
-
+        echo 'welcome To Home Controllers';
        
     }
 }

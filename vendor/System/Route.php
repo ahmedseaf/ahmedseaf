@@ -57,8 +57,8 @@ class Route
                 return [$controller, $method, $arguments];
             }
         }
-        //TODO:: Enabled url Redirect To Not Found
-        //return $this->app->url->redirectTo($this->notFound);
+
+        return $this->app->url->redirectTo($this->notFound);
     }
 
 
