@@ -10,13 +10,12 @@ namespace App\Controllers\Admin\Common;
 
 use System\Controller;
 
-class HeaderController extends Controller
+class NavbarController extends Controller
 {
 
     public function index()
     {
-        $data['title'] = $this->html->getTitle();
-        return $this->view->render('/admin/common/header', $data);
+        return $this->view->render('/admin/common/navbar');
     }
 
 

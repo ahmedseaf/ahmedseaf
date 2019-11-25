@@ -57,8 +57,10 @@ class Route
                 return [$controller, $method, $arguments];
             }
         }
+        //TODO mack the Redirect To 404
 
-        return $this->app->url->redirectTo($this->notFound);
+        echo 'This Page Not Found';
+        //return $this->app->url->redirectTo($this->notFound);
     }
 
 

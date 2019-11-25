@@ -33,7 +33,7 @@ class Request
     public function prepareUrl()
     {
 
-        $script = dirname($this->server('SCRIPT_NAME'));
+        $script = str_replace('\\', '/' , dirname($this->server('SCRIPT_NAME')));
 
         $requestUri = $this->server('REQUEST_URI');
 

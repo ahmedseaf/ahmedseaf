@@ -45,7 +45,7 @@ abstract class Model
      */
     public function all()
     {
-        return $this->orderBy('id', 'DESC')->fetchAll($this->table);
+        return $this->orderBy('id', 'ASC')->fetchAll($this->table);
     }
 
      /**

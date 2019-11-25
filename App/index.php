@@ -22,15 +22,15 @@ $app->route->add('/admin/login/submit', 'Admin/Login@submit', 'POST');
 //
 //
 // //Share Admin LayOut
-//$app->share('adminLayout', function ($app){
-//   return $app->load->controller('Admin/Common/Layout');
-//});
+$app->share('Layout', function ($app){
+   return $app->load->controller('Admin/Common/Layout');
+});
 //
 //
 // admin => Categories
 $app->route->add('/admin/categories', 'Admin/Categories');
 $app->route->add('/admin/categories/add', 'Admin/Categories@add', 'POST');
-$app->route->add('/admin/categories/submit', 'Admin/Categories@submit', 'POST');
+$app->route->add('/admin/categories/insert', 'Admin/Categories@insert', 'POST');
 $app->route->add('/admin/categories/edit/:id', 'Admin/Categories@edit','POST');
 $app->route->add('/admin/categories/save/:id', 'Admin/Categories@save', 'POST');
 $app->route->add('/admin/categories/delete/:id', 'Admin/Categories@delete', 'POST');
