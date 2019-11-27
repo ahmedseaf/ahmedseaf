@@ -9,10 +9,15 @@ $app = Application::getInstance();
 
 
 
+if(strpos($app->request->url(), '/admin') === 0 ) {
+    $app->load->controller('Access')->index();
+}
 
 
 $app->route->add('/', 'Home');
 
+
+//$app->route->add('/access', 'Access');
 
 
 //ِAdmin Routes
@@ -31,7 +36,8 @@ $app->share('Layout', function ($app){
 $app->route->add('/admin/categories', 'Admin/Categories');
 $app->route->add('/admin/categories/add', 'Admin/Categories@add', 'POST');
 $app->route->add('/admin/categories/insert', 'Admin/Categories@insert', 'POST');
-$app->route->add('/admin/categories/edit/:id', 'Admin/Categories@edit','POST');
+//$app->route->add('/admin/categories/edit/:id', 'Admin/Categories@edit','POST');
+$app->route->add('/admin/categories/edit/:id', 'Admin/Categories@edit');
 $app->route->add('/admin/categories/save/:id', 'Admin/Categories@save', 'POST');
 $app->route->add('/admin/categories/delete/:id', 'Admin/Categories@delete', 'POST');
 
@@ -50,7 +56,7 @@ $app->route->add('/admin/dashboard', 'Admin/Dashboard');
 $app->route->add('/admin/users', 'Admin/Users');
 $app->route->add('/admin/users/add', 'Admin/Users@add');
 $app->route->add('/admin/users/submit', 'Admin/Users@submit', 'POST');
-$app->route->add('/admin/users/edit/:id', 'Admin/Users@edit');
+$app->route->add('/admin/users/edit/:id', 'Admin/Users@edit','POST');
 $app->route->add('/admin/users/save/:id', 'Admin/Users@save', 'POST');
 $app->route->add('/admin/users/delete/:id', 'Admin/Users@delete');
 
@@ -60,11 +66,11 @@ $app->route->add('/admin/users/delete/:id', 'Admin/Users@delete');
 
 // admin => users Group
 $app->route->add('/admin/users-groups', 'Admin/UsersGroups');
-$app->route->add('/admin/users-groups/add', 'Admin/UsersGroups@add');
-$app->route->add('/admin/users-groups/submit', 'Admin/UsersGroups@submit', 'POST');
-$app->route->add('/admin/users-groups/edit/:id', 'Admin/UsersGroups@edit');
-$app->route->add('/admin/users-groups/save/:id', 'Admin/UsersGroups@save', 'POST');
-$app->route->add('/admin/users-groups/delete/:id', 'Admin/UsersGroups@delete');
+$app->route->add('/admin/users-groups/add', 'Admin/UsersGroups@add',            'POST');
+$app->route->add('/admin/users-groups/submit', 'Admin/UsersGroups@submit',      'POST');
+$app->route->add('/admin/users-groups/edit/:id', 'Admin/UsersGroups@edit',      'POST');
+$app->route->add('/admin/users-groups/save/:id', 'Admin/UsersGroups@save',      'POST');
+$app->route->add('/admin/users-groups/delete/:id', 'Admin/UsersGroups@delete',  'POST');
 
 
 

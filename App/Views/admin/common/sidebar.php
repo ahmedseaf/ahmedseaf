@@ -36,6 +36,18 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
+                            <a href="<?php echo url('admin/categories'); ?>" class="nav-link">
+                                <i class="fas fa-store-alt nav-icon"></i>
+                                <p>Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo url('admin/users-groups'); ?>" class="nav-link">
+                                <i class="fas fa-users-cog nav-icon"></i>
+                                <p>Uses Groups</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Inline</p>
@@ -130,7 +142,8 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
             <div class="row">
-                <div class="col-md-12 borderTitle"></div>
+
+                <?php if(isset($title) ){ echo '<div class="col-md-12 borderTitle"></div>'; } ?>
             </div>
         </div><!-- /.container-fluid -->
     </div>

@@ -2,6 +2,8 @@
 
 namespace System;
 
+
+
 abstract class Model
 {
      /**
@@ -71,12 +73,7 @@ abstract class Model
         return (bool) $this->select($key)->where($key .'=?' , $value)->fetch($this->table);
     }
 
-     /**
-     * Delete Record By Id
-     *
-     * @param int $id
-     * @return void
-     */
+
     public function delete($id)
     {
         return $this->where('id = ?' , $id)->delete($this->table);

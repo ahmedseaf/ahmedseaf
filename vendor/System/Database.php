@@ -311,7 +311,7 @@ class Database
 
     private function fetchStatment()
     {
-        $sql = 'SELECT';
+        $sql = 'SELECT ';
 
         if($this->selects)
         {

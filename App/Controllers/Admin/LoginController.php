@@ -14,23 +14,14 @@ class LoginController extends Controller
 {
     public function index()
     {
-//ob_start();
-//        $this->db->data([
-//            'firstname' => 'Ahmed',
-//            'lastname' => 'Seaf',
-//            'email' => 'ahmed_seaf200@yahoo.com',
-//            'password' => password_hash(123456, PASSWORD_DEFAULT),
-//            'status' => 'enabled',
-//            'created' => time(),
-//        ])->insert('users');
 
-        //pre($this->db->where('id', 1)->fetch('users'));
-
-        //pre($_COOKIE);
         $loginModel = $this->load->model('Login');
-//        if ($loginModel->isLogged()) {
-//            return $this->url->redirectTo('/admin');
-//        }
+        //TODO:: chick if user Login
+
+        if ($loginModel->isLogged()) {
+            return $this->url->redirectTo('/admin');
+
+        }
         $data['errors'] = $this->errors;
         return $this->view->render('admin/users/login', $data);
     }

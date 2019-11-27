@@ -17,6 +17,8 @@ class HomeController extends Controller
 //        pre($user);
 
     // echo $this->url->link('home/t');
+//        pre($this->session->all());
+//        pre($this->cookie->all());
 
         echo 'welcome To Home Controllers';
 

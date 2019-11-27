@@ -41,6 +41,11 @@ class Route
     }
 
 
+    public function routes() {
+        return $this->routes;
+    }
+
+
     public function getProperRoute()
     {
 
