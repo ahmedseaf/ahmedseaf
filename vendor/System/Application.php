@@ -48,6 +48,10 @@ class Application
 
         list($controller, $method, $arguments) = $this->route->getProperRoute();
 
+        if ($this->route->hasCallsFirst()) {
+            $this->route->callFirstCalls();
+        }
+
 
         $output = (string) $this->load->action($controller, $method, $arguments);
 

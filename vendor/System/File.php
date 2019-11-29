@@ -37,6 +37,10 @@ class File
         return $this->root . static::DS . str_replace(['/','\\'], static::DS, $path);
     }
 
+    public function toPublic($path)
+    {
+        return $this->to('public/' . $path);
+    }
 
 
 }

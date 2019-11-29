@@ -51,17 +51,14 @@ class UsersController extends Controller
     }
 
 
-    private function isValid(){
-        // $this->validator->required('name', 'Users  Name Is Required');
-         return $this->validator->passes();
-    }
+
 
 
 
     public function edit($id)
     {
         $UsersModel = $this->load->model('Users');
-
+       // pred($UsersModel);
         if (! $UsersModel->exists($id)) {
             return $this->url->redirectTo('/404');
         }
@@ -79,9 +76,9 @@ class UsersController extends Controller
             // editing form
             $data['target'] = 'edit-users-' . $users->id;
 
-            $data['action'] = $this->url->link('/admin/users-groups/save/' . $users->id);
+            $data['action'] = $this->url->link('/admin/users/save/' . $users->id);
 
-            $data['heading'] = 'Edit <b>' . $users->firstname . '</b>';
+            $data['heading'] = 'Edit <b>' . $users->firstname . ' '  . $users->lastname . '</b>';
 
             $data['buttonTitle'] = 'Update Users ';
         } else {
@@ -98,16 +95,30 @@ class UsersController extends Controller
 
         $users = (array) $users ;
 
-        $data['fname'] = array_get($users, 'firstname');
-        $data['lname'] = array_get($users, 'lastname');
-        $data['email'] = array_get($users, 'email');
+        $data['fname']  = array_get($users, 'firstname');
+        $data['lname']  = array_get($users, 'lastname');
+        $data['email']  = array_get($users, 'email');
         $data['status'] = array_get($users, 'status', 'Enabled');
-        $data['group'] = array_get($users, 'users_group_id');
-        $data['image'] = array_get($users, 'image');
+        $data['group']  = array_get($users, 'users_group_id');
+        $data['image']  = array_get($users, 'image');
+        $data['gender'] = array_get($users, 'gender', 'Male');
+        //$data['birthday'] = array_get($users, 'birthday');
+
+//        $data['birthday'] = '';
+//        if (! empty($users['birthday'])) {
+//            $data['birthday'] = date('d-m-Y', $users['birthday']);
+//        }
 
         $data['birthday'] = '';
-        if(! empty($users['birthday'])) {
-            $data['birthday'] = date('d-m-Y', $users['birthday']);
+
+        if (! empty($users['birthday'])) {
+            $data['birthday'] =  $users['birthday'];
+        }
+
+
+        $data['image'] = '';
+        if(! empty($users['image'])) {
+            $data['image'] = $this->url->link('public/images/'. $users['image']);
         }
 
         $data['users_groups'] = $this->load->model('UsersGroups')->all();
@@ -121,8 +132,9 @@ class UsersController extends Controller
     {
         $json = [];
 
-        if ($this->isValid()) {
+        if ($this->isValid($id)) {
             // it means there are no errors in form validation
+            //pred($_POST);
             $this->load->model('Users')->update($id);
 
             $json['success'] = ' Users Has Been Updated Successfully';
@@ -153,6 +165,25 @@ class UsersController extends Controller
         return $this->json($json);
     }
 
+
+
+    private function isValid($id = null){
+        $this->validator->required('first_name', 'First Name  Name Is Required');
+        $this->validator->required('last_name', 'Last Name  Name Is Required');
+        $this->validator->required('email')->email('email');
+        // for duplicate email Address
+       // $this->validator->unique('email', ['users', 'email', 'id', $id]);
+        $this->validator->required('birthday', 'Birthday  Name Is Required');
+
+        if(is_null($id)) {
+            $this->validator->required('password')->minLen('password', 3)->match('password', 'r_password', 'Confirm Password Should Match Password');
+            $this->validator->requiredFile('image')->image('image');
+        } else {
+            $this->validator->image('image');
+        }
+
+        return $this->validator->passes();
+    }
 
 
 

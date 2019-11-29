@@ -54,12 +54,14 @@
                         <td><?= $users->email; ?></td>
                         <td><?= $users->status; ?></td>
                         <td><?= date('d-m-Y', $users->created) ;?></td>
-                        <td><?= $users->image; ?></td>
+                        <td >
+                            <img src="<?php echo assets('images/'. $users->image) ?>" style="width: 70px; height: 70px; border-radius:50%;" >
+                        </td>
 
                         <td>
                             <!--        Edit Button                    -->
                             <button class="usersModal btn btn-outline-info"
-                                    data-target="<?php echo url('/admin/users/edit/' . $users->id) ?>"
+                                    data-target="<?php echo url('admin/users/edit/' . $users->id) ?>"
                                     data-modal-target="#edit-users-<?php echo ( $users->id)?>"> <i class="fas fa-edit">Edit</i>
 
                             </button>
@@ -69,8 +71,8 @@
                         <!--        Delete Button                    -->
                             <?php if($users->id != 1) : ?>
                             <button  class="btn btn-outline-danger UserDelete"
-                            data-usergroupid="<?php  echo url('admin/users/delete/'.$users->id); ?>"
-                            data-usergroupname="<?php  echo '<b>'.$users->name. '<b>' ; ?>"
+                            data-userid="<?php  echo url('admin/users/delete/'.$users->id); ?>"
+                            data-username="<?php  echo '<b>'.$users->firstname. '<b>' ; ?>"
                             ><i class="fas fa-trash"> Delete</i></button>
                             <?php endif; ?>
                         </td>

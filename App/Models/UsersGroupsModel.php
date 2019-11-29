@@ -28,10 +28,24 @@ class UsersGroupsModel extends Model
 
     public function update($id)
     {
-        $this->data('name', $this->request->post('name'))
+         $this->data('name', $this->request->post('name'))
              //->data('status', $this->request->post('status'))
              ->where('id=?', $id)
                 ->update($this->table);
+
+
+        // Remove All Permissions For the current users group before
+        // Adding the new Permissions
+        $this->where('users_group_id = ?', $id)->delete('users_groups_permissions');
+
+        $pages = array_filter($this->request->post('permission'));
+
+        foreach ($pages As $page) {
+            $this->data('users_group_id', $id)
+                ->data('pages', $page)
+                ->insert('users_groups_permissions');
+        }
+
     }
 
 

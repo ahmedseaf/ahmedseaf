@@ -36,6 +36,12 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
+                            <a href="<?php echo url('admin/users'); ?>" class="nav-link">
+                                <i class="fas fas fa-user-tie nav-icon"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?php echo url('admin/categories'); ?>" class="nav-link">
                                 <i class="fas fa-store-alt nav-icon"></i>
                                 <p>Category</p>

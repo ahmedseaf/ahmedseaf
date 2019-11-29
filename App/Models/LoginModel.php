@@ -38,6 +38,7 @@ class LoginModel extends Model
     public function isLogged() {
         if($this->cookie->has('loginUser')) {
             $code = $this->cookie->get('loginUser');
+            //$code = '';
         } elseif ($this->session->has('loginUser')) {
             $code = $this->session->get('loginUser');
 

@@ -15,23 +15,30 @@ class AccessController extends Controller
 
         $ignorePages = ['/admin/login', '/admin/login/submit'];
 
-        $currentPage = $this->request->url();
+        $currentRoute = $this->route->currentRouteUrl();
 
-         if ( ! $loginModel->isLogged() AND ! in_array($currentPage , $ignorePages)) {
+         if ( ($isNotLogged = ! $loginModel->isLogged() ) AND ! in_array($currentRoute , $ignorePages)) {
 
          return $this->url->redirectTo('/admin/login');
 
+        }
+
+
+        if($isNotLogged) {
+            return false;
         }
 
         $user = $loginModel->user();
 
         $usersGroupsModel = $this->load->model('UsersGroups');
         // pre($user);
-        //$usersGroups = $usersGroupsModel->get($user->users_group_id);
+        $usersGroups = $usersGroupsModel->get($user->users_group_id);
         //pred($usersGroups);
-//        if (! in_array($currentPage , $usersGroups->pages)) {
-//            return $this->url->redirectTo('/');
-//        }
+
+        //echo $currentRoute ; die;
+        if (! in_array($currentRoute , $usersGroups->pages)) {
+            return $this->url->redirectTo('/');
+        }
     }
 
 

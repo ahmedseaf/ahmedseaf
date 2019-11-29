@@ -10,11 +10,15 @@ $app = Application::getInstance();
 
 
 if(strpos($app->request->url(), '/admin') === 0 ) {
-    $app->load->controller('Access')->index();
+    $app->route->callFirst(function ($app) {
+        $app->load->action('Access' , 'index');
+    });
 }
 
 
 $app->route->add('/', 'Home');
+$app->route->add('/contact', 'Contact');
+$app->route->add('/product', 'Product');
 
 
 //$app->route->add('/access', 'Access');
@@ -54,11 +58,11 @@ $app->route->add('/admin/dashboard', 'Admin/Dashboard');
 
 // admin => users
 $app->route->add('/admin/users', 'Admin/Users');
-$app->route->add('/admin/users/add', 'Admin/Users@add', 'POST');
-$app->route->add('/admin/users/submit', 'Admin/Users@submit', 'POST');
-$app->route->add('/admin/users/edit/:id', 'Admin/Users@edit','POST');
-$app->route->add('/admin/users/save/:id', 'Admin/Users@save', 'POST');
-$app->route->add('/admin/users/delete/:id', 'Admin/Users@delete');
+$app->route->add('/admin/users/add', 'Admin/Users@add',             'POST');
+$app->route->add('/admin/users/submit', 'Admin/Users@submit',       'POST');
+$app->route->add('/admin/users/edit/:id', 'Admin/Users@edit',       'POST');
+$app->route->add('/admin/users/save/:id', 'Admin/Users@save',       'POST');
+$app->route->add('/admin/users/delete/:id', 'Admin/Users@delete',   'POST');
 
 
 
