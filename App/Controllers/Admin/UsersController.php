@@ -130,6 +130,7 @@ class UsersController extends Controller
 
     public function save($id)
     {
+
         $json = [];
 
         if ($this->isValid($id)) {

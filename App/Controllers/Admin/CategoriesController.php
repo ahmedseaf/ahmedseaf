@@ -73,6 +73,7 @@ class CategoriesController extends Controller
 
     public function save($id)
     {
+
         $categoriesModel = $this->load->model('Categories');
 
         if(! $categoriesModel->exists($id)) {

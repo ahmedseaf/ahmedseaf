@@ -2,8 +2,10 @@
 
 return [
     
-    'server'    => 'localhost',
-    'dbname'    => 'mvc',
-    'dbuser'    => 'root',
-    'dbpass'    => '',
+    'db' => [
+        'server'    => 'localhost',
+        'dbname'    => 'mvc',
+        'dbuser'    => 'root',
+        'dbpass'    => '',
+    ]
 ];

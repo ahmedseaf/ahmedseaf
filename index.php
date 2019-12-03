@@ -1,12 +1,11 @@
 <?php
 
-require __DIR__ . '/vendor/System/Application.php';
-require __DIR__ . '/vendor/System/File.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use App\Controllers\Users\Users;
+
+
 use System\File;
 use System\Application;
-use System\Test;
 
 
 $file = new File(__DIR__);

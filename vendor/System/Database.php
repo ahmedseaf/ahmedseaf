@@ -143,7 +143,8 @@ class Database
      */
      private function connect()
      {
-         $connectionData = $this->app->file->getTheFile('config.php');
+
+         $connectionData = (array) array_get($config = $this->app->config , 'db');
 
          extract($connectionData);
 

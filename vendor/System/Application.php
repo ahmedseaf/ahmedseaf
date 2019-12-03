@@ -3,6 +3,8 @@
 namespace System;
 
 use Closure;
+use Exception;
+use Whoops\Handler\PrettyPageHandler;
 
 class Application
 {
@@ -16,13 +18,17 @@ class Application
     private function __construct(File $file)
     {
         $this->share('file', $file) ;
-
-        $this->registerClasses();
-
         $this->loadHelpers();
-
+        // For Errors Handlers
+        $whoops = new \Whoops\Run;
+        $whoops->prependHandler(new PrettyPageHandler);
+        $whoops->register();
+        // Get Config Database File
+        $this->share('config', $this->file->getTheFile('config.php'));
 
     }
+
+
 
 
 
@@ -44,16 +50,17 @@ class Application
 
         $this->request->prepareUrl();
 
-        $this->file->getTheFile('App/index.php');
+        $routes = ['index.php'];
 
-        list($controller, $method, $arguments) = $this->route->getProperRoute();
-
-        if ($this->route->hasCallsFirst()) {
-            $this->route->callFirstCalls();
+        foreach ($routes AS $route) {
+            $this->file->getTheFile('routes/' . $route);
         }
 
+        $output = $this->route->getProperRoute();
 
-        $output = (string) $this->load->action($controller, $method, $arguments);
+
+
+
 
         $this->response->setOutput($output);
 
@@ -100,11 +107,6 @@ class Application
     }
 
 
-    private function registerClasses()
-    {
-        spl_autoload_register([$this, 'load']);
-    }
-
 
 
 
@@ -140,7 +142,8 @@ class Application
             }
             else
             {
-                die($key . ' Not Found In Application Container');
+                throw new Exception("$key  Not Found In Application Container");
+                //die($key . ' Not Found In Application Container');
             }
 
         }
@@ -179,7 +182,7 @@ class Application
 
     private function loadHelpers()
     {
-        $this->file->getTheFile('vendor/helpers.php');
+        $this->file->getTheFile('vendor/System/helpers.php');
     }
 
 

@@ -47,6 +47,8 @@ class Request
             $this->url = '/';
         }
 
+        $this->url = urldecode($this->url);
+
         $this->baseUrl = $this->server('REQUEST_SCHEME') . '://' . $this->server('HTTP_HOST') . $script ;
 
     }
