@@ -29,7 +29,7 @@ class UsersModel extends Model
              ->data('lastname', $this->request->post('last_name'))
              ->data('email', $this->request->post('email'))
              ->data('password', password_hash($this->request->post('password'), PASSWORD_DEFAULT))
-             ->data('birthday', strtotime($this->request->post('birthday')))
+             ->data('birthday', $this->request->post('birthday'))
              ->data('users_group_id', $this->request->post('users_group_id'))
              ->data('gender', $this->request->post('gender'))
              ->data('ip', $this->request->server('REMOTE_ADDR'))

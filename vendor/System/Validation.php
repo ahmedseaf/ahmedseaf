@@ -342,6 +342,7 @@ class Validation
      * Determine if the given input has previous errors
      *
      * @param string $inputName
+      *@return bool
      */
     private function hasErrors($inputName)
     {

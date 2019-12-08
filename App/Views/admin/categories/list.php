@@ -5,6 +5,23 @@
                 data-target="<?php echo url('/admin/categories/add') ; ?>">
             Add New Category  </button>
     </div>
+
+
+    <div class="col-md-4">
+        <button class="btn btn-info mb-2 pull-right categoryModal"
+                onclick="window.location.href = '<?php echo url('/admin/sub-category');?>';"
+        > ادراة الاقسام الرئيسية  </button>
+    </div>
+
+    <div class="col-md-4">
+        <button class="btn btn-info mb-2 pull-right categoryModal"
+                onclick="window.location.href = '<?php echo url('/admin/min-category');?>';"
+        > ادراة الاقسام الفرعية  </button>
+    </div>
+
+
+
+
         <?php if($result) {?>
             <div class="toast" role="alert" data-delay=5000 aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">

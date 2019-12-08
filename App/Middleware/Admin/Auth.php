@@ -17,9 +17,6 @@ class Auth implements MiddlewareInterface
     public function handle(Application $app, $next)
     {
         if(strpos($app->request->url(), '/admin') === 0 ) {
-//            $app->route->callFirst(function ($app) {
-//                $app->load->action('Access' , 'index');
-//            });
 
             $loginModel = $app->load->model('Login');
 
@@ -41,14 +38,14 @@ class Auth implements MiddlewareInterface
             $user = $loginModel->user();
 
             $usersGroupsModel = $app->load->model('UsersGroups');
-            // pre($user);
-            $usersGroups = $usersGroupsModel->get($user->users_group_id);
-            //pred($usersGroups);
 
-            //echo $currentRoute ; die;
-            if (! in_array($currentRoute , $usersGroups->pages)) {
-                return $app->url->redirectTo('/');
-            }
+            $usersGroups = $usersGroupsModel->get($user->users_group_id);
+
+
+            //TODO:: active Redirect If Url Not In Array
+//            if (! in_array($currentRoute , $usersGroups->pages)) {
+//                return $app->url->redirectTo('/');
+//            }
         }
         return $next;
     }

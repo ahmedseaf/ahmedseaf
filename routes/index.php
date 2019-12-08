@@ -51,6 +51,18 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/categories/save/:id', 'Categories@save', 'POST');
     $route->add('/categories/delete/:id', 'Categories@delete', 'POST');
 
+
+    // For Sub Category
+    $route->add('/sub-category',             'SubCategories' );
+    $route->add('/sub-category/add',        'SubCategories@add',    'POST');
+    $route->add('/sub-category/submit',     'SubCategories@submit', 'POST');
+    $route->add('/sub-category/edit/:id', 'SubCategories@edit', 'POST');
+    $route->add('/sub-category/save/:id',   'SubCategories@save',   'POST');
+    $route->add('/sub-category/delete/:id', 'SubCategories@delete', 'POST');
+
+
+    // For Min Sub Category
+
 });
 
 
@@ -61,10 +73,20 @@ $blogOptions = [
 ];
 $app->route->group($blogOptions, function ($route){
 
+
     $route->add('/', 'Home');
-    $route->add('contact', 'Contact');
-    $route->add('product', 'Product');
-    $route->add('logout', 'Logout');
+    $route->add('/contact', 'Contact');
+    $route->add('/test', 'Test');
+    $route->add('/test/add',        'Test@add',     'POST');
+    $route->add('/test/submit',     'Test@submit',  'POST');
+    $route->add('/test/radio',     'Test@radio');
+    $route->add('/test/getdata',     'Test@getdata',  'POST');
+
+    $route->add('/test/search',     'Test@search',  'POST');
+    $route->add('/test/edit/:id',   'Test@edit' ,   'POST');
+    $route->add('/test/save/:id',   'Test@save',    'POST');
+    $route->add('/test/delete/:id', 'Test@delete',  'POST');
+    $route->add('/logout', 'Logout');
 
 
 });

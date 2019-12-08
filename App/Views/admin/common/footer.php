@@ -49,6 +49,7 @@
 
 
 <script src="<?php echo assets('plugins/ekko-lightbox/ekko-lightbox.min.js') ; ?>"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
 <script src="<?php echo assets('plugins/sweetalert2/sweetalert2.min.js') ; ?>"></script>
 

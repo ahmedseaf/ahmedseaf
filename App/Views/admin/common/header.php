@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="<?php echo assets('plugins/bootstrap-slider/css/bootstrap-slider.min.css') ; ?>">
     <link rel="stylesheet" href="<?php echo assets('plugins/fontawesome-free/css/all.min.css') ; ?>">
     <link rel="stylesheet" href="<?php echo assets('plugins/datatables-bs4/css/dataTables.bootstrap4.css') ; ?>">
-<!--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/fc-3.3.0/fh-3.1.6/datatables.min.css"/>-->
+
+    <!--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/fc-3.3.0/fh-3.1.6/datatables.min.css"/>-->
 
 
     <link rel="stylesheet" href="<?php echo assets('plugins/select2/css/select2.min.css') ; ?>">

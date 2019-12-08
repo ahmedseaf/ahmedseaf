@@ -71,7 +71,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="birthday" >Birthday</label>
-                            <input type="text" class="form-control" name="birthday" value="<?php echo $birthday; ?>" id="birthday">
+                            <input type="date" class="form-control" name="birthday" value="<?php echo $birthday; ?>" id="birthday">
                         </div>
                      <!--       For Image                 -->
                         <div class="form-group col-md-6">

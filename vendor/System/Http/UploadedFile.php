@@ -74,7 +74,7 @@ class UploadedFile
      *
      * @var array
      */
-    private $allowedImageExtensions = ['gif', 'jpg', 'jpeg', 'png', 'webp'];
+    private $allowedImageExtensions = ['gif', 'mp4', 'jpg', 'jpeg', 'png', 'webp'];
 
      /**
      * Constructor
