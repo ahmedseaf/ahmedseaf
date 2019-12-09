@@ -5,17 +5,23 @@ namespace App\Controllers\Admin;
 
 use System\Controller;
 
-class MinMinSubCategoriesController extends Controller
+class MinSubCategoriesController extends Controller
 {
     public function index() {
 
 
+//        $allCategory = $this->load->model('Categories')->all();
+//        pre($allCategory);
+
+
         $title = $this->html->setTitle('اضافة قسم فرعى جديد');
-        $data['minSub'] = $this->load->model('MinMinSubCategories')->all();
+        $data['minCategories'] = $this->load->model('MinSubCategories')->all();
+        $data['Categories'] = $this->load->model('Categories')->all();
         $data['result'] = $this->session->has('message') ? $this->session->pull('message') : null ;
 
         $view = $this->view->render('admin/categories/min-category/list', $data);
         return $this->Layout->render($view, $title);
+
     }
 
 
@@ -76,7 +82,7 @@ class MinMinSubCategoriesController extends Controller
 
             $data['heading'] = 'Edit <b>' . $minSubCategory->name . '</b>';
 
-            $data['buttonTitle'] = 'Update Min Sub Categories ';
+            $data['minbuttonTitle'] = 'Update Min Sub Categories ';
         } else {
             // adding form
             $data['target'] = 'add-min-category-form';
@@ -85,17 +91,18 @@ class MinMinSubCategoriesController extends Controller
 
             $data['heading'] = 'Add New Min Sub Categories';
 
-            $data['buttonTitle'] = 'Add New Min Sub Categories';
+            $data['minbuttonTitle'] = 'Add New Min Sub Categories';
 
         }
 
         $minSubCategory = (array) $minSubCategory ;
 
-        $data['image'] = '';
-        if(! empty($minSubCategory['image'])) {$data['image'] = $this->url->link('public/images/'. $minSubCategory['image']);}
+        $data['minImage'] = '';
+        if(! empty($minSubCategory['image'])) {$data['minImage'] = $this->url->link('public/images/'. $minSubCategory['image']);}
         $data['categoryId']  = array_get($minSubCategory, 'category_id');
-        $data['name']  = array_get($minSubCategory, 'name');
-        $data['titlesub']  = array_get($minSubCategory, 'title');
+        $data['subCategoryId']  = array_get($minSubCategory, 'sub_category_id');
+        $data['minName']  = array_get($minSubCategory, 'name');
+        $data['minTitle']  = array_get($minSubCategory, 'title');
         $data['description']  = array_get($minSubCategory, 'description');
         $data['categories'] = $this->load->model('MinSubCategories')->all();
         $data['categoriesSub'] = $this->load->model('Categories')->all();
@@ -162,6 +169,7 @@ class MinMinSubCategoriesController extends Controller
         $this->validator->required('name', 'Sub Category Name  Name Is Required');
         $this->validator->required('title', 'Sub Category TitleIs Required');
         $this->validator->required('description', 'Description Is Required');
+        $this->validator->required('sub_category_id', 'Sub Category Name Is Required');
 
 
         if(is_null($id)) {
@@ -175,6 +183,11 @@ class MinMinSubCategoriesController extends Controller
 
 
 
+
+    public function select()
+    {
+        return $this->load->model('MinSubCategories')->getDataSelectBox();
+    }
 
 
 

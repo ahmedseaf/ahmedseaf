@@ -1,0 +1,1 @@
+<h1 class="text-center">Add Product</h1>

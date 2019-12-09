@@ -56,12 +56,30 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/sub-category',             'SubCategories' );
     $route->add('/sub-category/add',        'SubCategories@add',    'POST');
     $route->add('/sub-category/submit',     'SubCategories@submit', 'POST');
-    $route->add('/sub-category/edit/:id', 'SubCategories@edit', 'POST');
+    $route->add('/sub-category/edit/:id', 'SubCategories@edit',     'POST');
     $route->add('/sub-category/save/:id',   'SubCategories@save',   'POST');
     $route->add('/sub-category/delete/:id', 'SubCategories@delete', 'POST');
 
 
     // For Min Sub Category
+    $route->add('/min-category',             'MinSubCategories' );
+    $route->add('/min-category/add',         'MinSubCategories@add',    'POST');
+    $route->add('/min-category/submit',      'MinSubCategories@submit', 'POST');
+    $route->add('/min-category/select',      'MinSubCategories@select', 'POST');
+    $route->add('/min-category/edit/:id',    'MinSubCategories@edit',   'POST');
+    $route->add('/min-category/save/:id',    'MinSubCategories@save',   'POST');
+    $route->add('/min-category/delete/:id',  'MinSubCategories@delete', 'POST');
+
+
+
+
+    // Admin Product
+    $route->add('/product',             'Product');
+    $route->add('/product/add',         'Product@add');
+    $route->add('/product/submit',      'Product@submit',   'POST');
+    $route->add('/product/edit/:id',    'Product@edit',     'POST');
+    $route->add('/product/save/:id',    'Product@save',     'POST');
+    $route->add('/product/delete/:id',  'Product@delete',   'POST');
 
 });
 

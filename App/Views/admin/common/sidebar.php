@@ -47,6 +47,14 @@
                                 <p>Category</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo url('admin/product'); ?>" class="nav-link">
+                                <i class="fas fa-shopping-cart nav-icon"></i>
+                                <p>Product</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="<?php echo url('admin/users-groups'); ?>" class="nav-link">
                                 <i class="fas fa-users-cog nav-icon"></i>
