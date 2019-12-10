@@ -74,7 +74,7 @@ class MinSubCategoriesModel extends Model
         $this->data('name', $this->request->post('name'))
             ->data('title', $this->request->post('title'))
             ->data('description', $this->request->post('description'))
-            ->data('category_id', $this->request->post('category_id'))
+            ->data('category_id', $this->request->post('a_category'))
             ->where('id=?', $id)
             ->update($this->table);
     }

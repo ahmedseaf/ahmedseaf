@@ -29,6 +29,7 @@
 
                             <div class="form-group col-md-6">
                                 <select class="form-control" name="a_category" id="a_category">
+                                    <option value="" disabled selected>Select Category</option>
                                     <?php foreach ($categoriesSub AS $category) : ?>
                                         <option value="<?php echo $category->id; ?>"<?php echo $category->id == $categoryId ? 'selected' : false; ?>><?php echo $category->name; ?></option>
                                     <?php endforeach; ?>

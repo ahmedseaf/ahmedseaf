@@ -71,6 +71,14 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/min-category/delete/:id',  'MinSubCategories@delete', 'POST');
 
 
+    // Admin Brand
+    $route->add('/brand',             'Brand');
+    $route->add('/brand/add',         'Brand@add',      'POST');
+    $route->add('/brand/submit',      'Brand@submit',   'POST');
+    $route->add('/brand/edit/:id',    'Brand@edit',     'POST');
+    $route->add('/brand/save/:id',    'Brand@save',     'POST');
+    $route->add('/brand/delete/:id',  'Brand@delete',   'POST');
+
 
 
     // Admin Product
@@ -80,6 +88,9 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/product/edit/:id',    'Product@edit',     'POST');
     $route->add('/product/save/:id',    'Product@save',     'POST');
     $route->add('/product/delete/:id',  'Product@delete',   'POST');
+
+    $route->add('/product/getsubcategoy',  'Product@getsubcategoy',   'POST');
+    $route->add('/product/getmincategoy',  'Product@getmincategoy',   'POST');
 
 });
 
