@@ -26,8 +26,6 @@ class MinSubCategoriesModel extends Model
     }
 
 
-
-
     public function all()
     {
         return $this->select('m.*', 's.name AS `subCategory`', 'c.name  AS `category`')
@@ -58,12 +56,6 @@ class MinSubCategoriesModel extends Model
     }
 
 
-
-
-
-
-
-
     public function update($id)
     {
         $image = $this->uploadImage();
@@ -78,8 +70,6 @@ class MinSubCategoriesModel extends Model
             ->where('id=?', $id)
             ->update($this->table);
     }
-
-
 
 
     private function uploadImage() {

@@ -39,6 +39,7 @@
                 <table class="table table-bordered" id="table">
                     <thead>
                     <tr>
+                        <th >Category</th>
                         <th >Name</th>
                         <th >Price </th>
                         <th >Total </th>
@@ -49,29 +50,36 @@
                     <tbody>
                     <?php foreach ($products AS $product) :?>
                     <tr>
+                        <td><?= $product->category ; ?></td>
                         <td><?= $product->name ; ?></td>
                         <td><?= $product->price ; ?></td>
-                        <td><?= $product->total ; ?></td>
-
+                        <td >
+                            <img src="<?php echo assets('images/test/'. $product->Image) ?>" style="width: 70px; height: 70px; border-radius:50%;" >
+                        </td>
 <!--                        <td >-->
 <!--                            <img src="--><?php //echo assets('images/'. $product->image) ?><!--" style="width: 70px; height: 70px; border-radius:50%;" >-->
 <!--                        </td>-->
 
                         <td>
                             <!--        Edit Button                    -->
-                            <button class="usersModal btn btn-outline-info"
-                                    data-target="<?php echo url('admin/product/edit/' . $product->id) ?>"
-                                    data-modal-target="#edit-product-<?php echo ( $product->id)?>"> <i class="fas fa-edit">Edit</i>
+<!--                            <button class="usersModal btn btn-outline-info"-->
+<!--                                    data-target="--><?php //echo url('admin/product/edit/' . $product->id) ?><!--"-->
+<!--                                    data-modal-target="#edit-product---><?php //echo ( $product->id)?><!--"> <i class="fas fa-edit">Edit</i>-->
+<!---->
+<!--                            </button>-->
+
+                            <button class="btn btn-outline-info" id="editProduct"
+                                    onclick="window.location.href='<?php echo url('admin/product/edit/' . $product->id) ?>'"> <i class="fas fa-edit">Edit</i>
 
                             </button>
 
 
                         <!--        Delete Button                    -->
 
-                            <button  class="btn btn-outline-danger MinCategoryDelete"
-                            data-mincategoryid="<?php  echo url('admin/product/delete/'.$product->id); ?>"
-                            data-mincategory="<?php  echo '<b>'.$product->name. '<b>' ; ?>"
-                            ><i class="fas fa-trash"> Delete</i></button>
+<!--                            <button  class="btn btn-outline-danger MinCategoryDelete"-->
+<!--                            data-mincategoryid="--><?php // echo url('admin/product/delete/'.$product->id); ?><!--"-->
+<!--                            data-mincategory="--><?php // echo '<b>'.$product->name. '<b>' ; ?><!--"-->
+<!--                            ><i class="fas fa-trash"> Delete</i></button>-->
 
                         </td>
                     </tr>

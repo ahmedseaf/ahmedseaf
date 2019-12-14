@@ -85,12 +85,19 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/product',             'Product');
     $route->add('/product/add',         'Product@add');
     $route->add('/product/submit',      'Product@submit',   'POST');
-    $route->add('/product/edit/:id',    'Product@edit',     'POST');
+    $route->add('/product/edit/:id',    'Product@edit');
     $route->add('/product/save/:id',    'Product@save',     'POST');
     $route->add('/product/delete/:id',  'Product@delete',   'POST');
 
+    //$route->add('/product/deleteimg/:id',  'Product@deleteimg',   'POST');
+
     $route->add('/product/getsubcategoy',  'Product@getsubcategoy',   'POST');
     $route->add('/product/getmincategoy',  'Product@getmincategoy',   'POST');
+    $route->add('/product/getimagedata/:id',  'Product@getimagedata', 'POST');
+    $route->add('/product/uploadimage/:id',  'Product@uploadimage', 'POST');
+    $route->add('/product/getdatamagebyid/:id',  'Product@getdatamagebyid', 'POST');
+    $route->add('/product/deleteimg/:id',  'Product@deleteimg', 'POST');
+    $route->add('/product/radio',  'Product@radio');
 
 });
 

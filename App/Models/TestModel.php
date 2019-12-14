@@ -29,7 +29,7 @@ class TestModel extends Model
                     <span aria-hidden="true">&times;</span></button>
                     
                         <div class="custom-control custom-radio" style="float: right;">
-                            <input class="custom-control-input imageActive" data-radioId="'.$getFile->name.'" type="radio" id="'.$getFile->name.'"
+                            <input class="custom-control-input imageActive" checked data-radioId="'.$getFile->name.'" type="radio" id="'.$getFile->name.'"
                             name="customRadio" >
                             <label for="'.$getFile->name.'" class="custom-control-label"></label>
                         </div>
@@ -41,10 +41,12 @@ class TestModel extends Model
 
             if($_POST["action"] == "file_upload") {
                 foreach ($_FILES['uploadFile']['name'] AS $filePath => $value) {
-                    $newName = $_FILES['uploadFile']['name'][$filePath];
-                    //$get_file_name = explode('.', $_FILES['uploadFile']['name'][$filePath]);
+                    //$newName = $_FILES['uploadFile']['name'][$filePath];
 
-//                    $newName = rand(). '.' . $get_file_name[1];
+                    $get_file_name = explode('.', $_FILES['uploadFile']['name'][$filePath]);
+
+                    $newName = sha1(rand(1,10000)) . '.' . $get_file_name[1];
+                    //pre($newName);
                     $this->data('name', $newName)->insert($this->table);
                     $destination = $myPath.$newName;
                     move_uploaded_file($_FILES['uploadFile']['tmp_name'][$filePath],$destination);
@@ -80,14 +82,6 @@ class TestModel extends Model
 
     public function radioImage()
     {
-       // $allImages = $this->select('name')->fetchAll($this->table);
-
-        //pre($allImages);
-        //$_GET = array();
-       // pre($_GET);
-
-
-
         foreach ($_GET as $key => $value ) {
             //foreach ($allImages as $image ) {
              $radioForm = str_replace('_','.', $key);
@@ -104,17 +98,10 @@ class TestModel extends Model
                         $this->data('status', $enabled)
                             ->where('name=?', $status)
                             ->update($this->table);
-
-                        //echo $name;
                     }
-
                 }
             }
-
         }
-
-
-
     }
 
 

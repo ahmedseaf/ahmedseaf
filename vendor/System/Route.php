@@ -191,6 +191,7 @@ class Route
         //TODO mack the Redirect To 404
 
         echo 'This Page Not Found';
+        pre($this->app->request->url());
         //return $this->app->url->redirectTo($this->notFound);
     }
 
