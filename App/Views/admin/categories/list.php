@@ -73,11 +73,12 @@
                         <td><?= $category->status ?></td>
                         <td>
                             <a href="<?php  echo url('admin/categories/edit/'.$category->id); ?>" class="btn btn-outline-info"><i class="fas fa-edit"> Edit</i></a>
-<!--                            <button   class="btn btn-outline-danger" data-toggle="modal" data-target="#categoryDelete"><i class="fas fa-trash"> Delete</i></button>-->
-                            <button   class="btn btn-outline-danger catDelete"
-                            data-catid="<?php  echo url('admin/categories/delete/'.$category->id); ?>"
-                            data-catname="<?php  echo '<b>'.$category->name. '<b>' ; ?>"
-                            ><i class="fas fa-trash"> Delete</i></button>
+                            <!-- For Delete Modal Button trigger modal -->
+                            <button   class="btn btn-outline-danger categoryDelete"
+                                      data-catid="<?php  echo url('admin/categories/delete/'.$category->id); ?>"
+                                      data-catname="<?php  echo '<b>'.$category->name. '<b>' ; ?>">
+                                      <i class="fas fa-trash"> Delete</i>
+                            </button>
 
                         </td>
                     </tr>
@@ -89,30 +90,3 @@
     </div>
 </div>
 
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="categoryDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p><?php   echo url('admin/categories/delete/' . $category->id) ;?>  </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a href="<?php  echo url('admin/categories/delete/'.$category->id); ?>" class="btn btn-outline-danger"><i class="fas fa-trash"> Delete</i></a>
-
-<!--                <a href="--><?php // echo url('admin/categories/delete/'.$category->id); ?><!--"  class="btn btn-outline-danger">Delete Category</a>-->
-
-            </div>
-        </div>
-    </div>
-</div>

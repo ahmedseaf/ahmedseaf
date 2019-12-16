@@ -28,6 +28,11 @@ class CategoriesModel extends Model
 
 
 
+    public function checkIfSubCategoryExists($id)
+    {
+        return $this->query("SELECT * FROM sub_category WHERE category_id=?", $id)->fetchAll();
+
+    }
 
 
 

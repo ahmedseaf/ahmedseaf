@@ -37,7 +37,9 @@
 <script src="<?php echo assets('plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ; ?>"></script>
 <script src="<?php echo assets('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') ; ?>"></script>
 <script src="<?php echo assets('plugins/bootstrap-switch/js/bootstrap-switch.min.js') ; ?>"></script>
-<script src="<?php echo assets('plugins/bootstrap-slider/bootstrap-slider.min.js') ; ?>"></script>
+
+
+<!--<script src="--><?php //echo assets('plugins/bootstrap-slider/bootstrap-slider.min.js') ; ?><!--"></script>-->
 <script src="<?php echo assets('plugins/bootstrap/js/bootstrap.bundle.min.js') ; ?>"></script>
 
 <script src="<?php echo assets('plugins/select2/js/select2.full.min.js') ; ?>"></script>
@@ -58,11 +60,11 @@
 
 
 
-<script src="<?php echo assets('plugins/flot/jquery.flot.js'); ?>"></script>
+<!--<script src="--><?php //echo assets('plugins/flot/jquery.flot.js'); ?><!--"></script>-->
 
-<script src="<?php echo assets('plugins/flot-old/jquery.flot.resize.min.js'); ?>"></script>
+<!--<script src="--><?php //echo assets('plugins/flot-old/jquery.flot.resize.min.js'); ?><!--"></script>-->
 
-<script src="<?php echo assets('plugins/flot-old/jquery.flot.pie.min.js'); ?>"></script>
+<!--<script src="--><?php //echo assets('plugins/flot-old/jquery.flot.pie.min.js'); ?><!--"></script>-->
 
 
 

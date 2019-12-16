@@ -84,6 +84,11 @@ class MinSubCategoriesModel extends Model
 
 
 
+    public function checkIfProductExists($id)
+    {
+        return $this->query("SELECT * FROM products WHERE min_sub_category_id=?", $id)->fetchAll();
+
+    }
 
 
 

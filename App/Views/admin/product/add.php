@@ -117,7 +117,7 @@
 
 
     </div>
-        <input class="btn btn-primary col-md-6 offset-3" id="saveProduct"
+        <input class="btn btn-primary col-md-6 offset-3" id="insertProduct"
                value="Add New Product" type="submit" name="submit">
 
 

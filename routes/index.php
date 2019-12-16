@@ -97,6 +97,7 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/product/uploadimage/:id',  'Product@uploadimage', 'POST');
     $route->add('/product/getdatamagebyid/:id',  'Product@getdatamagebyid', 'POST');
     $route->add('/product/deleteimg/:id',  'Product@deleteimg', 'POST');
+    $route->add('/product/deleteoptions/:id',  'Product@deleteoptions', 'POST');
     $route->add('/product/radio',  'Product@radio');
 
 });

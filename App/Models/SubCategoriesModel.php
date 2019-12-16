@@ -66,26 +66,11 @@ class SubCategoriesModel extends Model
     }
 
 
+    public function checkIfMinSubCategoryExists($id)
+    {
+        return $this->query("SELECT * FROM min_sub_category WHERE sub_category_id=?", $id)->fetchAll();
 
-
-
-
-    /****************************************************
-     *                                                  *
-     *              For Min Sub Category                *
-     *                                                  *
-     *                                                  *
-     ****************************************************/
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

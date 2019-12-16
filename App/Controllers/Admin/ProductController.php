@@ -10,11 +10,10 @@ class ProductController extends Controller
     public function index()
     {
 
+
         $title = $this->html->setTitle('المنتجات');
         $data['products'] = $this->load->model('Products')->all();
-       //pre($data['products']);
         $data['result'] = $this->session->has('message') ? $this->session->pull('message') : null ;
-        //$this->load->model('Products')->deleteImage();
         $view = $this->view->render('admin/product/list', $data);
         return $this->Layout->render($view, $title);
 
@@ -55,8 +54,15 @@ class ProductController extends Controller
         $productModel = $productModel->get($id);
         $productModel = (array) $productModel ;
 
+        $imageStatus = $this->db->query("SELECT * FROM product_image WHERE product_id=? AND status=?",$id, 'enabled')->fetchAll();
+
+        if(count($imageStatus) <= 0) {
+            echo 'Yes';
+            $this->db->query("UPDATE product_image SET status=?  WHERE product_id =? LIMIT 1",'enabled', $id);
+        }
 
 
+        $data['urll'] = $this->request->url();
         $data['categories']     = $this->load->model('Categories')->all();
         $data['brands']         = $this->load->model('Brand')->all();
         $data['subCategory']    = $this->load->model('SubCategories')->all();
@@ -128,6 +134,10 @@ class ProductController extends Controller
         return $this->load->model('Products')->deleteImage($id);
     }
 
+    public function deleteoptions($id)
+    {
+        return $this->load->model('Products')->deleteOption($id);
+    }
 
     public function uploadimage($id)
     {
@@ -146,10 +156,66 @@ class ProductController extends Controller
     public function save($id)
     {
 
+
+        $json = [];
+
+
+        if ($this->isValid()) {
+
+            $this->load->model('Products')->update($id);
+
+            $json['success'] = ' Product Has Been Updated Successfully';
+
+            $json['redirectTo'] = $this->url->link('admin/product');
+        } else {
+            $json['errors'] = $this->validator->flattenMessages();
+        }
+
+        $this->session->set('message', 'Product Has Been Update Successfully');
+
+        return $this->json($json);
+
+
+    }
+
+
+    private function isValid(){
+
+        $this->validator->required(rtrim('name'),'name Is Required');
+        $this->validator->required(rtrim('title'), ' Title  Is Required');
+        $this->validator->required('description', ' Descriptions Is Required');
+        $this->validator->required('country', ' Country Is Required');
+        $this->validator->required('unit', ' Unit Is Required');
+        $this->validator->required('min_sub_category', ' Min Sub Category Is Required');
+        $this->validator->required('sub_category', ' Sub Category Is Required');
+        $this->validator->required('categories', ' Category Is Required');
+
+        return $this->validator->passes();
+
     }
 
 
 
+    public function delete($id)
+    {
+        $products = $this->load->model('Products');
+        if (! $products->exists($id)) {
+            return $this->url->redirectTo('/404');
+        }
+        $json = [];
+        if(isset($_POST['deleteAction'])) {
+
+            $products->deleteOptions($id);
+            $products->deleteProductImage($id);
+            $products->delete($id);
+            $json['success'] = ' Product Has Been Deleted Successfully';
+            $json['redirectTo'] = $this->url->link('admin/product');
+            $this->session->set('message', ' Product Has Been Deleted Successfully');
+            return $this->json($json);
+        }
+        return false;
+
+    }
 
 
 }

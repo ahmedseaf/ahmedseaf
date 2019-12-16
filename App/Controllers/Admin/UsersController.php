@@ -144,6 +144,7 @@ class UsersController extends Controller
         } else {
             // it means there are errors in form validation
             $json['errors'] = $this->validator->flattenMessages();
+
         }
 
         return $this->json($json);

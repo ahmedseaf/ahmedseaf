@@ -138,26 +138,30 @@ class MinSubCategoriesController extends Controller
     public function delete($id)
     {
 
-        //TODO:: Check For Data in Database Before Delete Record
-//        $data = $this->load->model('MinSubCategories')->all();
-//        if(count($data) > 0) {
-//            $this->session->set('message', ' you cant delete');
-//            $json['errors'] = 'Min Sub Categories cant delete';
+        $json = [];
+        $minSubCategory = $this->load->model('MinSubCategories');
 
+        if (! $minSubCategory->exists($id)) {
+            return $this->url->redirectTo('/404');
+        }
 
+        $json = [];
+        if(isset($_POST['deleteAction'])) {
+            if ($this->productExist($id)) {
+                $minSubCategory->delete($id);
+                $json['success'] = ' Min Sub Category Has Been Deleted Successfully';
+                $json['redirectTo'] = $this->url->link('admin/min-category');
+                $this->session->set('message', ' Min Sub Category Has Been Deleted Successfully');
 
-            $json = [];
-            $minSubCategory = $this->load->model('MinSubCategories');
-
-            if (! $minSubCategory->exists($id)) {
-                return $this->url->redirectTo('/404');
+            }
+            else {
+                $json['errors'] = "You Cant Delete This Min Sub Category Before Delete Sub Category";
             }
 
-            $minSubCategory->delete($id);
-            $this->session->set('message', ' Sub Category Has Been Deleted Successfully');
-            $json['success'] = 'Min Sub Categories Has Been Deleted Successfully';
-            return ($this->json($json));
 
+            return $this->json($json);
+        }
+        return false;
 
 
 
@@ -190,6 +194,17 @@ class MinSubCategoriesController extends Controller
     }
 
 
+
+    private function productExist($id)
+    {
+        $subcategory = $this->load->model('MinSubCategories')->checkIfProductExists($id);
+        if (count($subcategory) <= 0) {
+            //Not Sub Category Record You Can Delete
+            return true;
+        }
+        //Yes Sub Category Here You Can\'t Delete
+        else return false;
+    }
 
 
 

@@ -15,6 +15,7 @@ class CategoriesController extends Controller
     public function index()
     {
 
+
         $title = $this->html->setTitle('Categories');
         $data['categories'] = $this->load->model('Categories')->all();
         $data['result'] = $this->session->has('message') ? $this->session->pull('message') : null ;
@@ -102,20 +103,40 @@ class CategoriesController extends Controller
 
     public function delete($id) {
         $categoriesModel = $this->load->model('Categories');
-
         if(! $categoriesModel->exists($id)) {
-
             return $this->url->redirectTo('admin/categories');
         }
 
-        $categoriesModel->delete($id);
-        $this->session->set('message', ' Category Has Been Deleted Successfully');
+        if(isset($_POST['deleteAction'])) {
+            //pre($_POST['deleteAction']);
+            if ($this->subCategoryExist($id)) {
+                $categoriesModel->delete($id);
+                $json['success'] = ' Category Has Been Deleted Successfully';
+                $json['redirectTo'] = $this->url->link('admin/categories');
+                $this->session->set('message', ' Category Has Been Deleted Successfully');
 
+            }
+            else {
+                $json['errors'] = "You Cant Delete This Category Before Delete Sub Category";
+            }
+
+
+            return $this->json($json);
+        }
+        return false;
     }
 
 
 
-
-
+    private function subCategoryExist($id)
+    {
+        $subcategory = $this->load->model('Categories')->checkIfSubCategoryExists($id);
+        if (count($subcategory) <= 0) {
+            //Not Category Record You Can Delete
+            return true;
+        }
+        //Yes Category Here You Can\'t Delete
+        else return false;
+    }
 
 }

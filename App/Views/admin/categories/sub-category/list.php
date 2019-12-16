@@ -65,10 +65,11 @@
 
                         <!--        Delete Button                    -->
 
-                            <button  class="btn btn-outline-danger SubCategoryDelete"
-                            data-subcategoryid="<?php  echo url('admin/sub-category/delete/'.$subCategory->id); ?>"
-                            data-subcategory="<?php  echo '<b>'.$subCategory->name. '<b>' ; ?>"
-                            ><i class="fas fa-trash"> Delete</i></button>
+                            <button   class="btn btn-outline-danger categoryDelete"
+                                      data-catid="<?php  echo url('admin/sub-category/delete/'.$subCategory->id); ?>"
+                                      data-catname="<?php  echo '<b>'.$subCategory->name. '<b>' ; ?>">
+                                <i class="fas fa-trash"> Delete</i>
+                            </button>
 
                         </td>
                     </tr>

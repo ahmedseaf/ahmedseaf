@@ -68,10 +68,16 @@
 
                         <!--        Delete Button                    -->
 
-                            <button  class="btn btn-outline-danger MinCategoryDelete"
-                            data-mincategoryid="<?php  echo url('admin/min-category/delete/'.$minCategory->id); ?>"
-                            data-mincategory="<?php  echo '<b>'.$minCategory->name. '<b>' ; ?>"
-                            ><i class="fas fa-trash"> Delete</i></button>
+<!--                            <button  class="btn btn-outline-danger MinCategoryDelete"-->
+<!--                            data-mincategoryid="--><?php // echo url('admin/min-category/delete/'.$minCategory->id); ?><!--"-->
+<!--                            data-mincategory="--><?php // echo '<b>'.$minCategory->name. '<b>' ; ?><!--"-->
+<!--                            ><i class="fas fa-trash"> Delete</i></button>-->
+<!--                            -->
+                            <button   class="btn btn-outline-danger categoryDelete"
+                                      data-catid="<?php  echo url('admin/min-category/delete/'.$minCategory->id); ?>"
+                                      data-catname="<?php  echo '<b>'.$minCategory->name. '<b>' ; ?>">
+                                <i class="fas fa-trash"> Delete</i>
+                            </button>
 
                         </td>
                     </tr>

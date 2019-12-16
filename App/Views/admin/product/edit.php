@@ -1,10 +1,15 @@
 <form class="form-product" action="<?php echo $action?>"
       method="post" style="direction: rtl" enctype="multipart/form-data">
     <div class="row">
+        <div class="col-md-12 text-center">
+            <div id="messageProduct"
+                 style="position: fixed; top: 2%; right: 50%; z-index: 99999"></div>
+        </div>
         <div id="resultMessage"></div>
         <div class="form-group col-md-8">
             <input type="text" class="form-control border-info" name="name" value="<?php  echo $name ?>" required placeholder="Enter Your Product Name">
         </div>
+
 
        <div class="form-group col-md-4">
            <select class="form-control" name="country" id="country">
@@ -120,16 +125,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($options AS $option) : ?>
                     <tr>
-                        <?php foreach ($options AS $option) : ?>
+
                         <td>
                             <button class="btn btn-outline-danger remove"
-                             name="remove" id="remove" ><i class="fas fa-trash"></i></button>
+                             name="remove" data-optionid="<?php echo url('admin/product/deleteoptions/'.$option->id)?>"
+                                            data-optionname="<?php echo $option->name?>"
+                                    id="remove_options" ><i class="fas fa-trash"></i>
+                            </button>
                         </td>
                         <td><?php echo $option->name?></td>
                         <td><?php echo $option->description?></td>
-                        <?php endforeach;?>
+
                     </tr>
+                    <?php endforeach;?>
                 </tbody>
             </table>
         </div>
