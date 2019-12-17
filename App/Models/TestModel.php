@@ -17,7 +17,8 @@ class TestModel extends Model
 
         if(isset($_POST['action'])) {
             if ($_POST['action'] == "loadFiles") {
-                $getFiles = $this->all();
+                $UserSessionCode = $this->session->get('loginUser');
+                $getFiles = $this->query('SELECT * FROM image WHERE user_code=?', $UserSessionCode)->fetchAll();
                 foreach ($getFiles as $getFile) {
                  $getOutput .=
                     '<div id="imgView" class="imgView">
@@ -39,6 +40,7 @@ class TestModel extends Model
                 echo $getOutput;
             }
 
+            $UserSessionCode = $this->session->get('loginUser');
             if($_POST["action"] == "file_upload") {
                 foreach ($_FILES['uploadFile']['name'] AS $filePath => $value) {
                     //$newName = $_FILES['uploadFile']['name'][$filePath];
@@ -47,7 +49,9 @@ class TestModel extends Model
 
                     $newName = sha1(rand(1,10000)) . '.' . $get_file_name[1];
                     //pre($newName);
-                    $this->data('name', $newName)->insert($this->table);
+                    $this->data('name', $newName)
+                        ->data('user_code', $UserSessionCode)
+                        ->insert($this->table);
                     $destination = $myPath.$newName;
                     move_uploaded_file($_FILES['uploadFile']['tmp_name'][$filePath],$destination);
 

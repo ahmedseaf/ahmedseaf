@@ -28,6 +28,7 @@ class ProductsModel extends Model
 
     public function create()
     { //    currency total price unit
+
         $lastProduct = $this->data('name', $this->request->post('name'))
                             ->data('country', $this->request->post('country'))
                             ->data('title', $this->request->post('title'))
@@ -46,12 +47,14 @@ class ProductsModel extends Model
                             ->insert($this->table)->lastId();
 
         $imagesTable = $this->load->model('Test')->all();
-
+        $UserSessionCode = $this->session->get('loginUser');
         foreach ($imagesTable AS $imageTable ) {
             $this->data('name', $imageTable->name)
                  ->data('status', $imageTable->status)
+                 ->data('created_at', time())
                  ->data('product_id', $lastProduct)
-                ->insert('product_image');
+                 ->data('user_code', $UserSessionCode)
+                 ->insert('product_image');
         }
         $imageStatus = $this->query("SELECT * FROM product_image WHERE product_id=? AND status=?",$lastProduct, 'enabled')->fetchAll();
 
@@ -72,14 +75,17 @@ class ProductsModel extends Model
                     ->insert('options');
             }
         }
-
-        $this->query("DELETE FROM image");
+        $UserSessionCode = $this->session->get('loginUser');
+        $this->query("DELETE FROM image WHERE user_code=?", $UserSessionCode);
 
     }// end function create
 
 
     public function update($id)
     {
+        $UserSessionCode = $this->session->get('loginUser');
+        $this->query("DELETE FROM image WHERE user_code=?", $UserSessionCode);
+
         $this->data('name', $this->request->post('name'))
             ->data('country', $this->request->post('country'))
             ->data('title', $this->request->post('title'))
@@ -155,6 +161,7 @@ class ProductsModel extends Model
 
     public function getImageById($id)
     {
+        $UserSessionCode = $this->session->get('loginUser');
         $getFiles = $this->query('SELECT * FROM product_image WHERE product_id=?', $id)->fetchAll();
         $getOutput ='';
         foreach ($getFiles as $getFile) {
@@ -194,19 +201,10 @@ class ProductsModel extends Model
 
     }
 
-    public function moveImage($imagesTable, $id)
-    {
-        foreach ($imagesTable AS $imageTable ) {
-            $this->data('name', $imageTable->name)
-                ->data('status', $imageTable->status)
-                ->data('product_id', $id)
-                ->insert('image');
-        }
-    }
-
 
     public function uploadImage($id)
     {
+        $UserSessionCode = $this->session->get('loginUser');
         $myPath = $_SERVER['DOCUMENT_ROOT']. '/public/images/test/';
         if(isset($_FILES['uploadFilePro'])){
             foreach ($_FILES['uploadFilePro']['name'] AS $filePath => $value) {
@@ -215,6 +213,7 @@ class ProductsModel extends Model
                 $this->data('name', $newName)
                     ->data('product_id', $id)
                     ->data('created_at', time())
+                    ->data('user_code', $UserSessionCode)
                     ->insert('product_image');
                 $destination = $myPath.$newName;
                 move_uploaded_file($_FILES['uploadFilePro']['tmp_name'][$filePath],$destination);
@@ -276,6 +275,23 @@ class ProductsModel extends Model
         return $this->query("DELETE FROM product_image WHERE product_id=?", $id);
     }
 
+
+
+
+
+
+//    public function moveImage($imagesTable, $id)
+//    {
+
+//
+//        foreach ($imagesTable AS $imageTable ) {
+//            $this->data('name', $imageTable->name)
+//                ->data('status', $imageTable->status)
+//                ->data('product_id', $id)
+//                //->data('user_id', $userId)
+//                ->insert('image');
+//        }
+//    }
 
 
 }

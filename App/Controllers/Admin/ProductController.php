@@ -11,6 +11,8 @@ class ProductController extends Controller
     {
 
 
+
+
         $title = $this->html->setTitle('المنتجات');
         $data['products'] = $this->load->model('Products')->all();
         $data['result'] = $this->session->has('message') ? $this->session->pull('message') : null ;
@@ -23,6 +25,10 @@ class ProductController extends Controller
 
     public function add()
     {
+
+        $UserSessionCode = $this->session->get('loginUser');
+        $this->db->query("DELETE FROM image WHERE user_code=?", $UserSessionCode);
+
        $title = $this->html->setTitle('اضافة منتج');
         //$data['products'] = $this->load->model('Products')->all();
         $data['result'] = $this->session->has('message') ? $this->session->pull('message') : null ;
@@ -57,7 +63,7 @@ class ProductController extends Controller
         $imageStatus = $this->db->query("SELECT * FROM product_image WHERE product_id=? AND status=?",$id, 'enabled')->fetchAll();
 
         if(count($imageStatus) <= 0) {
-            echo 'Yes';
+
             $this->db->query("UPDATE product_image SET status=?  WHERE product_id =? LIMIT 1",'enabled', $id);
         }
 
@@ -134,10 +140,14 @@ class ProductController extends Controller
         return $this->load->model('Products')->deleteImage($id);
     }
 
+
+
     public function deleteoptions($id)
     {
         return $this->load->model('Products')->deleteOption($id);
     }
+
+
 
     public function uploadimage($id)
     {
@@ -151,6 +161,8 @@ class ProductController extends Controller
     $productModel = (array) $productModel ;
     return $this->load->model('Products')->uploadImage($productModel['id']);
 }
+
+
 
 
     public function save($id)
