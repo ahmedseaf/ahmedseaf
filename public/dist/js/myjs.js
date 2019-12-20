@@ -177,54 +177,187 @@ $(document).ready(function () {
 //=                                                  =
 //=                                                  =
 //====================================================
-// For Login Ajax
-$(function () {
-    var flag = false;
-    var loginResult = $('#login-result');
 
-    $('#login-form').on('submit', function (e) {
-        e.preventDefault();
-
-        if( flag === true) {
-            return false;
-        }
-
-        form            = $(this);
-        requestUrl      = form.attr('action');
-        requestMethod   = form.attr('method');
-        requestData     = form.serialize();
-
-        $.ajax({
-            url: requestUrl,
-            type: requestMethod,
-            data: requestData,
-            dataType: 'json',
-            beforeSend: function () {
-                flag = true;
-                $('button').attr('disabled', true);
-                loginResult.removeClass().addClass('alert alert-info').html('Sending ...');
-
-            },
-            success: function (result) {
-                if ( result.errors) {
-                    loginResult.removeClass().addClass('alert alert-danger').html(result.errors);
-                    $('button').removeAttr('disabled');
-                    flag = false;
-                } else if (result.success) {
-                    loginResult.removeClass().addClass('alert alert-success').html(result.success);
-
-                    setTimeout(function () {
-                        if(result.redirect){
-                            window.location.href = result.redirect;
-                        }
-                    }, 1000);
-                }
-            },
-        });
+//For Login Or Register Or Send Password
+$(document).ready(function () {
+    $('#login-forget-btn').click(function () {
+        $('#user_login-form').hide();
+        $('#forget_password-form').show();
     });
+    $('#forget-new-acount-btn').click(function () {
+        $('#forget_password-form').hide();
+        $('#user_register-form').show();
+    })
+    $('#login-register-btn').click(function () {
+        $('#user_login-form').hide();
+        $('#user_register-form').show();
+    })
+    $('#login-btn').click(function () {
+        $('#user_register-form').hide();
+        $('#user_login-form').show();
+    })
+    $('#user_login-form').validate();
+    $('#user_register-form').validate({
+        rules:{
+            c_password:{
+                equalTo:"#password",
+            }
+        }
+    });
+    $('#forget_password-form').validate();
+    
+    
+    $('#register').on('click',  function (e) {
+        btn = $(this);
+        e.preventDefault();
+        let registerMessage = $('#result');
+        let form            = $('#user_register-form');
+        let requestUrl      = form.attr('action');
+        let requestMethod   = form.attr('method');
+        let requestData     = form.serialize();
+
+        if(document.getElementById('user_register-form').checkValidity()){
+
+            $.ajax({
+                url: requestUrl,
+                method:requestMethod,
+                data: requestData+"&action=register",
+                dataType: 'json',
+                beforeSend: function () {
+                    registerMessage.removeClass().addClass('alert alert-info').html('Sending ...');
+                },success: function (result) {
+                    if ( result.agree) {
+                        registerMessage.removeClass().addClass('alert alert-info').html(result.agree);
+                    }
+                    if ( result.errors) {
+                        registerMessage.removeClass().addClass('alert alert-danger').html(result.errors);
+                    }else if (result.success) {
+                        registerMessage.removeClass().addClass('alert alert-success').html(result.success);
+                        setTimeout(function () {
+                            if(result.redirectTo){
+                                window.location.href = result.redirectTo;
+                            }
+                        }, 1000);
+                    }
+                },
+            });
+        }
+        return true;
+    }); // End Form Register
 
 
-});
+    $('#forget').on('click',  function (e) {
+        btn = $(this);
+        e.preventDefault();
+        let registerMessage = $('#result-forget');
+        let form            = $('#forget_password-form');
+        let requestUrl      = form.attr('action');
+        let requestMethod   = form.attr('method');
+        let requestData     = form.serialize();
+
+        if(document.getElementById('forget_password-form').checkValidity()){
+
+            $.ajax({
+                url: requestUrl,
+                method:requestMethod,
+                data: requestData+"&action=forget",
+                dataType: 'json',
+                success:function (data) {
+                    registerMessage.html(data);
+                }
+            });
+        }
+        return true;
+    }); // End Form Forget
+
+
+        // start Form Login
+    $('#login').on('click',  function (e) {
+        btn = $(this);
+        e.preventDefault();
+        let loginMessage = $('#result-login');
+        let form            = $('#user_login-form');
+        let requestUrl      = form.attr('action');
+        let requestMethod   = form.attr('method');
+        let requestData     = form.serialize();
+
+        if(document.getElementById('user_login-form').checkValidity()){
+
+            $.ajax({
+                url: requestUrl,
+                method:requestMethod,
+                data: requestData+"&action=login",
+                dataType: 'json',
+                beforeSend: function () {
+                    loginMessage.removeClass().addClass('alert alert-info').html('Sending ...');
+            },success: function (result) {
+                    if ( result.errors) {
+                        loginMessage.removeClass().addClass('alert alert-danger').html(result.errors);
+                    } else if (result.success) {
+                        loginMessage.removeClass().addClass('alert alert-success').html(result.success);
+                        setTimeout(function () {
+                            if(result.redirect){
+                                window.location.href = result.redirect;
+                            }
+                        }, 1000);
+                    }
+                },
+            });
+        }
+        return true;
+    }); // End Form Login
+
+});// End Document Login Page
+
+
+//// For Login Ajax
+// $(function () {
+//     var flag = false;
+//     var loginResult = $('#login-result');
+//
+//     $('#login-form').on('submit', function (e) {
+//         e.preventDefault();
+//
+//         if( flag === true) {
+//             return false;
+//         }
+//
+//         form            = $(this);
+//         requestUrl      = form.attr('action');
+//         requestMethod   = form.attr('method');
+//         requestData     = form.serialize();
+//
+//         $.ajax({
+//             url: requestUrl,
+//             type: requestMethod,
+//             data: requestData,
+//             dataType: 'json',
+//             beforeSend: function () {
+//                 flag = true;
+//                 $('button').attr('disabled', true);
+//                 loginResult.removeClass().addClass('alert alert-info').html('Sending ...');
+//
+//             },
+//             success: function (result) {
+//                 if ( result.errors) {
+//                     loginResult.removeClass().addClass('alert alert-danger').html(result.errors);
+//                     $('button').removeAttr('disabled');
+//                     flag = false;
+//                 } else if (result.success) {
+//                     loginResult.removeClass().addClass('alert alert-success').html(result.success);
+//
+//                     setTimeout(function () {
+//                         if(result.redirect){
+//                             window.location.href = result.redirect;
+//                         }
+//                     }, 1000);
+//                 }
+//             },
+//         });
+//     });
+//
+//
+// });
 
 // For Data Table
 
@@ -337,22 +470,6 @@ $(document).on('click','.addCategory' , function (e) {
 $('.toast').toast('show' );
 
 
-
-
-
-
-// Delete Category Update Delete All Category Check If Sub Category is Exist
-//
-// $(document).on('click','.categoryDelete' , function () {
-//    let btn =  $(this);
-//    let urlRequest = btn.attr('data-catid');
-//    let categoryName = btn.attr('data-catname');
-//
-//     $('#sureDelete').on('click', function (e) {
-//         e.preventDefault();
-//         alert(categoryName);
-//     })
-// });
 
 
 

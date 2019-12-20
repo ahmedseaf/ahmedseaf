@@ -25,6 +25,7 @@ class Application
         $whoops->register();
         // Get Config Database File
         $this->share('config', $this->file->getTheFile('config.php'));
+//        $this->file->getTheFile('App/Controller/PHPMailer/PHPMailerAutoload.php');
 
     }
 
@@ -95,6 +96,13 @@ class Application
           'view'        => 'System\\View\\ViewFactory',
           'url'         => 'System\\Url',
           'validator'   => 'System\\Validation',
+          'mailer'   => 'System\\Mailer\\Phpmailer',
+          'authgoogle'   => 'System\\Mailer\\authgoogle',
+          'mailerauth'   => 'System\\Mailer\\phpmaileroauth',
+          'mailerpop3'   => 'System\\Mailer\\pop3',
+          'mailersmtp'   => 'System\\Mailer\\smtp',
+          'mailerexception'   => 'System\\Mailer\\phpmailerException',
+
 
         ];
     }

@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/App" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/System" isTestSource="false" packagePrefix="System\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/System/Http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/System/Mailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/System/View" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/filp/whoops" />

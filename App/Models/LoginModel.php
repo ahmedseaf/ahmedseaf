@@ -56,6 +56,16 @@ class LoginModel extends Model
 
 
 
+    public function newUser()
+    {
+        $this->data('user_name', $this->request->post('user_name'))
+            ->data('email', $this->request->post('email'))
+            ->data('password', password_hash($this->request->post('password'), PASSWORD_DEFAULT))
+            ->data('ip', $this->request->server('REMOTE_ADDR'))
+            ->data('created', $now = time())
+            ->data('code', sha1($now. mt_rand(1, 1000)))
+            ->insert('users');
+    }
 
 
 

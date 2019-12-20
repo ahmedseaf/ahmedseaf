@@ -28,6 +28,7 @@
 <script src="<?php echo assets('dist/js/myJQuery/jquery-1.12.0.min.js') ; ?>"></script>
 <script src="<?php echo assets('plugins/jquery-ui/jquery-ui.min.js') ; ?>"></script>
 <script src="<?php echo assets('plugins/jquery-knob/jquery.knob.min.js') ; ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script src="<?php echo assets('plugins/datatables/jquery.dataTables.js') ; ?>"></script>
 <script src="<?php echo assets('plugins/datatables-bs4/js/dataTables.bootstrap4.js') ; ?>"></script>
 <!--<script src="--><?php //echo assets('dist/js/myJQuery/datatablesar.js') ; ?><!--"></script>-->

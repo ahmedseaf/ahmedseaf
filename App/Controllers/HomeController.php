@@ -8,20 +8,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-       //return $this->view->render('home');
-        //$this->db;
-    //$this->db->data(['name' => 'احمد'])->insert('users_groups');
-
-//        $user = $this->db->select('*')->from('users_groups')->orderBy('id')->fetchAll();
-//        pre($user);
-
-    // echo $this->url->link('home/t');
-//        pre($this->session->all());
-//        pre($this->cookie->all());
-
-        echo 'welcome To Home Controllers';
-
-
+        $title = $this->html->setTitle('Welcome Home');
+        $view = $this->view->render('home');
+        return $this->Layout->render($view, $title);
     }
+
+
 }

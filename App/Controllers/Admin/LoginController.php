@@ -8,27 +8,35 @@
 
 namespace App\Controllers\Admin;
 
-use System\Controller;
 
+
+use System\Controller;
+//require '../PHPMailer/PHPMailerAutoload.php';
 class LoginController extends Controller
 {
+
     public function index()
     {
 
         $loginModel = $this->load->model('Login');
-        //TODO:: chick if user Login
 
         if ($loginModel->isLogged()) {
-            return $this->url->redirectTo('/admin');
+            return $this->url->redirectTo('/');
 
         }
         $data['errors'] = $this->errors;
-        return $this->view->render('admin/users/login', $data);
+        $title = $this->html->setTitle('Login');
+        $view = $this->view->render('admin/users/register', $data);
+        return $this->Layout->render($view, $title);
     }
 
 
-    public function submit() {
-        if ($this->isValid()) {
+
+
+
+    public function login()
+    {
+        if ($this->isValidLogin()) {
             $loginModel = $this->load->model('Login');
             $loginUserModel = $loginModel->user();
 
@@ -43,7 +51,7 @@ class LoginController extends Controller
 
             $json = [];
             $json['success'] = 'Welcome back ' . $loginUserModel->firstname . ' ' . $loginUserModel->lastname ;
-            $json['redirect'] = $this->url->link('/admin');
+            $json['redirect'] = $this->url->link('/');
             return $this->json($json);
         } else {
             $json = [] ;
@@ -52,7 +60,42 @@ class LoginController extends Controller
         }
     }
 
-    public function isValid() {
+
+    public function forget()
+    {
+       $this->mailer->SMTPDebug =3;
+        if (isset($_POST['forget'])) {
+            pre($_POST);
+        }
+
+    }
+
+
+
+    public function register()
+    {
+        $json = [];
+        if(isset($_POST['agree'])) {
+            if ($this->isValidRegister()) {
+                $this->load->model('Login')->newUser();
+                $json['success'] = "Create New Account Successfully Please Check Your Email To Activation";
+                $json['redirectTo'] = $this->url->link('/');
+            } else {
+                $json['errors'] = $this->validator->flattenMessages();
+            }
+        } else {
+            $json['agree'] = "Please Check Agree Button";
+        }
+
+        return $this->json($json);
+
+
+    }
+
+
+
+
+    public function isValidLogin() {
         $email = $this->request->post('email');
         $password = $this->request->post('password');
 
@@ -77,6 +120,14 @@ class LoginController extends Controller
     }
 
 
+    private function isValidRegister(){
+        $this->validator->required('user_name', 'First Name  Name Is Required');
+        $this->validator->unique('user_name', ['users', 'user_name'], 'User Name already Exist');
+        $this->validator->required('email')->email('email');
+        $this->validator->unique('email', ['users', 'email'], 'Email already Exist');
+        $this->validator->required('password')->minLen('password', 3)->match('password', 'c_password', 'Confirm Password Should Match Password');
+        return $this->validator->passes();
+    }
 
 
 

@@ -16,8 +16,7 @@ $adminOptions = [
 ];
 
 $app->route->group($adminOptions, function ($route) {
-    $route->add('/login', 'Login');
-    $route->add('/login/submit', 'Login@submit', 'POST');
+
 
     // Dashboard
     $route->add('', 'Dashboard');
@@ -123,6 +122,15 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/test/edit/:id',   'Test@edit' ,   'POST');
     $route->add('/test/save/:id',   'Test@save',    'POST');
     $route->add('/test/delete/:id', 'Test@delete',  'POST');
+
+
+    $route->add('/login', 'Admin/Login');
+    $route->add('/login/login', 'Admin/Login@login', 'POST');
+    $route->add('/login/forget', 'Admin/Login@forget', 'POST');
+    $route->add('/login/register', 'Admin/Login@register', 'POST');
+    $route->add('/login/submit', 'Login@submit', 'POST');
+
+
     $route->add('/logout', 'Logout');
 
 
