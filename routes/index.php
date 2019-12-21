@@ -127,6 +127,8 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/login', 'Admin/Login');
     $route->add('/login/login', 'Admin/Login@login', 'POST');
     $route->add('/login/forget', 'Admin/Login@forget', 'POST');
+    $route->add('/reserpassword', 'Admin/Login@reserpassword');
+    $route->add('/newpassword', 'Admin/Login@newpassword', 'POST');
     $route->add('/login/register', 'Admin/Login@register', 'POST');
     $route->add('/login/submit', 'Login@submit', 'POST');
 

@@ -1,6 +1,7 @@
 {"require":{
-  "filp/whoops":"*"
-  },
+  "filp/whoops":"*",
+  "ext-json": "*"
+},
   "autoload": {
     "psr-4": {
       "App\\": "App/",

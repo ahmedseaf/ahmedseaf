@@ -8,13 +8,19 @@
       <w>getdatamagebyid</w>
       <w>getmincategoy</w>
       <w>getsubcategoy</w>
+      <w>gmail</w>
       <w>navbar</w>
+      <w>newpassword</w>
       <w>phpmailer</w>
       <w>productid</w>
       <w>productname</w>
+      <w>reserpassword</w>
+      <w>seaf</w>
+      <w>smtp</w>
       <w>tawred</w>
       <w>textarea</w>
       <w>uploadimage</w>
+      <w>whatting</w>
     </words>
   </dictionary>
 </component>

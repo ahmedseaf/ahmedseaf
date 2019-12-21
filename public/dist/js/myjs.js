@@ -249,7 +249,7 @@ $(document).ready(function () {
     $('#forget').on('click',  function (e) {
         btn = $(this);
         e.preventDefault();
-        let registerMessage = $('#result-forget');
+        let forgetMessage = $('#result-forget');
         let form            = $('#forget_password-form');
         let requestUrl      = form.attr('action');
         let requestMethod   = form.attr('method');
@@ -262,9 +262,32 @@ $(document).ready(function () {
                 method:requestMethod,
                 data: requestData+"&action=forget",
                 dataType: 'json',
-                success:function (data) {
-                    registerMessage.html(data);
-                }
+                beforeSend: function () {
+                    forgetMessage.removeClass().addClass('alert alert-info').html('Sending ...');
+                },success: function (result) {
+                    if ( result.errorEmail) {
+                        forgetMessage.removeClass().addClass('alert alert-danger').html(result.errorEmail);
+                    }
+                    else if ( result.notEmail) {
+                        forgetMessage.removeClass().addClass('alert alert-danger').html(result.notEmail);
+                    }
+                    else if ( result.foundEmail) {
+                        forgetMessage.removeClass().addClass('alert alert-danger').html(result.foundEmail);
+                    }
+                    else if ( result.tokenWait) {
+                        forgetMessage.removeClass().addClass('alert alert-danger').html(result.tokenWait);
+                    }
+                    else if ( result.tokenSend) {
+                        forgetMessage.removeClass().addClass('alert alert-danger').html(result.tokenSend);
+                    }else if (result.successEmail) {
+                        forgetMessage.removeClass().addClass('alert alert-success').html(result.successEmail);
+                        setTimeout(function () {
+                            if(result.redirect){
+                                window.location.href = result.redirect;
+                            }
+                        }, 9000);
+                    }
+                },
             });
         }
         return true;
@@ -309,6 +332,35 @@ $(document).ready(function () {
 
 });// End Document Login Page
 
+
+$(document).on('click', '#resetPassword', function (e) {
+    e.preventDefault();
+    let btn = $(this);
+    let form = $('#active-password-form');
+    let urlRequest = "http://mvc.com/newpassword";
+    let data = form.serialize();
+    let message = $('#resultPassword');
+
+    $.ajax({
+        url: urlRequest,
+        method: "POST",
+        data: data,
+        dataType: "json",
+        success:function (data) {
+            if(data.errors) {
+                message.removeClass().addClass('alert alert-danger').html(data.errors);
+            }else if (data.success) {
+                message.removeClass().addClass('alert alert-success').html(data.success);
+            }if(data.redirect){
+                window.location.href = data.redirect;
+            }
+
+
+        }
+
+    });
+
+});
 
 //// For Login Ajax
 // $(function () {

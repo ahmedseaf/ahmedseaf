@@ -68,7 +68,47 @@ class LoginModel extends Model
     }
 
 
+    public function allUsers()
+    {
+        return $this->select()->fetchAll($this->table);
+    }
 
+
+    public function allEmails($email)
+    {
+
+
+
+        return $this->query("SELECT * FROM users WHERE email=?", $email)->fetchAll();
+    }
+
+    public function checkForExpireToken($email)
+    {
+        return $this->query("SELECT expire_token FROM users WHERE email=?",$email)->fetchAll();
+
+    }
+
+    public function updateToken($email)
+    {
+        $now = date('Y-m-d H:i:s');
+        $token = sha1(mt_rand(1,100).$now);
+        $expireDate = date('Y-m-d H:i:s', strtotime('+1 hours'));
+        return $this->query("UPDATE users SET expire_token=? , token=? WHERE email=?", $expireDate,$token, $email);
+    }
+
+
+    public function getUserName($userName)
+    {
+        return $this->query("SELECT * FROM users WHERE user_name=?", $userName)->fetchAll();
+    }
+
+    public function updatePassword($code)
+    {
+         $this->data('password', password_hash($this->request->post('password'), PASSWORD_DEFAULT))
+             ->where('code=?', $code)
+             ->update('users');
+
+    }
 
 
 }

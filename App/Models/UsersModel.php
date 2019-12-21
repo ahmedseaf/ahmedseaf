@@ -61,8 +61,6 @@ class UsersModel extends Model
 
 
 
-
-
     public function update($id)
     {
         $image = $this->uploadImage();

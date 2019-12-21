@@ -32,7 +32,6 @@ abstract class Model
 
      /**
      * Call shared application objects dynamically
-     *
      * @param string $key
      * @return mixed
      */

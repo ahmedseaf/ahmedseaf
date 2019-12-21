@@ -19,10 +19,8 @@ class LoginController extends Controller
     {
 
         $loginModel = $this->load->model('Login');
-
         if ($loginModel->isLogged()) {
             return $this->url->redirectTo('/');
-
         }
         $data['errors'] = $this->errors;
         $title = $this->html->setTitle('Login');
@@ -63,14 +61,119 @@ class LoginController extends Controller
 
     public function forget()
     {
-       $this->mailer->SMTPDebug =3;
-        if (isset($_POST['forget'])) {
-            pre($_POST);
+
+        $json = [];
+        if (isset($_POST['email_forget'])) {
+
+
+            date_default_timezone_set('Egypt');
+            $usersData = $this->load->model('Login')->allEmails($_POST['email_forget']);
+            $user = $this->ToArray($usersData);
+            $now = date('Y-m-d H:i:s');
+            $expireToken = $user['expire_token'];
+            if(! $user) {
+                $json['notEmail'] = 'This Email Not Valid Please Register To New Account';
+
+            }else {
+               // User Is Valid We Well To Check For Token Is Valid
+
+
+                if($expireToken > $now) {
+                    $json['tokenWait'] = 'Please Check For Inbox Or Jink Mail Or Whiting One Hour ';
+                }else{
+                    // Send Email
+                    $this->load->model('Login')->updateToken($user['email']);
+                    $usersData = $this->load->model('Login')->allEmails($user['email']);
+                    $user = $this->ToArray($usersData);
+                    $newToken = $user['token'] ;
+                    $userName = $user['user_name'];
+
+                    $this->mailer->isSMTP();
+                    $this->mailer->Host ='smtp.gmail.com';
+                    $this->mailer->Port = 587;
+                    $this->mailer->SMTPAuth = true;
+                    $this->mailer->SMTPSecure = 'tls';
+                    $this->mailer->Username = 'ahmed.seaf@gmail.com';
+                    $this->mailer->Password = 'Eskander015381883';
+        
+                    $this->mailer->setFrom('ahmed.seaf@gmail.com', 'ahmed Seaf');
+                    $this->mailer->addAddress($_POST['email_forget']);
+                    $this->mailer->addReplyTo('ahmed.seaf@gmail.com', 'Information');
+                    $this->mailer->isHTML(true);
+                    $this->mailer->Subject = 'From Ahmed Seaf PHP';
+                    $this->mailer->Body = '<h1 align=center> Reset Your Password From www.mvc.com </h1>';
+                    $this->mailer->Body .= '<div><a href="http://mvc.com/reserpassword?username='.$userName.'&token='.$newToken.'">http://mvc.com/reserpassword?username='.$userName.'&token=?'.$newToken.'</a></div>';
+                    //$this->mailer->AltBody = 'Ahmed Seaf Content Center';
+        
+                    if(! $this->mailer->send()) {
+                        $json['errorEmail'] = "error For Send Message";
+                    }else {
+                        $json['successEmail'] = "Send Message Successfully Please Check Your Inbox Or Jink Mail";
+                        $json['redirect'] = $this->url->link('/');
+                    }
+                }
+                return $this->json($json);
+            }
+
+
         }
+        return $this->json($json);
+    }
+
+
+    public function reserpassword()
+    {
+        date_default_timezone_set('Egypt');
+        $getToken = $_GET['token'];
+        $getUserName = $_GET['username'];
+        $usersData = $this->load->model('Login')->getUserName($getUserName);
+        $user = $this->ToArray($usersData);
+        $dbUserName = $user['user_name'];
+        $dbToken = $user['token'];
+        $dbExpireToken = $user['expire_token'];
+
+        $now = date('Y-m-d H:i:s');
+        if($dbExpireToken > $now) {
+            if ($getToken == $dbToken AND $getUserName == $dbUserName ) {
+                // reset Password Page
+
+                $title = $this->html->setTitle('Reset Password');
+                $data['id'] = $user['code'];
+                $view = $this->view->render('admin/users/resetPassword', $data);
+                return $this->Layout->render($view, $title);
+            }
+            else {
+                // hacking Token Return Redirect To Home Page
+                return $this->url->redirectTo('/');
+            }
+        }
+        else {
+
+            $title = $this->html->setTitle('Login');
+            $view = $this->view->render('admin/users/token');
+            return $this->Layout->render($view, $title);
+        }
+
 
     }
 
 
+    public function newpassword()
+    {
+        $json = [];
+        if ($this->isValidResetPassword()) {
+            $this->load->model('Login')->updatePassword($_POST['user_id']);
+            $json['success'] = "Update Password Successfully";
+            $json['redirect'] = $this->url->link('/login');
+        } else {
+
+            $json['errors'] = $this->validator->flattenMessages();
+
+
+        }
+        return $this->json($json);
+
+    }
 
     public function register()
     {
@@ -129,6 +232,12 @@ class LoginController extends Controller
         return $this->validator->passes();
     }
 
+
+    private function isValidResetPassword()
+    {
+        $this->validator->required('password')->minLen('password', 3)->match('password', 'c_password', 'Confirm Password Should Match Password');
+        return $this->validator->passes();
+    }
 
 
 }

@@ -36,5 +36,17 @@ abstract class Controller
         return json_encode($data);
     }
 
+    public function ToArray($data)
+    {
+        return $this->stdClassToArray($data);
+    }
+
+    private function stdClassToArray($data)
+    {
+        $array = json_decode(json_encode($data), true);
+        return  array_shift($array);
+
+
+    }
 
 }
