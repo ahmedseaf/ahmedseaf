@@ -91,6 +91,23 @@
             </div>
             <input type="password" name="c_password" id="c_password" class="form-control" placeholder="Confirm Password" required>
         </div>
+
+<!--        <div class="form-group input-group col-md-12">-->
+<!--            <div class="g-recaptcha" data-sitekey="6LdHv8kUAAAAAAO1j-NXQt1r_IuN5B0bnyJyS2bA">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="captcha">Code</label>
+                <input class="form-control" type="text" id="captcha" name="captcha" value="<?php echo $captcha;?>" disabled>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="re_captcha">Re Code</label>
+                <input class="form-control" type="text" id="re_captcha" name="re_captcha" >
+            </div>
+        </div>
         <div class="custom-control custom-checkbox col-md-12">
             <input class="custom-control-input" type="checkbox" id="agree" name="agree" value="agree">
             <label for="agree" class="custom-control-label"> I agree For The Web And I Red</label>

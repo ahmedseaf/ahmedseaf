@@ -14,12 +14,14 @@
       <w>phpmailer</w>
       <w>productid</w>
       <w>productname</w>
+      <w>recaptcha</w>
       <w>reserpassword</w>
       <w>seaf</w>
       <w>smtp</w>
       <w>tawred</w>
       <w>textarea</w>
       <w>uploadimage</w>
+      <w>webcommon</w>
       <w>whatting</w>
     </words>
   </dictionary>

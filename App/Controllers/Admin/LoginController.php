@@ -11,26 +11,27 @@ namespace App\Controllers\Admin;
 
 
 use System\Controller;
-//require '../PHPMailer/PHPMailerAutoload.php';
+
+
 class LoginController extends Controller
 {
 
+
     public function index()
     {
+
+       // $captcha = mt_rand(1000, 9999);
 
         $loginModel = $this->load->model('Login');
         if ($loginModel->isLogged()) {
             return $this->url->redirectTo('/');
         }
         $data['errors'] = $this->errors;
+        $data['captcha'] = $this->captcha();
         $title = $this->html->setTitle('Login');
         $view = $this->view->render('admin/users/register', $data);
         return $this->Layout->render($view, $title);
     }
-
-
-
-
 
     public function login()
     {
@@ -57,7 +58,6 @@ class LoginController extends Controller
             return $this->json($json);
         }
     }
-
 
     public function forget()
     {
@@ -120,7 +120,6 @@ class LoginController extends Controller
         return $this->json($json);
     }
 
-
     public function reserpassword()
     {
         date_default_timezone_set('Egypt');
@@ -136,7 +135,6 @@ class LoginController extends Controller
         if($dbExpireToken > $now) {
             if ($getToken == $dbToken AND $getUserName == $dbUserName ) {
                 // reset Password Page
-
                 $title = $this->html->setTitle('Reset Password');
                 $data['id'] = $user['code'];
                 $view = $this->view->render('admin/users/resetPassword', $data);
@@ -156,7 +154,6 @@ class LoginController extends Controller
 
 
     }
-
 
     public function newpassword()
     {
@@ -229,7 +226,10 @@ class LoginController extends Controller
         $this->validator->required('email')->email('email');
         $this->validator->unique('email', ['users', 'email'], 'Email already Exist');
         $this->validator->required('password')->minLen('password', 3)->match('password', 'c_password', 'Confirm Password Should Match Password');
+        $captha = $this->captcha();
+       // $this->validator->required('re_captcha')->matchGet('re_captcha', $captha, 'Confirm Secret Key Should Match Key');
         return $this->validator->passes();
+
     }
 
 
@@ -239,5 +239,10 @@ class LoginController extends Controller
         return $this->validator->passes();
     }
 
+
+    private function captcha()
+    {
+         return mt_rand(1000, 9999);
+    }
 
 }

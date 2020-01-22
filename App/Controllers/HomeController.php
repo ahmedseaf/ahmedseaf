@@ -8,9 +8,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $title = $this->html->setTitle('Welcome Home');
+        $title = $this->html->setTitle('Welcome Web');
         $view = $this->view->render('home');
-        return $this->Layout->render($view, $title);
+        return $this->webLayout->render($view, $title);
     }
 
 

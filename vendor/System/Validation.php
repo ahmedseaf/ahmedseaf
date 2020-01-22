@@ -217,6 +217,28 @@ class Validation
         return $this;
     }
 
+
+    /**
+     * Determine if the first input matches the second input
+     *
+     * @param string $fistInput
+     * @param string $secondInput
+     * @param string $customErrorMessage
+     * @return $this
+     */
+    public function matchGet($firstInput, $secondInput, $customErrorMessage = null)
+    {
+        $firstInputValue = $this->value($firstInput);
+        $secondInputValue = $secondInput;
+
+        if ($firstInputValue != $secondInputValue) {
+            $message = $customErrorMessage ?: sprintf('%s should match %s', ucfirst($secondInput), ucfirst($firstInput));
+            $this->addError($secondInput, $message);
+        }
+
+        return $this;
+    }
+
      /**
      * Determine if the given input is unique in database
      *
@@ -324,6 +346,17 @@ class Validation
     private function value($input)
     {
         return $this->app->request->post($input);
+    }
+
+    /**
+     * Get the value for the given GET input name
+     *
+     * @param string $input
+     * @return mixed
+     */
+    private function valueGet($input)
+    {
+        return $this->app->request->get($input);
     }
 
      /**

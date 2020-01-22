@@ -187,15 +187,15 @@ $(document).ready(function () {
     $('#forget-new-acount-btn').click(function () {
         $('#forget_password-form').hide();
         $('#user_register-form').show();
-    })
+    });
     $('#login-register-btn').click(function () {
         $('#user_login-form').hide();
         $('#user_register-form').show();
-    })
+    });
     $('#login-btn').click(function () {
         $('#user_register-form').hide();
         $('#user_login-form').show();
-    })
+    });
     $('#user_login-form').validate();
     $('#user_register-form').validate({
         rules:{
@@ -205,8 +205,8 @@ $(document).ready(function () {
         }
     });
     $('#forget_password-form').validate();
-    
-    
+
+
     $('#register').on('click',  function (e) {
         btn = $(this);
         e.preventDefault();
@@ -215,9 +215,7 @@ $(document).ready(function () {
         let requestUrl      = form.attr('action');
         let requestMethod   = form.attr('method');
         let requestData     = form.serialize();
-
         if(document.getElementById('user_register-form').checkValidity()){
-
             $.ajax({
                 url: requestUrl,
                 method:requestMethod,
@@ -225,7 +223,10 @@ $(document).ready(function () {
                 dataType: 'json',
                 beforeSend: function () {
                     registerMessage.removeClass().addClass('alert alert-info').html('Sending ...');
+
+                            $('#register').attr('disabled', 'disabled');
                 },success: function (result) {
+                    $('#register').attr('disabled', false);
                     if ( result.agree) {
                         registerMessage.removeClass().addClass('alert alert-info').html(result.agree);
                     }
@@ -233,6 +234,7 @@ $(document).ready(function () {
                         registerMessage.removeClass().addClass('alert alert-danger').html(result.errors);
                     }else if (result.success) {
                         registerMessage.removeClass().addClass('alert alert-success').html(result.success);
+
                         setTimeout(function () {
                             if(result.redirectTo){
                                 window.location.href = result.redirectTo;
@@ -243,6 +245,10 @@ $(document).ready(function () {
             });
         }
         return true;
+
+
+
+
     }); // End Form Register
 
 
@@ -333,6 +339,7 @@ $(document).ready(function () {
 });// End Document Login Page
 
 
+// For Reset Password
 $(document).on('click', '#resetPassword', function (e) {
     e.preventDefault();
     let btn = $(this);

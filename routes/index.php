@@ -140,8 +140,15 @@ $app->route->group($blogOptions, function ($route){
 
 
 // //Share Admin LayOut
+
 $app->share('Layout', function ($app){
    return $app->load->controller('Admin/Common/Layout');
+});
+
+
+
+$app->share('webLayout', function ($app){
+    return $app->load->controller('Admin/WebCommon/LayoutWeb');
 });
 
 
