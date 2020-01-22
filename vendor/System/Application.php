@@ -6,6 +6,13 @@ use Closure;
 use Exception;
 use Whoops\Handler\PrettyPageHandler;
 
+/**
+ * @property mixed route
+ * @property mixed response
+ * @property mixed request
+ * @property mixed file
+ * @property mixed session
+ */
 class Application
 {
 

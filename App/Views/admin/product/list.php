@@ -5,21 +5,21 @@
             style="width: 100%;border-radius: 50%; height: 100%;"><i class="fas fa-plus-circle"></i>
         </button>
     </div>
-        <div class="col-md-8" id="message"></div>
-        <?php if(@$result) {?>
-            <div class="toast" role="alert" data-delay=5000 aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
+    <div class="col-md-8" id="message"></div>
+    <?php if(@$result) {?>
+        <div class="toast" role="alert" data-delay=5000 aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
 
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body">
-                   <?php echo @$result ; ?>
-                </div>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        <?php } ?>
-    </div>
+            <div class="toast-body">
+               <?php echo @$result ; ?>
+            </div>
+        </div>
+    <?php } ?>
+</div>
 
 
 

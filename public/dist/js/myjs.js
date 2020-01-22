@@ -420,7 +420,7 @@ $(document).on('click', '#resetPassword', function (e) {
 
 // For Data Table
 
-$('#table').DataTable(
+$('.table').DataTable(
     {
         "aaSorting": [],
         "stateSave": true,
@@ -1153,3 +1153,25 @@ $(document).ready(function () {
     }); // On Click
 
 }); // Document
+
+
+$(document).ready(function () {
+    $('.MainBtnAdd').on('click', function () {
+        let btn = $(this);
+        let url = btn.data('target');
+        let modalTarget = btn.data('modal-target');
+
+        if($(modalTarget).length > 0) {
+            $(modalTarget).modal('show');
+        } else {
+            $.ajax({
+                url: url,
+                type: 'POST',
+                success: function (html) {
+                    $('body').append(html);
+                    $(modalTarget).modal('show');
+                },
+            });
+        }
+    });
+});

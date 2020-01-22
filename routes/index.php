@@ -25,20 +25,9 @@ $app->route->group($adminOptions, function ($route) {
 
     // admin => users
     $route->package('/users', 'Users');
-//    $route->add('/users', 'Users');
-//    $route->add('/users/add', 'Users@add',             'POST');
-//    $route->add('/users/submit', 'Users@submit',       'POST');
-//    $route->add('/users/edit/:id', 'Users@edit',       'POST');
-//    $route->add('/users/save/:id', 'Users@save',       'POST');
-//    $route->add('/users/delete/:id', 'Users@delete',   'POST');
 
     // admin => users Group
     $route->package('/users-groups', 'UsersGroups');
-//    $route->add('/users-groups/add', 'UsersGroups@add',            'POST');
-//    $route->add('/users-groups/submit', 'UsersGroups@submit',      'POST');
-//    $route->add('/users-groups/edit/:id', 'UsersGroups@edit',      'POST');
-//    $route->add('/users-groups/save/:id', 'UsersGroups@save',      'POST');
-//    $route->add('/users-groups/delete/:id', 'UsersGroups@delete',  'POST');
 
 
     // Admin Categories
@@ -98,6 +87,18 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/product/deleteimg/:id',  'Product@deleteimg', 'POST');
     $route->add('/product/deleteoptions/:id',  'Product@deleteoptions', 'POST');
     $route->add('/product/radio',  'Product@radio');
+
+
+
+
+    // Admin Main Page
+    $route->add('/main-page',             'MainPage');
+    $route->add('/main-page/add',         'MainPage@add', 'POST');
+    $route->add('/main-page/submit',      'MainPage@submit',   'POST');
+    $route->add('/main-page/edit/:id',    'MainPage@edit');
+    $route->add('/main-page/save/:id',    'MainPage@save',     'POST');
+    $route->add('/main-page/delete/:id',  'MainPage@delete',   'POST');
+
 
 });
 

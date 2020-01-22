@@ -58,10 +58,10 @@ $(document).ready(function () {
     setInterval(() => {
         $('.mainSliderContainer .sliders .slide .active').each(function () {
             if(! $(this).is(':last-child')) {
-                $(this).removeClass('active').next().addClass('active');
+                 $(this).removeClass('active').next().addClass('active');
             } else {
-                $(this).removeClass('active')
-                         $('.mainSliderContainer .sliders .slide > img').eq(0).addClass('active');
+                 $(this).removeClass('active');
+                 $('.mainSliderContainer .sliders .slide > img').eq(0).addClass('active');
             }
         })
     }, 5000);
@@ -69,10 +69,10 @@ $(document).ready(function () {
     $('.mainSliderController .nextSlide').on('click', function(e){
         e.preventDefault();
         if(! $('.mainSliderContainer .sliders .slide .active').is(':last-child')) {
-            $('.mainSliderContainer .sliders .slide .active').removeClass('active').next().addClass('active');
+             $('.mainSliderContainer .sliders .slide .active').removeClass('active').next().addClass('active');
         } else {
-            $('.mainSliderContainer .sliders .slide .active').removeClass('active')
-                     $('.mainSliderContainer .sliders .slide > img').eq(0).addClass('active');
+             $('.mainSliderContainer .sliders .slide .active').removeClass('active')
+             $('.mainSliderContainer .sliders .slide > img').eq(0).addClass('active');
         }
     });
 
@@ -152,7 +152,7 @@ function moveAllSliders(slider, clickNext, clickPrev, slideWidth) {
     
     clickNext.addEventListener('click', (e) => { 
         slider.scrollLeft = slider.scrollLeft + slideWidth;
-    })
+    });
     clickPrev.addEventListener('click', () => { 
         slider.scrollLeft = slider.scrollLeft - slideWidth;
     })
@@ -176,7 +176,7 @@ let slider2 = document.querySelector('.slideNewProductContainer .newProductConta
 let clickPrev2 = document.getElementById('prevSlide2');
 let clickNext2 = document.getElementById('nextSlide2');
 let slideWidth2 = document.querySelector('.slideNewProductContainer .newProductContainer .newProductSlider .itemsSlider .itemSlide .oneNewProduct').offsetWidth;
-moveAllSliders(slider2, clickNext2, clickPrev2, slideWidth2)
+moveAllSliders(slider2, clickNext2, clickPrev2, slideWidth2);
 
 
 
@@ -184,7 +184,7 @@ let slider3 = document.getElementById('itemSlide3');
 let clickPrev3 = document.getElementById('prevSlide3');
 let clickNext3 = document.getElementById('nextSlide3');
 let slideWidth3 = document.querySelector('.slideNewProductContainer .newProductContainer .newProductSlider .itemsSlider .itemSlide .oneNewProduct').offsetWidth;
-moveAllSliders(slider3, clickNext3, clickPrev3, slideWidth3)
+moveAllSliders(slider3, clickNext3, clickPrev3, slideWidth3);
 
 
 

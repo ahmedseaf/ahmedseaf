@@ -9,6 +9,10 @@
       <w>getmincategoy</w>
       <w>getsubcategoy</w>
       <w>gmail</w>
+      <w>mouseenter</w>
+      <w>mouseleave</w>
+      <w>mousemove</w>
+      <w>mouseup</w>
       <w>navbar</w>
       <w>newpassword</w>
       <w>phpmailer</w>

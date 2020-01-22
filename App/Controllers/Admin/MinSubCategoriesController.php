@@ -5,6 +5,16 @@ namespace App\Controllers\Admin;
 
 use System\Controller;
 
+/**
+ * @property  mixed html
+ * @property  mixed load
+ * @property  mixed session
+ * @property  mixed view
+ * @property  mixed Layout
+ * @property  mixed validator
+ * @property  mixed exists
+ * @property  mixed url
+ */
 class MinSubCategoriesController extends Controller
 {
     public function index() {
