@@ -1175,3 +1175,98 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).on('click', '#addSlide', function (e) {
+    e.preventDefault();
+    let btn = $(this);
+    let form = btn.parents('.form-slide');
+    let urlRequest   = form.attr('action');
+    let requestData  = new FormData(form[0]);
+    let slideMessage = $('.resultMessage');
+
+
+
+    $.ajax({
+        url: urlRequest,
+        type: 'POST',
+        data: requestData,
+        dataType: 'json',
+        beforeSend:function () {
+            slideMessage.removeClass().addClass('alert alert-info').html('Sending Data....');
+            console.log(form);
+        },success:function (data) {
+
+            if (data.errors) {
+                slideMessage.removeClass().addClass('alert alert-danger').html(data.errors);
+            }
+            else if (data.success) {
+                slideMessage.removeClass().addClass('alert alert-success').html(data.success);
+                Toast.fire({
+                    type: 'success',
+                    title: data.success,
+                });
+            }
+            setTimeout(function () {
+
+                if (data.redirectTo) {
+                    window.location.href = data.redirectTo;
+
+                }
+            },1000)
+        },
+        cache:false,
+        processData:false,
+        contentType:false,
+
+    })
+
+});
+
+$(document).ready(function () {
+
+    $('.deleteSlide').on('click', function () {
+        let btn = $(this);
+        let urlRequestProduct = btn.attr('data-slideId');
+        let deleteAction = "deleteAction";
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Are You sure to Delete this Slide",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            let urlRequest = urlRequestProduct;
+            let requestData  = {deleteAction:deleteAction};
+            if (result.value) {
+                $.ajax({
+                    url: urlRequest,
+                    type: 'POST',
+                    data: requestData,
+                    dataType: 'JSON',
+                    beforeSend: function (re) {
+
+
+                    }, success: function (data) {
+                        if (data.success){
+                            Swal.fire(
+                                'Deleted!',
+                                 data.success,
+                                'success'
+                            );
+                        }
+                        setTimeout(function () {
+                            if (data.redirectTo) {
+                                window.location.href = data.redirectTo;
+                            }
+                        },1000)
+                    }
+                });
+            }
+        }); //Swal.fire
+    }); // On Click
+
+}); // Document

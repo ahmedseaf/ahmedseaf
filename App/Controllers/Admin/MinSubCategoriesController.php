@@ -45,8 +45,6 @@ class MinSubCategoriesController extends Controller
 
     public function submit()
     {
-//        pre($_POST);
-//        pre($_FILES);
 
         $json = [];
 

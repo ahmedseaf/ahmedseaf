@@ -40,7 +40,7 @@ class SubCategoriesController extends Controller
     public function submit()
     {
 //        pre($_POST);
-//        pre($_FILES);
+      // pre($_FILES);
 
         $json = [];
 

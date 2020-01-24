@@ -9,6 +9,13 @@ namespace App\Models;
 
 use System\Model;
 
+/**
+ * @property mixed cookie
+ * @property mixed session
+ * @property mixed request
+ * @method where(string $string, $email)
+ * @method data(string $string, $post)
+ */
 class LoginModel extends Model
 {
 
@@ -109,6 +116,8 @@ class LoginModel extends Model
              ->update('users');
 
     }
+
+
 
 
 }

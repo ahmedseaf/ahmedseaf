@@ -93,10 +93,8 @@ $app->route->group($adminOptions, function ($route) {
 
     // Admin Main Page
     $route->add('/main-page',             'MainPage');
-    $route->add('/main-page/add',         'MainPage@add', 'POST');
+    $route->add('/main-page/add',         'MainPage@add',    'POST');
     $route->add('/main-page/submit',      'MainPage@submit',   'POST');
-    $route->add('/main-page/edit/:id',    'MainPage@edit');
-    $route->add('/main-page/save/:id',    'MainPage@save',     'POST');
     $route->add('/main-page/delete/:id',  'MainPage@delete',   'POST');
 
 
