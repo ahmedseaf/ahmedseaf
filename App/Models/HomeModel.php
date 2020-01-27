@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Models;
+
+use System\Model;
+
+/**
+ * @property mixed request
+ *
+ */
+class HomeModel extends Model
+{
+
+    public function loadSliders($hint,$limit)
+    {
+        return $this->query("SELECT * FROM mainPage WHERE hint=? ORDER BY id DESC LIMIT $limit", $hint)->fetchAll();
+    }
+
+
+    public function bestOffer($limit)
+    {
+        return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
+            ->from('products p')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('p.discount !=? AND i.Status=? ORDER BY discount DESC LIMIT '. $limit,0,'enabled')
+            ->fetchAll();
+    }
+
+
+    public function newProducts($limit)
+    {
+        return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
+            ->from('products p')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('i.Status=? ORDER BY updated_at DESC LIMIT '. $limit,'enabled')
+            ->fetchAll();
+    }
+
+
+}

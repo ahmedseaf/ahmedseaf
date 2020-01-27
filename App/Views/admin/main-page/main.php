@@ -42,9 +42,7 @@
         </div>
     </div>
 </div>
-
-
-
+<!--End Main Slider-->
 
 <div class="tableMainSlider">
     <div class="row">
@@ -85,6 +83,7 @@
         </div>
     </div>
 </div>
+        <!--End Repeat Slider-->
 
 <div class="tableMainSlider">
     <div class="row">
@@ -166,8 +165,51 @@
         </div>
     </div>
 </div>
+       <!--End Some Product -->
 
-            <!--End Some Product -->
+
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> For Slider Shop Now </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($foreSliders)) {
+                            foreach ($foreSliders AS $foreSlider) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $foreSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                    </td>
+                                    <td><?php echo  $foreSlider->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$foreSlider->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--     End For Slider Shop Now -->
+
 
 <div class="tableMainSlider">
     <div class="row">
@@ -209,7 +251,7 @@
     </div>
 </div>
 
-                <!--     End Five Slider Large -->
+    <!--     End Five Slider Large -->
 
 <div class="tableMainSlider">
     <div class="row">

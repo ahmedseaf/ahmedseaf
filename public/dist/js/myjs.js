@@ -420,7 +420,7 @@ $(document).on('click', '#resetPassword', function (e) {
 
 // For Data Table
 
-$('.table').DataTable(
+$('#table').DataTable(
     {
         "aaSorting": [],
         "stateSave": true,

@@ -26,9 +26,10 @@ class MainPageController extends Controller
         $data['repeatSliders']      = $this->load->model('MainPage')->selectBySlideName(2);
         $data['towSliders']         = $this->load->model('MainPage')->selectBySlideName(3);
         $data['someSliders']        = $this->load->model('MainPage')->selectBySlideName(4);
-        $data['fiveLargeSliders']   = $this->load->model('MainPage')->selectBySlideName(5);
-        $data['fiveSmallSliders']   = $this->load->model('MainPage')->selectBySlideName(6);
-        $data['towProducts']        = $this->load->model('MainPage')->selectBySlideName(7);
+        $data['foreSliders']        = $this->load->model('MainPage')->selectBySlideName(5);
+        $data['fiveLargeSliders']   = $this->load->model('MainPage')->selectBySlideName(6);
+        $data['fiveSmallSliders']   = $this->load->model('MainPage')->selectBySlideName(7);
+        $data['towProducts']        = $this->load->model('MainPage')->selectBySlideName(8);
         $data['result']             = $this->session->has('message') ? $this->session->pull('message') : null ;
         $view                       = $this->view->render('admin/main-page/main', $data);
         return $this->Layout->render($view, $title);

@@ -4,14 +4,43 @@ namespace App\Controllers;
 
 use System\Controller;
 
+/**
+ * @property mixed load
+ * @property mixed html
+ * @property mixed view
+ * @property mixed webLayout
+ */
 class HomeController extends Controller
 {
     public function index()
     {
-        $title = $this->html->setTitle('Welcome Web');
-        $view = $this->view->render('home');
+      // pre($this->load->model('Home')->bestOffer(10));
+
+        $data['bestOffers']         = $this->load->model('Home')->bestOffer(30);
+        $data['newProducts']         = $this->load->model('Home')->newProducts(30);
+
+        $data['mainSliders']        = $this->load->model('Home')->loadSliders(1, 6);
+        $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
+        $data['towSliders']         = $this->load->model('Home')->loadSliders(3, 2);
+        $data['someSliders']        = $this->load->model('Home')->loadSliders(4, 8);
+        $data['foreSliders']        = $this->load->model('Home')->loadSliders(5, 4);
+        $data['fiveLargeSliders']   = $this->load->model('Home')->loadSliders(6, 1);
+        $data['fiveSmallSliders']   = $this->load->model('Home')->loadSliders(7, 4);
+        $data['towProducts']        = $this->load->model('Home')->loadSliders(8, 2);
+        $title  = $this->html->setTitle('شركة الحرية للتوريدات');
+        $view   = $this->view->render('home', $data);
         return $this->webLayout->render($view, $title);
     }
+
+
+
+
+
+
+
+
+
+
 
 
 }

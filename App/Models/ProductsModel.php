@@ -278,20 +278,4 @@ class ProductsModel extends Model
 
 
 
-
-
-//    public function moveImage($imagesTable, $id)
-//    {
-
-//
-//        foreach ($imagesTable AS $imageTable ) {
-//            $this->data('name', $imageTable->name)
-//                ->data('status', $imageTable->status)
-//                ->data('product_id', $id)
-//                //->data('user_id', $userId)
-//                ->insert('image');
-//        }
-//    }
-
-
 }

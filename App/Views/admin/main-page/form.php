@@ -31,11 +31,12 @@
                                     <option disabled selected>Choose Main Slide</option>
                                     <option value="1">Main Slide 850*350</option>
                                     <option value="2">Repeat Slider 350*350</option>
-                                    <option value="3">Tow Slide 600*90</option>
+                                    <option value="3">Tow Slide 750*120</option>
                                     <option value="4">Some Product 150*150</option>
-                                    <option value="5">Five Tabs Large 815*400</option>
-                                    <option value="6">Five Tabs Small 190*190</option>
-                                    <option value="7">Tow Product 250*250</option>
+                                    <option value="5">For Sliders Shop Now 300*125</option>
+                                    <option value="6">Five Tabs Large 815*400</option>
+                                    <option value="7">Five Tabs Small 190*190</option>
+                                    <option value="8">Tow Product 250*250</option>
                             </select>
                         </div>
 
