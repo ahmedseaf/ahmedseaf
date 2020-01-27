@@ -37,17 +37,8 @@ class HomeModel extends Model
     }
 
 
-//    public function allProducts($productTitle, $productId)
-//    {
-//        return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
-//                    ->from('products p')
-//                    ->join('LEFT JOIN product_image i ON p.id=i.product_id')
-//                    ->where('p.id=? AND i.Status=?', $productId,'enabled')
-//                    ->fetchAll();
-//    }
 
-
-    public function allProducts($productId , $productTitle )
+    public function allProducts($productId  )
     {
         return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
             ->from('products p')

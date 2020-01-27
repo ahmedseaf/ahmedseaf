@@ -115,6 +115,9 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/product/:id/:text', 'Home@products');
 
 
+    $route->add('/product/all', 'Home@productstest');
+
+
 
     $route->add('/contact', 'Contact');
     $route->add('/test', 'Test');
