@@ -52,6 +52,7 @@ if (! function_exists('array_get')) {
      * @param array $array
      * @param string|int $key
      * @param mixed $default
+      * @return array
      */
     function array_get($array, $key, $default = null)
     {
@@ -146,6 +147,7 @@ if (! function_exists('seo')) {
 
         // replace any non English or numeric characters and dashes with white space
         $string = preg_replace('#[^\w]#', ' ' , $string);
+        //$string = preg_replace('([^\p{Arabic}a-zA-Z0-9-_]+)', ' ' , $string);
 
         // replace any multi white spaces with just one white space
         $string = preg_replace('#[\s]+#', ' ', $string);

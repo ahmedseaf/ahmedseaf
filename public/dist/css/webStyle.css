@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Amiri', serif;
 }
 
 
@@ -1113,6 +1114,7 @@ img{
     height: 140px;
     overflow: hidden;
     text-align: center;
+
 }
 .container .productSliders .products .product .productFlex .productImg > img{
     width: 80% ;
@@ -1120,6 +1122,7 @@ img{
 
 .container .productSliders .products .product .productFlex .productTitle{
     text-align: center;
+    height: 4rem;
 }
 
 .container .productSliders .products .product .productFlex .productStar{
@@ -1135,6 +1138,7 @@ img{
     color: red;
     text-align: center;
     margin-bottom: 0.8rem;
+    height: 4rem;
 }
 .container .productSliders .products .product .productFlex .productDiscount{
     position: absolute;
@@ -1144,15 +1148,18 @@ img{
     height: 28px;
     text-align: center;
     line-height: 8px;
-    top: 75%;
+    top: 40%;
     left: 0;
 
 }
 .container .productSliders .products .product .productFlex .readMore{
     border: 1px solid var(--main-color);
     border-radius: 3px;
-    text-align: center;
     margin-bottom: 0.2rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container .productSliders .products .product .productFlex .readMore:hover{
     background-color: var(--main-color);

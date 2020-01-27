@@ -98,6 +98,7 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/main-page/delete/:id',  'MainPage@delete',   'POST');
 
 
+
 });
 
 
@@ -110,6 +111,11 @@ $app->route->group($blogOptions, function ($route){
 
 
     $route->add('/', 'Home');
+    //$route->add('/product/:text/:id', 'Home@products');
+    $route->add('/product/:id/:text', 'Home@products');
+
+
+
     $route->add('/contact', 'Contact');
     $route->add('/test', 'Test');
     $route->add('/test/add',        'Test@add',     'POST');

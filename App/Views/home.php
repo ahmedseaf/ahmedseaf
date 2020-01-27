@@ -144,7 +144,7 @@
                             <h4> <?php  echo  ' % '. $bestOffer->discount . ' خصم '; ?>    </h4>
                         </div>
                         <div class="readMore">
-                            <h3>مزيد من التفاصيل</h3>
+                            <a href="<?php echo url('product/' .  $bestOffer->id . '/' . rawurlencode(str_replace(' ', '-',$bestOffer->name))) ?>"><h3>مزيد من التفاصيل</h3></a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
         </div>
     </div>
 </div>
-<!-- End Product Sliders  -1 -->
+<!-- End Product Sliders  -1  Best Offer -->
 
 
 <!-- Start Product Sliders 2 -->

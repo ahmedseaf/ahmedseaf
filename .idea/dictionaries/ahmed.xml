@@ -20,6 +20,8 @@
       <w>phpmailer</w>
       <w>productid</w>
       <w>productname</w>
+      <w>rawurldecode</w>
+      <w>rawurlencode</w>
       <w>recaptcha</w>
       <w>reserpassword</w>
       <w>seaf</w>
