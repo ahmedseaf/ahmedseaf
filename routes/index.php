@@ -132,7 +132,7 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/test/delete/:id', 'Test@delete',  'POST');
 
 
-    $route->add('/login', 'Admin/Login');
+    $route->add('/user/login', 'Admin/Login');
     $route->add('/login/login', 'Admin/Login@login', 'POST');
     $route->add('/login/forget', 'Admin/Login@forget', 'POST');
     $route->add('/reserpassword', 'Admin/Login@reserpassword');

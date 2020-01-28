@@ -160,7 +160,7 @@ function moveAllSliders(slider, clickNext, clickPrev, slideWidth, timeMoveSlide)
     let isDown = false;
     let startX;
     let scrollLeft;
-
+     slideWidth = 0;
 
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
@@ -200,76 +200,73 @@ function moveAllSliders(slider, clickNext, clickPrev, slideWidth, timeMoveSlide)
 }
 
 
-
-//
-//
-// let slider1 = document.querySelector('.items');
-// let clickPrev1 = document.getElementById('prevSlide');
-// let clickNext1 = document.getElementById('nextSlide');
-// let slideWidth1 = document.querySelector('.grid-item .items .item').offsetWidth;
-// moveAllSliders(slider1, clickNext1, clickPrev1, slideWidth1, 3000);
-//
-//
-//
-//
-// let slider2 = document.querySelector('.slideNewProductContainer .newProductContainer .newProductSlider .itemsSlider .itemSlide');
-// let clickPrev2 = document.getElementById('prevSlide2');
-// let clickNext2 = document.getElementById('nextSlide2');
-// let slideWidth2 = document.querySelector('.slideNewProductContainer .newProductContainer .newProductSlider .itemsSlider .itemSlide .oneNewProduct').offsetWidth;
-// moveAllSliders(slider2, clickNext2, clickPrev2, slideWidth2, 3000);
-//
-//
-//
-// let slider3 = document.getElementById('itemSlide3');
-// let clickPrev3 = document.getElementById('prevSlide3');
-// let clickNext3 = document.getElementById('nextSlide3');
-// let slideWidth3 = document.querySelector('.slideNewProductContainer .newProductContainer .newProductSlider .itemsSlider .itemSlide .oneNewProduct').offsetWidth;
-// moveAllSliders(slider3, clickNext3, clickPrev3, slideWidth3, 3000);
-
-
-//.container .productSliders .moveControl .prevSlide,
-//     .container .productSliders .moveControl .nextSlide
-// .container .productSliders .products
-//.container .productSliders .products .product
 let slider4 = document.querySelector('.container .productSliders .products');
 let clickPrev4 = document.querySelector('.container .productSliders .moveControl .prevSlide');
 let clickNext4 = document.querySelector('.container .productSliders .moveControl .nextSlide');
-let slideWidth4 = document.querySelector('.container .productSliders .products .product').offsetWidth;
-moveAllSliders(slider4, clickNext4, clickPrev4, slideWidth4, 66000);
-
+let slideWidth4 = document.querySelector('.container .productSliders .products .product');
+if(slideWidth4 != null) {
+    slideWidth4 = slideWidth4.offsetWidth;
+moveAllSliders(slider4, clickNext4, clickPrev4, slideWidth4 , 66000);
+}
 
 let slider5 = document.querySelector('.container .productSliders .products2');
 let clickPrev5 = document.getElementById('prevSlide2');
 let clickNext5 = document.getElementById('nextSlide2');
-let slideWidth5 = document.querySelector('.container .productSliders .products2 .product2').offsetWidth;
-moveAllSliders(slider5, clickNext5, clickPrev5, slideWidth5, 66000);
-
+let slideWidth5 = document.querySelector('.container .productSliders .products2 .product2');
+if(slideWidth5 != null) {
+    slideWidth5 = slideWidth5.offsetWidth;
+    moveAllSliders(slider5, clickNext5, clickPrev5, slideWidth5, 66000);
+}
 
 let slider6 = document.getElementById('products3');
 let clickPrev6 = document.getElementById('prevSlide3');
 let clickNext6 = document.getElementById('nextSlide3');
-let slideWidth6 = document.getElementById('product3').offsetWidth;
-moveAllSliders(slider6, clickNext6, clickPrev6, slideWidth6, 4000);
-
+let slideWidth6 = document.getElementById('product3');
+if(slideWidth6 != null) {
+    slideWidth6 = slideWidth6.offsetWidth;
+    moveAllSliders(slider6, clickNext6, clickPrev6, slideWidth6, 4000);
+}
 
 let slider7 = document.getElementById('products4');
 let clickPrev7 = document.getElementById('prevSlide4');
 let clickNext7 = document.getElementById('nextSlide4');
-let slideWidth7 = document.getElementById('product4').offsetWidth;
-moveAllSliders(slider7, clickNext7, clickPrev7, slideWidth7, 7000);
-
+let slideWidth7 = document.getElementById('product4');
+if(slideWidth7 != null) {
+    slideWidth7 = slideWidth7.offsetWidth;
+    moveAllSliders(slider7, clickNext7, clickPrev7, slideWidth7, 7000);
+}
 
 let slider8 = document.getElementById('products5');
 let clickPrev8 = document.getElementById('prevSlide5');
 let clickNext8 = document.getElementById('nextSlide5');
-let slideWidth8 = document.getElementById('product5').offsetWidth;
-moveAllSliders(slider8, clickNext8, clickPrev8, slideWidth8, 6000);
+let slideWidth8 = document.getElementById('product5');
+if(slideWidth8 != null) {
+    slideWidth8 = slideWidth8.offsetWidth;
+    moveAllSliders(slider8, clickNext8, clickPrev8, slideWidth8, 6000);
+}
+
+
+// const fav = $('.productSlid .productLinks .linkContainer .favContainer .fav i');
+//
+// fav.on('click', function (e) {
+//    e.preventDefault();
+//    $(this).toggleClass('far fas');
+// });
 
 
 
-const fav = $('.productSlid .productLinks .linkContainer .favContainer .fav i');
 
-fav.on('click', function (e) {
-   e.preventDefault();
-   $(this).toggleClass('far fas');
+
+
+
+
+// For Product Page
+
+
+let imageGallery = $('.productView .productImage .imageContainer .items > img');
+imageGallery.on('click', function () {
+    imageGallery.removeClass('selected');
+    $(this).addClass('selected');
+
+    $('.productView .productImage .imageContainer .itemActive > img').hide().attr('src', $(this).attr('src')).fadeIn(400);
 });

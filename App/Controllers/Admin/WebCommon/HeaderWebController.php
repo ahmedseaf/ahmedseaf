@@ -16,6 +16,7 @@ class HeaderWebController extends Controller
     public function index()
     {
         $data['title'] = $this->html->getTitle();
+        $data['desc'] = 'Elhurria';
         return $this->view->render('/admin/webcommon/header', $data);
     }
 

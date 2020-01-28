@@ -13,7 +13,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Amiri', serif;
+    font-family: DroidNaskh,"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+
 }
 
 
@@ -898,6 +899,78 @@ img{
 /* End Product Sliders */
 
 
+
+/* Start Product Page*/
+
+.productView{
+    display: grid;
+    grid-template-columns: 2fr 1.4fr;
+    grid-gap: 1.2rem;
+}
+
+.productView .productInformation,
+.productView .productImage{
+    height: 500px;
+    /*border: 2px solid black;*/
+}
+
+.productView .productImage .imageContainer{
+    display: grid;
+    grid-template-columns: 1fr 50px ;
+    height: 100%;
+    justify-items: center;
+    align-content: center;
+    grid-auto-rows: 100%;
+    overflow: hidden;
+}
+.productView .productImage .imageContainer .itemActive{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.productView .productImage .imageContainer .items > img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 1px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.2;
+}
+.productView .productImage .imageContainer .items .selected{
+    opacity: 1;
+    border: 1px solid black;
+}
+
+.productView .productInformation .lineOne{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    overflow: hidden;
+    justify-items: flex-start;
+    grid-gap: 2rem;
+    align-items: center;
+}
+
+.productView .productInformation .lineOne .productTitle h1{
+    color: #4c4f52;
+    font-size: 1.6rem;
+}
+.productView .productInformation .lineOne .price{
+    color: var(--main-color);
+    font-size: 2rem;
+    font-weight: 900;
+}
+.productView .productInformation .lineOne .price > span{
+    /*color: #006fcc; #318696*/
+    font-size: 1.2rem;
+}
+
+/* End Product Page*/
 
 
 

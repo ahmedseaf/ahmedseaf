@@ -62,7 +62,8 @@ class HomeController extends Controller
 
     public function productstest()
     {
-        $view = $this->view->render('admin/main-page/product');
+        $data['desc'] = "Elhurria Company";
+        $view = $this->view->render('admin/main-page/product', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
 
 
