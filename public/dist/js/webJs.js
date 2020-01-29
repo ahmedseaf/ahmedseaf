@@ -71,7 +71,7 @@ $(document).ready(function () {
         if(! $('.mainSliderContainer .sliders .slide .active').is(':last-child')) {
              $('.mainSliderContainer .sliders .slide .active').removeClass('active').next().addClass('active');
         } else {
-             $('.mainSliderContainer .sliders .slide .active').removeClass('active')
+             $('.mainSliderContainer .sliders .slide .active').removeClass('active');
              $('.mainSliderContainer .sliders .slide > img').eq(0).addClass('active');
         }
     });
@@ -81,7 +81,7 @@ $(document).ready(function () {
         if(! $('.mainSliderContainer .sliders .slide .active').is(':first-child')) {
             $('.mainSliderContainer .sliders .slide .active').removeClass('active').prev().addClass('active');
         } else {
-            $('.mainSliderContainer .sliders .slide .active').removeClass('active')
+            $('.mainSliderContainer .sliders .slide .active').removeClass('active');
                      $('.mainSliderContainer .sliders .slide > img').eq(-1).addClass('active');
         }
     });
@@ -111,7 +111,7 @@ $(document).ready(function () {
         if(! $('.container .slideContainer .slide .active').is(':last-child')) {
             $('.container .slideContainer .slide .active').removeClass('active').next().addClass('active');
         } else {
-            $('.container .slideContainer .slide .active').removeClass('active')
+            $('.container .slideContainer .slide .active').removeClass('active');
             $('.container .slideContainer .slide > img').eq(0).addClass('active');
         }
     });
@@ -121,7 +121,7 @@ $(document).ready(function () {
         if(! $('.container .slideContainer .slide .active').is(':first-child')) {
             $('.container .slideContainer .slide .active').removeClass('active').prev().addClass('active');
         } else {
-            $('.container .slideContainer .slide .active').removeClass('active')
+            $('.container .slideContainer .slide .active').removeClass('active');
             $('.container .slideContainer .slide > img').eq(-1).addClass('active');
         }
     });
@@ -160,7 +160,7 @@ function moveAllSliders(slider, clickNext, clickPrev, slideWidth, timeMoveSlide)
     let isDown = false;
     let startX;
     let scrollLeft;
-     slideWidth = 0;
+    // slideWidth = 0;
 
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
@@ -186,8 +186,9 @@ function moveAllSliders(slider, clickNext, clickPrev, slideWidth, timeMoveSlide)
      
     });
     
-    clickNext.addEventListener('click', (e) => { 
+    clickNext.addEventListener('click', () => {
         slider.scrollLeft = slider.scrollLeft + slideWidth;
+
     });
     clickPrev.addEventListener('click', () => { 
         slider.scrollLeft = slider.scrollLeft - slideWidth;
@@ -246,6 +247,8 @@ if(slideWidth8 != null) {
 }
 
 
+
+
 // const fav = $('.productSlid .productLinks .linkContainer .favContainer .fav i');
 //
 // fav.on('click', function (e) {
@@ -253,6 +256,13 @@ if(slideWidth8 != null) {
 //    $(this).toggleClass('far fas');
 // });
 
+
+
+        // Start Product Page
+// For Show Phone Number
+$('.productView .productInformation .lineTree .callMe').hover(function () {
+    $('.productView .productInformation .lineTree .callMe .phoneNo').toggleClass('active');
+});
 
 
 
@@ -270,3 +280,23 @@ imageGallery.on('click', function () {
 
     $('.productView .productImage .imageContainer .itemActive > img').hide().attr('src', $(this).attr('src')).fadeIn(400);
 });
+
+
+let slider9 = document.getElementById('products6');
+let clickPrev9 = document.getElementById('prevSlide6');
+let clickNext9 = document.getElementById('nextSlide6');
+let slideWidth9 = document.getElementById('product6');
+if(slideWidth9 != null) {
+    slideWidth9 = slideWidth9.offsetWidth;
+    moveAllSliders(slider9, clickNext9, clickPrev9, slideWidth9, 6000);
+}
+
+let sliderNewProduct = document.querySelector('.likeProduct .container .productSliders .products7');
+let clickPrevNewProduct = document.getElementById('prevSlide7');
+let clickNextNewProduct = document.getElementById('nextSlide7');
+let slideWidthNewProduct = document.querySelector('.likeProduct .container .productSliders .products7 .product7');
+if(slideWidthNewProduct != null) {
+    slideWidthNewProduct = slideWidthNewProduct.offsetWidth;
+    moveAllSliders(sliderNewProduct, clickNextNewProduct, clickPrevNewProduct, slideWidthNewProduct, 6000);
+}
+

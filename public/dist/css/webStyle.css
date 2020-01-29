@@ -41,6 +41,9 @@
 body{
   background-color: #f3f7f7;
 }
+a{
+    text-decoration: none;
+}
 /* For All Web Style Class Just Add Class In Your DIV html*/
 /* Margin  */
 .mb-1{
@@ -880,7 +883,7 @@ img{
     height: 28px;
     text-align: center;
     line-height: 8px;
-    top: 40%;
+    top: 78%;
     left: 0;
 
 }
@@ -901,7 +904,48 @@ img{
 
 
 /* Start Product Page*/
+.container .preLine h4,
+.container .preLine h4 a{
+    color: #6c9cd1;
+    transition: all 0.5s ease-in;
+}
+.container .preLine h4 a:hover{
+    border-bottom: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+@media screen and (max-width: 768px){
+    .productView{
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+    }
 
+    .productView .productImage{
+        order: 1;
+    }
+    .productView .productInformation{
+        order: 2;
+    }
+    .productView .productImage .imageContainer .itemActive {
+        align-items: flex-start !important;
+    }
+    .productView .productInformation .lineTree{
+        grid-template-columns: 1fr !important;
+    }
+    .productView .productInformation .lineTow{
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
+    .productView .productInformation .lineOne .productTitle h1,
+    .productView .productInformation .lineOne .price{
+        font-size: 1.3rem !important;
+    }
+
+    .productView .productInformation .lineTree .callMe,
+    .productView .productInformation .lineTow .unit,
+    .productView .productInformation .lineTree .pagePrint {
+        display: none !important;
+    }
+
+}
 .productView{
     display: grid;
     grid-template-columns: 2fr 1.4fr;
@@ -910,7 +954,7 @@ img{
 
 .productView .productInformation,
 .productView .productImage{
-    height: 500px;
+    /*height: 500px;*/
     /*border: 2px solid black;*/
 }
 
@@ -918,8 +962,7 @@ img{
     display: grid;
     grid-template-columns: 1fr 50px ;
     height: 100%;
-    justify-items: center;
-    align-content: center;
+    margin-top: 4rem;
     grid-auto-rows: 100%;
     overflow: hidden;
 }
@@ -928,11 +971,13 @@ img{
     height: 100%;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding: 10px;
 }
-
+.productView .productImage .imageContainer .items{
+    margin-top: 1.2rem;
+}
 .productView .productImage .imageContainer .items > img{
     width: 50px;
     height: 50px;
@@ -954,6 +999,7 @@ img{
     justify-items: flex-start;
     grid-gap: 2rem;
     align-items: center;
+    padding-right: 1rem;
 }
 
 .productView .productInformation .lineOne .productTitle h1{
@@ -970,9 +1016,118 @@ img{
     font-size: 1.2rem;
 }
 
+.productView .productInformation .lineTow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    justify-content: space-between;
+    margin-top: 2.2rem;
+    border-top: 1px inset #f0f0f0;
+    padding-top: 1.3rem;
+    align-items: center;
+    border-bottom: 1px inset #f0f0f0;
+    padding-bottom: 1.3rem;
+}
+
+.productView .productInformation .lineTow h6{
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+.productView .productInformation .lineTow .madeIn{background-color: #095230;line-height: 2.5rem;}
+.productView .productInformation .lineTow .unit{    background-color: #83934c;line-height: 2.5rem;}
+.productView .productInformation .lineTow .status{    background-color: #1abb9b;line-height: 2.5rem;}
+.productView .productInformation .lineTow .discount{background-color: #76b984;line-height: 2.5rem;}
+.productView .productInformation .lineTow .discount > h6{color: #bb1818;}
+
+
+.productView .productInformation .lineTree{
+    display: grid;
+    grid-template-columns: 1fr 60px 60px;
+    grid-gap: 2rem;
+    margin-bottom: 2rem;
+}
+.productView .productInformation .lineTree .callMe .phoneNo{
+    position: relative;
+    left: 24px;
+    top: 10%;
+    font-size: 1.6rem;
+    padding: 0.5rem;
+    color: #202020;
+    display: none;
+}
+.productView .productInformation .lineTree .phoneNo.active{
+    display: block;
+    transition: all 0.7s ease-in;
+}
+.productView .productInformation .lineTree .descriptions{
+    max-width: 90%;
+    padding-right: 2rem;
+}
+.productView .productInformation .lineTree .descriptions p{
+    font-size: 1.1rem;
+    line-height: 2.1rem;
+    color: #4c4f52;
+}
+.productView .productInformation .lineTree .callMe,
+.productView .productInformation .lineTree .pagePrint {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.productView .productInformation .lineTree .callMe .fas,
+.productView .productInformation .lineTree .pagePrint .fas{
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.productView .productInformation .lineFore .options{
+    line-height: 2.2rem;
+    background-color: var(--main-color);
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.productView .productInformation .lineFore .optionsView{
+    display: grid;
+    grid-template-columns: 28% 68%;
+    grid-gap: 4%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--main-color);
+}
+
+
+.container .seeBefore{
+    background-color: #f0f0f0;
+    width: 98%;
+}
+.container .seeBefore .container .productSliders .products .product .productFlex {
+     padding: 0 !important;
+}
+.container .seeBefore .container .productSliders .moveControl{
+    display: none !important;
+}
+.container .seeBefore .container .productSliders .products .product{
+    width: 140px !important;
+    height: 150px !important;
+}
+.container .seeBefore .container .productSliders .products .product .productFlex .productImg {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.container .seeBefore .container .productSliders .products .product .productFlex .productImg > img{
+    width: 90% !important;
+}
+
+
 /* End Product Page*/
 
+/*
 
+ */
 
 
 
