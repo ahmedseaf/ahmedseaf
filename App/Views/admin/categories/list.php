@@ -59,30 +59,36 @@
                         <th >ID</th>
                         <th >Category Name</th>
                         <th >Status</th>
+                        <th >Image</th>
                         <th >Control</th>
 
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($categories AS $category) :?>
-                    <tr>
+                    <?php if (isset($categories)) {
+                        foreach ($categories AS $category) :?>
+                        <tr>
 
 
-                        <td><?= $category->id ?></td>
-                        <td><?= $category->name ?></td>
-                        <td><?= $category->status ?></td>
-                        <td>
-                            <a href="<?php  echo url('admin/categories/edit/'.$category->id); ?>" class="btn btn-outline-info"><i class="fas fa-edit"> Edit</i></a>
-                            <!-- For Delete Modal Button trigger modal -->
-                            <button   class="btn btn-outline-danger categoryDelete"
-                                      data-catid="<?php  echo url('admin/categories/delete/'.$category->id); ?>"
-                                      data-catname="<?php  echo '<b>'.$category->name. '<b>' ; ?>">
-                                      <i class="fas fa-trash"> Delete</i>
-                            </button>
+                            <td><?= $category->id ?></td>
+                            <td><?= $category->name ?></td>
+                            <td><?= $category->status ?></td>
+                            <td >
+                                <img src="<?php echo assets('images/'. $category->image) ?>" style="width: 70px; height: 70px; border-radius:50%;" >
+                            </td>
+                            <td>
+                                <a href="<?php  echo url('admin/categories/edit/'.$category->id); ?>" class="btn btn-outline-info"><i class="fas fa-edit"> Edit</i></a>
+                                <!-- For Delete Modal Button trigger modal -->
+                                <button   class="btn btn-outline-danger categoryDelete"
+                                          data-catid="<?php  echo url('admin/categories/delete/'.$category->id); ?>"
+                                          data-catname="<?php  echo '<b>'.$category->name. '<b>' ; ?>">
+                                          <i class="fas fa-trash"> Delete</i>
+                                </button>
 
-                        </td>
-                    </tr>
-                    <?php endforeach;?>
+                            </td>
+                        </tr>
+                        <?php endforeach;
+                    } ?>
                     </tbody>
                 </table>
             </div>

@@ -116,6 +116,9 @@ $app->route->group($blogOptions, function ($route){
 
 
     $route->add('/product/all', 'Home@productstest');
+    $route->add('/category/all', 'Home@allcategory');
+    $route->add('/sub-category/filter', 'Home@subcategory');
+    $route->add('/main-category/filter', 'Home@maincategory');
 
 
 

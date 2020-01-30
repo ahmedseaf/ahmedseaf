@@ -63,9 +63,17 @@ class CategoriesController extends Controller
 
             return $this->url->redirectTo('admin/categories');
         }
-
+        $categoriesModel = $categoriesModel->get($id);
+        $categoriesModel = (array) $categoriesModel;
         $data['errors'] = $this->session->has('errors') ? implode('<br>', $this->session->pull('errors')) : null ;
-        $data['categories'] = $categoriesModel->get($id);
+        $data['categoryId']  = array_get($categoriesModel, 'id');
+        $data['categoryName']  = array_get($categoriesModel, 'name');
+        $data['categoryStatus']  = array_get($categoriesModel, 'status');
+
+
+        $data['catImage'] = '';
+        if(! empty($categoriesModel['image'])) {$data['catImage'] = $this->url->link('public/images/'. $categoriesModel['image']);}
+
         $view = $this->view->render('admin/categories/edit', $data);
         $title = $this->html->setTitle('Update Categories ');
         return $this->Layout->render($view, $title);

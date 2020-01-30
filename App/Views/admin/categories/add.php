@@ -29,6 +29,13 @@
                         <input class="form-control" type="text" name="name" id="cat_name" placeholder="Category Name">
                     </div>
 
+                    <!--       For Image                 -->
+                    <div class="form-group col-md-6">
+                        <input class="form-control" type="file"  name="image"  >
+                    </div>
+
+
+
                     </div>
 
             </div>

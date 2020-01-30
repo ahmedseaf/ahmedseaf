@@ -11,6 +11,10 @@ class CategoriesModel extends Model
 
     public function create()
     {
+        $image = $this->uploadImage();
+        if($image) {
+            $this->data('image', $image);
+        }
         $this->data('name', $this->request->post('name'))
              ->data('status', $this->request->post('status'))
              ->insert($this->table);
@@ -20,6 +24,11 @@ class CategoriesModel extends Model
 
     public function update($id)
     {
+        $image = $this->uploadImage();
+        if($image) {
+            $this->data('image', $image);
+        }
+
         $this->data('name', $this->request->post('name'))
              ->data('status', $this->request->post('status'))
              ->where('id=?', $id)
@@ -36,6 +45,15 @@ class CategoriesModel extends Model
 
 
 
+    private function uploadImage() {
+
+        $image = $this->request->file('image');
+        if ( ! $image->exists()) {
+            return '' ;
+        }
+
+        return $image->moveTo($this->app->file->toPublic('images'));
+    }
 
 
 

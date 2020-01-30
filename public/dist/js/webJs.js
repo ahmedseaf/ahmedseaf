@@ -49,7 +49,6 @@ triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave))
 
 
 
-
 // For Main Slider
 
 $(document).ready(function () {
@@ -300,3 +299,26 @@ if(slideWidthNewProduct != null) {
     moveAllSliders(sliderNewProduct, clickNextNewProduct, clickPrevNewProduct, slideWidthNewProduct, 6000);
 }
 
+
+
+// For Category Page In View Web
+$(document).ready(function () {
+    $('.container .mainCategory .categoryAds .categorySlide .item').eq(0).addClass('active');
+    (function repeatAds3 (){
+        $('.container .mainCategory .categoryAds .categorySlide .active').each(function (){
+            if(! $(this).is(':last-child')) {
+                $(this).delay(3000).fadeOut(2000, function(){
+                    $(this).removeClass('active').next().fadeIn(2000).addClass('active');
+                    repeatAds3 ();
+                });
+
+            } else{
+                $(this).delay(3000).fadeOut(2000, function(){
+                    $(this).removeClass('active');
+                    $('.container .mainCategory .categoryAds .categorySlide .item').eq(0).fadeIn(2000).addClass('active');
+                    repeatAds3 ();
+                })
+            }
+        })
+    }());
+});

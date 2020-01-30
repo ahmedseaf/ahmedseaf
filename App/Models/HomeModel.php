@@ -47,4 +47,10 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
+
+    public function allCategory()
+    {
+
+    }
+
 }

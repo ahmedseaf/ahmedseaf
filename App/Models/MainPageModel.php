@@ -45,9 +45,6 @@ class MainPageModel extends Model
        return $this->query("SELECT * FROM mainPage WHERE hint=?",$hint)->fetchAll();
    }
 
-//   public function deleteSlide($id)
-//   {
-//       return $this->where('id=?', $id);
-//   }
+
 
 }

@@ -62,17 +62,35 @@ class HomeController extends Controller
 
     public function productstest()
     {
-        $data['desc'] = "Elhurria Company";
-        $view = $this->view->render('admin/main-page/product', $data);
+
+        $view = $this->view->render('admin/main-page/product');
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
-
-
-
         return $this->webLayout->render($view, $title);
     }
 
 
+    public function allcategory()
+    {
+        $view = $this->view->render('admin/main-page/category');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        return $this->webLayout->render($view, $title);
+    }
 
+
+    public function subcategory()
+    {
+        $view = $this->view->render('admin/main-page/sub-category');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        return $this->webLayout->render($view, $title);
+    }
+
+
+    public function maincategory()
+    {
+        $view = $this->view->render('admin/main-page/main-category');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        return $this->webLayout->render($view, $title);
+    }
 
 
 
