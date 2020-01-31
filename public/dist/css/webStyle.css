@@ -1157,8 +1157,9 @@ img{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1.7rem;
-    grid-template-rows: auto;
     row-gap: 2.3rem;
+    grid-template-rows: 243px;
+
 }
 
 .container .mainCategory .category .categoryItems{
@@ -1169,6 +1170,8 @@ img{
     justify-items: center;
     cursor: pointer;
     position: relative;
+    grid-template-rows: 82% 18%;
+    overflow: hidden;
 }
 
 .container .mainCategory .category .categoryItems .categoryImage img:hover{
@@ -1176,13 +1179,16 @@ img{
 }
 .container .mainCategory .category .categoryItems .categoryImage{
     background-color: var(--main-color);
-
+    height: 100%;
+    overflow: hidden;
 }
 .container .mainCategory .category .categoryItems .categoryInfo{
     background-color: var(--main-color);
     width: 100%;
     text-align: center;
     line-height: 2.5rem;
+    height: 100%;
+    overflow: hidden;
 }
 .container .mainCategory .category .categoryItems .categoryInfo a{color: white;}
 .container .mainCategory .category .categoryItems .categoryInfo a h2{font-size: 1.2rem}
@@ -1204,11 +1210,108 @@ img{
     display: block;
 }
 
-
-
-
 /* End Category Page*/
 
+
+/* Start Product Filters */
+@media screen and (max-width: 967px) {
+    .container .productFilters .rightAds{
+        display: none !important;
+    }
+    .container .productFilters{
+        grid-template-columns: 1fr !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container .productFilters .productFilter .productItems{
+        grid-template-columns: repeat(3,1fr) !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container .productFilters .productFilter .productItems{
+        grid-template-columns: repeat(2,1fr) !important;
+        width: 94%;
+        margin: 0 auto;
+    }
+    .container .topSlider{
+        width: 94%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container .productFilters .productFilter .productItems{
+        grid-template-columns: 1fr !important;
+
+    }
+}
+.container .topSlider{
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: 150px;
+}
+.container .productFilters{
+    display: grid;
+    grid-template-columns: 1fr 3.6fr;
+    grid-gap: 1.5rem;
+    grid-template-rows: auto;
+}
+
+
+.container .productFilters .productFilter .productItems{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    row-gap: 1.5rem;
+}
+.container .productFilters .productFilter .productItems .productItem{
+    height: 330px;
+    border: 1px solid var(--main-color);
+    overflow: hidden;
+}
+
+.container .productFilters .productFilter .productItems .productItem .item{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65% 12% 23%;
+    position: relative;
+    height: 100%;
+}
+.container .productFilters .productFilter .productItems .productItem .item .itemImage{
+    user-select: none;
+    overflow: hidden;
+}
+.container .productFilters .productFilter .productItems .productItem .item .itemPrice h2{
+    line-height: 3rem;
+    font-size: 1.3rem;
+    color: #206abd;
+    font-weight: bolder;
+    text-align: center;
+}
+.container .productFilters .productFilter .productItems .productItem .item a {
+    background-color: var(--main-color);
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+.container .productFilters .productFilter .productItems .productItem .item a:hover{
+    background-color: #abc7af;
+}
+.container .productFilters .productFilter .productItems .productItem .item a .itemInfo {
+    color: white;
+    font-size: 1.3rem;
+    height: 100%;
+    margin-top: 0.4rem;
+}
+
+
+
+
+
+/* End Product Filters */
 
 
 

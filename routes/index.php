@@ -115,10 +115,12 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/product/:id/:text', 'Home@products');
 
 
-    $route->add('/product/all', 'Home@productstest');
-    $route->add('/category/all', 'Home@allcategory');
-    $route->add('/sub-category/filter', 'Home@subcategory');
-    $route->add('/main-category/filter', 'Home@maincategory');
+    $route->add('/product/view', 'Home@productView'); // صفحة المنج
+    $route->add('/category/all', 'Home@allCategory');
+    $route->add('/sub-category/filter/:id/:text', 'Home@subCategory');
+    $route->add('/main-category/filter/:id/:text', 'Home@mainCategory');
+    $route->add('/product/filter', 'Home@productfilter');
+    $route->add('/product/test', 'Home@test');
 
 
 

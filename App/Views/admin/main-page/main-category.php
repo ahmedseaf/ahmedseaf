@@ -24,86 +24,97 @@
            </div>
        </div>
        <div class="category">
+
+           <?php if (isset($mainSubcategories) ):
+                foreach ($mainSubcategories AS $mainSubcategory) : ?>
+
            <div class="categoryItems">
 
                    <div class="categoryImage">
-                       <img src="https://placeimg.com/1200/851/any" alt="">
+                       <img src="<?php echo assets('images/'. $mainSubcategory->image)?>" alt="">
                    </div>
                    <div class="categoryInfo">
-                       <a href=""><h2> مزيد من التفاصيل</h2></a>
+                       <a href="<?php echo url('main-category/filter/'.$mainSubcategory->sub_category_id . '/' . rawurlencode(str_replace(' ', '-',$mainSubcategory->name)));?>"><h2> <?php echo $mainSubcategory->name?></h2></a>
                    </div>
 
            </div>
-           <div class="categoryItems">
 
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
+           <?php endforeach;
+           endif;?>
 
-           </div>
-           <div class="categoryItems">
 
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
 
-           </div>
-           <div class="categoryItems">
-
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
-
-           </div>
-           <div class="categoryItems">
-
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
-
-           </div>
-           <div class="categoryItems">
-
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
-
-           </div>
-           <div class="categoryItems">
-
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
-
-           </div>
-           <div class="categoryItems">
-
-               <div class="categoryImage">
-                   <img src="https://placeimg.com/1200/851/any" alt="">
-               </div>
-               <div class="categoryInfo">
-                   <a href=""><h2> مزيد من التفاصيل</h2></a>
-               </div>
-
-           </div>
+<!---->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/1200/851/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/800/551/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/800/551/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/1200/851/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/1200/851/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/1200/851/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
+<!--           <div class="categoryItems">-->
+<!---->
+<!--               <div class="categoryImage">-->
+<!--                   <img src="https://placeimg.com/1200/851/any" alt="">-->
+<!--               </div>-->
+<!--               <div class="categoryInfo">-->
+<!--                   <a href=""><h2> مزيد من التفاصيل</h2></a>-->
+<!--               </div>-->
+<!---->
+<!--           </div>-->
 
 
        </div>

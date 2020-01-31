@@ -2,6 +2,7 @@
   <dictionary name="ahmed">
     <words>
       <w>addr</w>
+      <w>allcategory</w>
       <w>catid</w>
       <w>catname</w>
       <w>deleteimg</w>
@@ -10,6 +11,7 @@
       <w>getmincategoy</w>
       <w>getsubcategoy</w>
       <w>gmail</w>
+      <w>maincategory</w>
       <w>minmax</w>
       <w>mousedown</w>
       <w>mouseenter</w>
@@ -19,8 +21,10 @@
       <w>navbar</w>
       <w>newpassword</w>
       <w>phpmailer</w>
+      <w>productfilter</w>
       <w>productid</w>
       <w>productname</w>
+      <w>productstest</w>
       <w>rawurldecode</w>
       <w>rawurlencode</w>
       <w>recaptcha</w>

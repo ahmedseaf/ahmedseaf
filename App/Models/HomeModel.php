@@ -7,6 +7,7 @@ use System\Model;
 /**
  * @property mixed request
  *
+ *
  */
 class HomeModel extends Model
 {
@@ -48,9 +49,23 @@ class HomeModel extends Model
     }
 
 
-    public function allCategory()
+    public function getAllCategory()
     {
-
+        return $this->query('SELECT * FROM categories')->fetchAll();
     }
+
+    public function getAllSubCategory($id)
+    {
+        return $this->query('SELECT * FROM sub_category WHERE category_id=?', $id)->fetchAll();
+    }
+
+
+    public function getAllMainSubCategory($id)
+    {
+        return $this->query('SELECT * FROM min_sub_category WHERE sub_category_id=?',$id)->fetchAll();
+    }
+
+
+
 
 }

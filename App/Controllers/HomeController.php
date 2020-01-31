@@ -60,38 +60,96 @@ class HomeController extends Controller
 
 
 
-    public function productstest()
-    {
 
+
+
+
+
+
+
+
+
+    public function productView()
+    {
+        // صفحة المنتج This Is Product View
         $view = $this->view->render('admin/main-page/product');
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
 
 
-    public function allcategory()
+    public function allCategory()
     {
-        $view = $this->view->render('admin/main-page/category');
+//pre($this->load->model('Home')->getAllCategory());
+
+        $data['allCategory'] = $this->load->model('Home')->getAllCategory();
+        $view = $this->view->render('admin/main-page/category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
 
 
-    public function subcategory()
+    public function subCategory($subCategoryId)
     {
-        $view = $this->view->render('admin/main-page/sub-category');
+       $subCategoryModel = $this->load->model('Home')->getAllSubCategory($subCategoryId);
+       if(count($subCategoryModel) == 0) {
+          return $this->productComingSoon();
+
+        }
+
+//        $data['maincategory'] = $this->load->model('Home')->getAllMainSubCategory($subCategoryId);
+//       // $mainSubCategoryModel = (array) $mainSubCategoryModel;
+//       // $data['maincategory'] = array_get($mainSubCategoryModel, 'sub_category_id');
+        $data['subcategories'] = $this->load->model('Home')->getAllSubCategory($subCategoryId);
+        $view = $this->view->render('admin/main-page/sub-category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
 
 
-    public function maincategory()
+    public function mainCategory($mainSubCategoryId)
     {
-        $view = $this->view->render('admin/main-page/main-category');
+        //pre($this->load->model('Home')->getAllMainSubCategory(15));
+        $mainSubCategoryModel = $this->load->model('Home')->getAllMainSubCategory($mainSubCategoryId);
+
+
+        if(count($mainSubCategoryModel) == 0) {
+            return $this->productComingSoon();
+
+        }
+        $data['mainSubcategories'] = $this->load->model('Home')->getAllMainSubCategory($mainSubCategoryId);
+
+        $view = $this->view->render('admin/main-page/main-category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
 
 
+    public function productfilter()
+    {
+        //product-filter
+        $view = $this->view->render('admin/main-page/product-filter');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        return $this->webLayout->render($view, $title);
+    }
+
+
+    private function productComingSoon()
+    {
+        $view = $this->view->render('admin/main-page/no-product');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        return $this->webLayout->render($view, $title);
+    }
+
+    public function test()
+    {
+        $mainSubCategoryModel = $this->load->model('Home')->getMainAndSubCategory(13);
+        //$mainSubCategoryModel = (array) $mainSubCategoryModel;
+      //  $mainSubCategoryModel =  $this->ToArray($mainSubCategoryModel);
+//
+//       $maincategory= array_get($mainSubCategoryModel, 'id');
+       pre($mainSubCategoryModel) ;
+        //pre($this->load->model('Home')->getMainAndSubCategory(13));
+    }
 
 }
