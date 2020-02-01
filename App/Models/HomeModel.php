@@ -66,6 +66,56 @@ class HomeModel extends Model
     }
 
 
+    public function getProductByMainCategoryId($id)
+    {
+        return $this->select('p.*', 'c.name  AS `category`',
+            'i.name AS `Image`, i.status AS `Status`',
+            's.name AS `subCategory`', 'm.name  AS `minCategory`', 'm.id AS `main_sub_id`')
+            ->from('products p')
+            ->join('LEFT JOIN categories c ON p.category_id=c.id')
+            ->join('LEFT JOIN sub_category s ON p.sub_category_id=s.id')
+            ->join('LEFT JOIN min_sub_category m ON p.min_sub_category_id=m.id')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('min_sub_category_id=? AND i.Status=?',$id,'enabled')
+            ->fetchAll();
+    }
 
+    public function getProductById($id)
+    {
+        return $this->select('p.*', 'b.name AS `brand`', 'c.name  AS `category`',
+            'i.name AS `Image`, i.status AS `Status`',
+            's.name AS `subCategory`', 'm.name  AS `minCategory`', 'm.id AS `main_sub_id`')
+            ->from('products p')
+            ->join('LEFT JOIN brand b ON p.brand=b.id')
+            ->join('LEFT JOIN categories c ON p.category_id=c.id')
+            ->join('LEFT JOIN sub_category s ON p.sub_category_id=s.id')
+            ->join('LEFT JOIN min_sub_category m ON p.min_sub_category_id=m.id')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('p.id=? AND i.Status=?',$id,'enabled')
+            ->fetchAll();
+    }
+
+
+    public function userProduct($id)
+    {
+        return $this->query("SELECT * FROM user_product WHERE product_id=?", $id)->fetchAll();
+    }
+
+    public function getSeeBeforeProduct($id)
+    {
+        return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`',
+                            'u.product_id')
+            ->from('products p')
+            ->join('LEFT JOIN user_product u ON p.id=u.product_id')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('u.ip=? AND i.Status=?',$id,'enabled')
+            ->fetchAll();
+    }
+
+
+    public function getLikeProduct($productName)
+    {
+        return $this->query("SELECT * FROM products WHERE name LIKE '%$productName%'")->fetchAll();
+    }
 
 }

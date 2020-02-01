@@ -23,10 +23,10 @@
            </select>
        </div>
 
-        <div class="form-group col-md-12">
-            <label for="title">Hint Description</label>
-            <textarea class="form-control textarea"  name="title" id="title" cols="30" rows="6" ><?php echo $title; ?></textarea>
-        </div>
+<!--        <div class="form-group col-md-12">-->
+<!--            <label for="title">Hint Description</label>-->
+<!--            <textarea class="form-control textarea"  name="title" id="title" cols="30" rows="6" >--><?php //echo $title; ?><!--</textarea>-->
+<!--        </div>-->
 
         <div class="form-group col-md-3">
             <select class="form-control" name="categories" id="product_categories">

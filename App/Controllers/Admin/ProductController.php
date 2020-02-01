@@ -4,6 +4,17 @@ namespace App\Controllers\Admin;
 
 use System\Controller;
 
+/**
+ * @property mixed html
+ * @property mixed load
+ * @property mixed session
+ * @property mixed view
+ * @property mixed Layout
+ * @property mixed db
+ * @property mixed url
+ * @property mixed request
+ * @property mixed validator
+ */
 class ProductController extends Controller
 {
 
@@ -77,7 +88,7 @@ class ProductController extends Controller
 
         $data['id']         = array_get($productModel, 'id');
         $data['name']       = array_get($productModel, 'name');
-        $data['title']      = array_get($productModel, 'title');
+       // $data['title']      = array_get($productModel, 'title');
         $data['description']= array_get($productModel, 'description');
         $data['country']    = array_get($productModel, 'country');
         $data['unit']       = array_get($productModel, 'unit');
@@ -194,7 +205,7 @@ class ProductController extends Controller
     private function isValid(){
 
         $this->validator->required(rtrim('name'),'name Is Required');
-        $this->validator->required(rtrim('title'), ' Title  Is Required');
+        //$this->validator->required(rtrim('title'), ' Title  Is Required');
         $this->validator->required('description', ' Descriptions Is Required');
         $this->validator->required('country', ' Country Is Required');
         $this->validator->required('unit', ' Unit Is Required');

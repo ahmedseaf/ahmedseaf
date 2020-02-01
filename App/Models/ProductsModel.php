@@ -4,6 +4,11 @@ namespace App\Models;
 
 use System\Model;
 
+/**
+ * @property mixed request
+ * @property mixed load
+ * @property mixed session
+ */
 class ProductsModel extends Model
 {
 
@@ -31,7 +36,7 @@ class ProductsModel extends Model
 
         $lastProduct = $this->data('name', $this->request->post('name'))
                             ->data('country', $this->request->post('country'))
-                            ->data('title', $this->request->post('title'))
+                           // ->data('title', $this->request->post('title'))
                             ->data('description', $this->request->post('description'))
                             ->data('brand', $this->request->post('brand'))
                             ->data('discount', $this->request->post('discount'))
@@ -88,7 +93,7 @@ class ProductsModel extends Model
 
         $this->data('name', $this->request->post('name'))
             ->data('country', $this->request->post('country'))
-            ->data('title', $this->request->post('title'))
+           // ->data('title', $this->request->post('title'))
             ->data('description', $this->request->post('description'))
             ->data('brand', $this->request->post('brand'))
             ->data('discount', $this->request->post('discount'))
@@ -276,6 +281,10 @@ class ProductsModel extends Model
     }
 
 
+    public function getAllImage($id)
+    {
+        return $this->query('SELECT * FROM product_image WHERE product_id=?', $id)->fetchAll();
+    }
 
 
 }

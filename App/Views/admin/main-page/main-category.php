@@ -34,7 +34,7 @@
                        <img src="<?php echo assets('images/'. $mainSubcategory->image)?>" alt="">
                    </div>
                    <div class="categoryInfo">
-                       <a href="<?php echo url('main-category/filter/'.$mainSubcategory->sub_category_id . '/' . rawurlencode(str_replace(' ', '-',$mainSubcategory->name)));?>"><h2> <?php echo $mainSubcategory->name?></h2></a>
+                       <a href="<?php echo url('product/filter/'.$mainSubcategory->id . '/' . rawurlencode(str_replace(' ', '-',$mainSubcategory->name)));?>"><h2> <?php echo $mainSubcategory->name?></h2></a>
                    </div>
 
            </div>

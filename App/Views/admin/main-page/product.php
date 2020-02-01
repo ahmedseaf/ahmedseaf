@@ -1,35 +1,28 @@
 <div class="container" style="direction: rtl">
     <div class="preLine mb-2" >
-        <h4> <a href="#"> الرئيسية </a>   / <a href="#"> القسم الرئيسى </a> /  <a href="#">  القسم الفرعى </a> </h4>
     </div>
+
     <div class="productView">
+        <?php if (isset($productsView)) : foreach ($productsView AS $product) : ?>
         <div class="productInformation">
             <div class="lineOne">
                 <div class="productTitle">
-                    <h1>ماكينة لحام ايساب 400 امبير 380 فولت</h1>
+                    <h1><?php echo $product->name?></h1>
                 </div>
-                <div class="price"> 648.00 <span>جنيه</span></div>
+                <div class="price"> <?php echo $product->price?> <span><?php echo $product->currency?></span></div>
             </div>
 
             <div class="lineTow">
-                <div class="madeIn"><h6>صنع فى الصين</h6>   </div>
-                <div class="unit"><h6>الوحدة - مجموعة </h6> </div>
+                <div class="madeIn"><h6>صنع فى <?php echo $product->country?></h6>   </div>
+                <div class="unit"><h6>الوحدة - <?php echo $product->unit?> </h6> </div>
                 <div class="status"><h6>متوفر</h6>          </div>
-                <div class="discount"><h6>خصم 10 %</h6>     </div>
+                <div class="discount"><h6><?php echo $product->discount > 0 ? 'خصم  '.$product->discount .'  % ': ' ' ?></h6>     </div>
             </div>
 
             <div class="lineTree">
 
                 <div class="descriptions">
-                    <p>صاروخ جلخ 4 بوصة ماكيتا 1100 وات
-                        11000 لفة / الدقيقة - الوزن 1.8 كجم
-                        السعر - 2520
-                        ----------
-                        يضاف 14 % ضريبة القيمة المضافة
-                        -----------
-                        شركة الحرية للتوريدات
-                        موزع معتمد لجميع منتجات ماكيتا
-                         جميع المنتجاتت اصلية 100% </p>
+                    <p><?php echo htmlspecialchars_decode($product->description)?> </p>
 
                 </div>
                 <div class="callMe">
@@ -45,20 +38,13 @@
 
             <div class="lineFore">
                 <div class="options">Options</div>
-                <div class="optionsView">
-                    <div class="optionKey">Color</div>
-                    <div class="optionValue">Red</div>
-                </div>
 
-                <div class="optionsView">
-                    <div class="optionKey">الشحن</div>
-                    <div class="optionValue">جميع المحافظات</div>
-                </div>
-
-                <div class="optionsView">
-                    <div class="optionKey">حالة المنتج</div>
-                    <div class="optionValue">منتج جديد ضمان سنة</div>
-                </div>
+                <?php if (isset($options)) : foreach ($options As $option) : ?>
+                    <div class="optionsView">
+                        <div class="optionKey"><?php echo $option->name?></div>
+                        <div class="optionValue"><?php echo $option->description?></div>
+                    </div>
+                <?php endforeach; endif; ?>
 
             </div>
         </div>
@@ -66,18 +52,16 @@
         <div class="productImage">
             <div class="imageContainer">
                 <div class="itemActive">
-                    <img src="https://placeimg.com/200/200/any" alt="">
+                    <img src="<?php echo assets('images/test/'.$product->Image)?>" alt="<?php echo $product->name ?>">
                 </div>
                 <div class="items">
-                    <img class="selected" src="https://placeimg.com/200/200/any" alt="">
-                    <img src="https://placeimg.com/200/201/any" alt="">
-                    <img src="https://placeimg.com/1201/600/any" alt="">
-                    <img src="https://placeimg.com/200/202/any" alt="">
-                    <img src="https://placeimg.com/202/200/any" alt="">
+                    <?php if (isset($images)) : foreach ($images As $image) : ?>
+                        <img class="<?php echo $image->status == 'enabled' ? 'selected' : ''?>" src="<?php echo assets('images/test/'.$image->name)?>" alt="<?php echo $product->name ?>">
+                    <?php endforeach; endif; ?>
                 </div>
             </div>
         </div>
-
+    <?php endforeach; endif; ?>
     </div>
 
 
@@ -86,7 +70,9 @@
         <div class="container">
             <div class="productSliders">
                 <div class="slidersTitle">
-                    <h4>شاهدت مؤخرا </h4>
+
+                        <h4>شاهدت مؤخرا </h4>
+
                 </div>
                 <div class="moveControl">
                     <div id="prevSlide6" class="prevSlide"><i class="fas fa-arrow-left"></i></div>
@@ -94,51 +80,21 @@
                 </div>
 
                 <div class="products products6">
+
+
+                    <?php if(isset($seeBefore)) : foreach ($seeBefore AS $see) : ?>
                     <div class="product product6">
                         <div class="productFlex">
                             <div class="productImg">
-                                <img src="https://placeimg.com/1200/650/any" alt="">
+                                <a href="<?php echo url('product/view/'.$see->id . '/' . rawurlencode(str_replace(' ', '-',$see->name)))?>"><img src="<?php echo assets('images/test/'.$see->Image)?>" alt="<?php echo  $see->name?>"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
+
+                    <?php endforeach; endif; ?>
+
+
+
                 </div>
             </div>
         </div>
@@ -161,13 +117,17 @@
                 </div>
 
                 <div class="products products7" >
+
+
+                    <?php if (isset($likeProducts)) : foreach ($likeProducts As $likeProduct) : ?>
+
                     <div class="product product7" >
                         <div class="productFlex">
                             <div class="productImg">
                                 <img src="https://placeimg.com/200/150/any" alt="">
                             </div>
                             <div class="productTitle">
-                                <h3> Welding Machine Lincoln DC</h3>
+                                <h3><?php echo $likeProduct->name?> </h3>
                             </div>
                             <div class="productStar">
                                 <i class="fas fa-star"></i>
@@ -187,6 +147,15 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <?php endforeach; endif; ?>
+
+
+
+
+
+
                     <div class="product">
                     </div>
                     <div class="product">

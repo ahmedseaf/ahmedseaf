@@ -69,10 +69,40 @@ class HomeController extends Controller
 
 
 
-    public function productView()
+    public function productView($productId)
     {
-        // صفحة المنتج This Is Product View
-        $view = $this->view->render('admin/main-page/product');
+        $productModel = $this->load->model('Home')->getProductById($productId);
+        if(count($productModel) == 0) {
+            return $this->productComingSoon();
+
+        }
+
+        $data['options'] = $this->load->model('Products')->getOptions($productId);
+        $data['images'] = $this->load->model('Products')->getAllImage($productId);
+        $data['productsView'] = $this->load->model('Home')->getProductById($productId);
+
+        $userIp = $_SERVER['SERVER_ADDR'];
+        $countProduct = $this->load->model('Home')->userProduct($productId);
+        if(count($countProduct) == 0 ){
+            $this->db->data('ip', $userIp)
+                ->data('product_id', $productId)
+                ->insert('user_product');
+        }
+
+
+
+        $data['seeBefore'] = $this->load->model('Home')->getSeeBeforeProduct($userIp) ;
+
+
+        $productName = $this->load->model('Home')->getProductById($productId);
+        $productName = $this->ToArray($productName);
+        $proName = $productName['name'];
+
+
+        $data['likeProducts'] = $this->load->model('Home')->getLikeProduct($proName);
+
+
+        $view = $this->view->render('admin/main-page/product',$data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
@@ -125,10 +155,20 @@ class HomeController extends Controller
     }
 
 
-    public function productfilter()
+    public function productFilter($productId)
     {
-        //product-filter
-        $view = $this->view->render('admin/main-page/product-filter');
+
+
+        $productModel = $this->load->model('Home')->getProductByMainCategoryId($productId);
+
+
+        if(count($productModel) == 0) {
+            return $this->productComingSoon();
+
+        }
+
+        $data['products'] = $this->load->model('Home')->getProductByMainCategoryId($productId);
+        $view = $this->view->render('admin/main-page/product-filter', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
@@ -143,13 +183,23 @@ class HomeController extends Controller
 
     public function test()
     {
-        $mainSubCategoryModel = $this->load->model('Home')->getMainAndSubCategory(13);
+        //$mainSubCategoryModel = $this->load->model('Home')->getMainAndSubCategory(13);
         //$mainSubCategoryModel = (array) $mainSubCategoryModel;
       //  $mainSubCategoryModel =  $this->ToArray($mainSubCategoryModel);
 //
 //       $maincategory= array_get($mainSubCategoryModel, 'id');
-       pre($mainSubCategoryModel) ;
+     //  pre($this->load->model('Home')->getProductById(11)) ;
+     // pre($this->load->model('Home')->getSeeBeforeProduct($_SERVER['REMOTE_ADDR'])) ;
+     //  pre($this->load->model('Products')->getAllImage(11)) ;
         //pre($this->load->model('Home')->getMainAndSubCategory(13));
+
+//        $productName = $this->load->model('Home')->getProductById(11);
+//        $productName = $this->load->model('Home')->getLikeProduct('نجارة');
+//        pre($productName);
+//        $productName = $this->ToArray($productName);
+//        pre($productName['name']);
+       // $productName = (array) $productName;
+        //pre(array_get($productName, 'id'));
     }
 
 }
