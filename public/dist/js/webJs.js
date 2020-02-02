@@ -322,3 +322,34 @@ $(document).ready(function () {
         })
     }());
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// For Color Theme And Save Colors In Local Storage
+$('.navbarContainer .navContainer .navMenu .navController .navTheme').on('click', function () {
+    $('.navbarContainer .navContainer .navMenu .navController .theme').toggleClass('active');
+});
+localStorage.getItem('change');
+let style = getComputedStyle(document.body);
+let currentColor = '';
+let myThemes = document.querySelectorAll('.navbarContainer .navContainer .navMenu .navController .theme .item');
+myThemes.forEach(myTheme => {
+   myTheme.addEventListener('click', () => {
+       let colorTheme = myTheme.getAttribute('data-main-color');
+       document.body.style.setProperty('--main-color', colorTheme);
+       currentColor = style.getPropertyValue('--main-color');
+       localStorage.setItem('change', String(currentColor));
+   }) ;
+});
+document.body.style.setProperty('--main-color', localStorage.getItem('change'));
+

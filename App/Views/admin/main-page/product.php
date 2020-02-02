@@ -120,11 +120,10 @@
 
 
                     <?php if (isset($likeProducts)) : foreach ($likeProducts As $likeProduct) : ?>
-
-                    <div class="product product7" >
+                        <div class="product product7" >
                         <div class="productFlex">
                             <div class="productImg">
-                                <img src="https://placeimg.com/200/150/any" alt="">
+                                <img src="<?php  echo assets('images/test/'. $likeProduct->Image)?>" alt="<?php echo $likeProduct->name?>">
                             </div>
                             <div class="productTitle">
                                 <h3><?php echo $likeProduct->name?> </h3>
@@ -137,63 +136,20 @@
                                 <i class="fas fa-star"></i>
                             </div>
                             <div class="productPrice">
-                                <h3>  جنيه مصري 1200</h3>
+                                <h3> <?php echo $likeProduct->price?> <span><?php echo $likeProduct->currency?></span></h3>
                             </div>
-                            <div class="productDiscount">
-                                <h4>خصم  %10 </h4>
-                            </div>
+                            <?php if ($likeProduct->discount > 0) : ?>
+                                <div class="productDiscount">
+                                    <h4> <?php echo 'خصم  '.$likeProduct->discount .'  % ' ?> </h4>
+                                </div>
+                            <?php endif; ?>
                             <div class="readMore">
-                                <h3>مزيد من التفاصيل</h3>
+                           <a href="<?php echo url('product/view/'.$likeProduct->id . '/' . rawurlencode(str_replace(' ', '-',$likeProduct->name)));?>"> <h3>مزيد من التفاصيل</h3></a>
                             </div>
                         </div>
                     </div>
-
-
                     <?php endforeach; endif; ?>
 
-
-
-
-
-
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
-                    <div class="product">
-                    </div>
                 </div>
             </div>
         </div>

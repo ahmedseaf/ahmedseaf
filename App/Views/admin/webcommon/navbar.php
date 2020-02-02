@@ -237,7 +237,26 @@
                     <img src="https://placeimg.com/50/50/any" 
                     style="border-radius: 50%;" alt="">
                     <a class="mainLink" href="#">Login</a></div>
-                <div class="navWelcome">Welcome</div>
+                <div class="navTheme">
+                    <div class="theme">
+                        <div class="item" data-main-color="#1abb9b"></div>
+                        <div class="item" data-main-color="#bb7b1a"></div>
+                        <div class="item" data-main-color="#64625e"></div>
+                        <div class="item" data-main-color="#a45151"></div>
+                        <div class="item" data-main-color="#d7a128"></div>
+                        <div class="item" data-main-color="#967f4b"></div>
+                        <div class="item" data-main-color="#715109"></div>
+                        <div class="item" data-main-color="#6f5f96"></div>
+                        <div class="item" data-main-color="#564d6c"></div>
+                        <div class="item" data-main-color="#834275"></div>
+                        <div class="item" data-main-color="#c93a3a"></div>
+                        <div class="item" data-main-color="#e09090"></div>
+                        <div class="item" data-main-color="#426e54"></div>
+                        <div class="item" data-main-color="#2980aa"></div>
+                        <div class="item" data-main-color="#5b8193"></div>
+                        <div class="item" data-main-color="#4483b0"></div>
+                    </div>
+                </div>
             </div>
 
             

@@ -103,7 +103,7 @@ class HomeController extends Controller
 
 
         $view = $this->view->render('admin/main-page/product',$data);
-        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        $title  = $this->html->setTitle($proName .' - شركة الحرية للتوريدات ');
         return $this->webLayout->render($view, $title);
     }
 
@@ -194,12 +194,15 @@ class HomeController extends Controller
         //pre($this->load->model('Home')->getMainAndSubCategory(13));
 
 //        $productName = $this->load->model('Home')->getProductById(11);
-//        $productName = $this->load->model('Home')->getLikeProduct('نجارة');
-//        pre($productName);
+        $productName = $this->load->model('Home')->getLikeProduct('منتج نجارة 1');
+        pre($productName);
 //        $productName = $this->ToArray($productName);
 //        pre($productName['name']);
        // $productName = (array) $productName;
         //pre(array_get($productName, 'id'));
+//        $word = 'welcome Ahmed';
+//        $word = substr($word, 0, 9);
+//        echo $word;
     }
 
 }

@@ -115,7 +115,17 @@ class HomeModel extends Model
 
     public function getLikeProduct($productName)
     {
-        return $this->query("SELECT * FROM products WHERE name LIKE '%$productName%'")->fetchAll();
+        $secondWords = substr($productName, 0, 9);
+        return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`",
+            "u.product_id")
+            ->from("products p")
+            ->join("LEFT JOIN user_product u ON p.id=u.product_id")
+            ->join("LEFT JOIN product_image i ON p.id=i.product_id")
+            ->where("p.name LIKE '%$secondWords%' AND i.Status=?","enabled")
+            ->fetchAll();
+
+
+
     }
 
 }

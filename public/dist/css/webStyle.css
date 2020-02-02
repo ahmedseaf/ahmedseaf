@@ -266,6 +266,64 @@ img{
     margin-right: 0.2rem;
 }
 
+.navbarContainer .navContainer .navMenu .navController .navTheme{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navController .theme{
+    width: 220px;
+    position: absolute;
+    top: 100%;
+    background-color: #edf8fc;
+    border-radius: 5px;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    grid-gap: 0.5rem;
+    align-items: start;
+    grid-template-rows: 40px 40px 40px;
+    padding: 1rem;
+    cursor: default;
+    transition: all 0.6s ease-in;
+    opacity: 0;
+}
+
+.navbarContainer .navContainer .navMenu .navController .active{
+    opacity: 1;
+    transition: all 0.6s ease-in;
+}
+
+.navbarContainer .navContainer .navMenu .navController .theme .item{
+    width: 100%;
+    height: 20px;
+    border-radius: 3px;
+    background-color: #2e6da4;
+    cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(1){background-color: #1abb9b }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(2){background-color: #bb7b1a }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(3){background-color: #64625e }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(4){background-color: #a45151 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(5){background-color: #d7a128 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(6){background-color: #967f4b }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(7){background-color: #715109 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(8){background-color: #6f5f96 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(9){background-color: #564d6c }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(10){background-color: #834275 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(11){background-color: #c93a3a }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(12){background-color: #e09090 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(13){background-color: #426e54 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(14){background-color: #2980aa }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(15){background-color: #5b8193 }
+.navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(16){background-color: #4483b0 }
+
+
+
+
 /*  Start Home In navbar  */
 .navbarContainer .navContainer .navMenu .navMega .home{
     /* width: 540px;

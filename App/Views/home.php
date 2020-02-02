@@ -107,7 +107,7 @@
 
 
 <!-- Start Product Sliders -1  Best Offer -->
-<div class="container">
+<div class="container" style="direction: rtl">
     <div class="productSliders">
         <div class="slidersTitle">
             <h4> عروض وتخفيضات </h4>
@@ -144,7 +144,7 @@
                             <h4> <?php  echo  ' % '. $bestOffer->discount . ' خصم '; ?>    </h4>
                         </div>
                         <div class="readMore">
-                            <a href="<?php echo url('product/' .  $bestOffer->id . '/' . rawurlencode(str_replace(' ', '-',$bestOffer->name))) ?>"><h3>مزيد من التفاصيل</h3></a>
+                            <a href="<?php echo url('product/view/' .  $bestOffer->id . '/' . rawurlencode(str_replace(' ', '-',$bestOffer->name))) ?>"><h3>مزيد من التفاصيل</h3></a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
 
 
 <!-- Start Product Sliders 2 -->
-<div class="container">
+<div class="container" style="direction: rtl">
     <div class="productSliders">
         <div class="slidersTitle">
             <h4>احدث المنتجات</h4>
@@ -197,7 +197,7 @@
                             </div>
                             <?php endif;?>
                             <div class="readMore">
-                                <h3>مزيد من التفاصيل</h3>
+                                <a href="<?php echo url('product/view/' .  $newProduct->id . '/' . rawurlencode(str_replace(' ', '-',$newProduct->name))) ?>"><h3>مزيد من التفاصيل</h3></a>
                             </div>
                         </div>
                     </div>
@@ -240,7 +240,7 @@
 
 
 <!-- Start Product Sliders -3 -->
-<div class="container">
+<div class="container" style="direction: rtl">
     <div class="productSliders">
         <div class="slidersTitle">
             <h4>احدث المنتجات</h4>
@@ -323,7 +323,7 @@
 
 
 <!-- Start Product Sliders -4 -->
-<div class="container">
+<div class="container" style="direction: rtl">
     <div class="productSliders">
         <div class="slidersTitle">
             <h4>احدث المنتجات</h4>
@@ -405,7 +405,7 @@
 <!-- End Product Sliders -4 -->
 
 <!-- Start Product Sliders -5 -->
-<div class="container">
+<div class="container" style="direction: rtl">
     <div class="productSliders">
         <div class="slidersTitle">
             <h4>احدث المنتجات</h4>
