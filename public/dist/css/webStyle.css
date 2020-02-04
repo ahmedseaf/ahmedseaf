@@ -95,6 +95,14 @@ img{
 
 
 
+/* Start Not Found Page*/
+.notFound404{
+    height: 100vh;
+    width: 100%;
+    background: url(http://mvc.com/public/images/bg/404.png) no-repeat center center fixed;
+}
+
+/* End Not Found Page*/
 
 
 
@@ -105,10 +113,108 @@ img{
 
 
 
+/* Start Login Page */
+
+@media screen and (max-width: 450px)
+{
+    .containerForm .containerCover .loginBorder{
+        width: auto !important;
+        left: 9% !important;
+    }
+}
+
+@media screen and (max-width: 670px)
+{
+    .containerForm .containerCover .loginBorder{
+        left: 20%;
+    }
+}
+.containerForm{
+    width: 100%;
+    height: 120vh;
+    position: relative;
+    top: -20px;
+    background: url(http://mvc.com/public/images/bg/7.jpg) no-repeat center center fixed;
+}
+.containerForm .containerCover{
+    width: 100%;
+    height: 100%;
+    background-color: #00000070;
+}
+.containerForm .containerCover .loginBorder{
+    margin: 40vh auto;
+    width: 300px;
+    height: 350px;
+    background-color: #bbbbbb3d;
+    border-radius: 1rem;
+    position: absolute;
+    left: 40%;
+    box-shadow: 0 2px 5px 0 rgba(194,161,194,1);
+    border: 2px solid #d9d9d98c;
+}
+
+.containerForm .containerCover .loginBorder .loginForm form{
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    grid-template-rows: 5rem 8rem;
+    width: 94%;
+    margin: 10% auto;
+
+}
+.containerForm .containerCover .loginBorder .loginForm form .fas{
+    color: white;
+    line-height: 2.4rem;
+    font-size: 1.2rem;
+    border: 1px solid white;
+    border-radius: 0.3rem;
+    text-align: center;
+    height: 2.5rem;
+}
+.containerForm .containerCover .loginBorder .loginForm form #aEmail,
+.containerForm .containerCover .loginBorder .loginForm form #checkEmail,
+.containerForm .containerCover .loginBorder .loginForm form #submit,
+.containerForm .containerCover .loginBorder .loginForm form #aSubmit,
+.containerForm .containerCover .loginBorder .loginForm form #checkPassword,
+.containerForm .containerCover .loginBorder .loginForm form #aPassword{
+    width: 100%;
+    height: 2.5rem;
+    border: 0.1rem solid #b9b1b1;
+    border-radius: 0.3rem;
+    background-color: #413d3d61;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.containerForm .containerCover .loginBorder .loginForm form #submit,
+.containerForm .containerCover .loginBorder .loginForm form #aSubmit{
+    grid-column: span 2;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+.containerForm .containerCover .loginBorder .loginForm form #submit:hover,
+.containerForm .containerCover .loginBorder .loginForm form #aSubmit:hover{
+    background-color: #000000a1;
+    transition: all 0.4s ease-in-out;
+}
 
 
+
+/* End Login Page */
 
 /* Start Nav Bar */
+
+@media (max-width: 852px){
+    .navbarContainer .navContainer .navMenu .navMega{
+        display: none;
+    }
+    .navbarContainer .navContainer .navMenu{
+        grid-template-columns: 150px 1fr !important;
+        justify-items: flex-end;
+
+    }
+
+}
+
 .navbarContainer{
     display: flex;
     height: 3.6rem;
@@ -134,12 +240,7 @@ img{
 }
 
 
-@media (max-width: 992px){
-    .navbarContainer .navContainer .navMenu .navMega{
-        display: none;   
-       }
-       
-}
+
 .navbarContainer .navContainer .navMenu .navMega > li{
  /*  direction: rtl; */
     position: relative;
@@ -229,6 +330,15 @@ img{
     text-transform: uppercase;
 }
 
+
+
+
+
+
+
+
+
+
 .navbarContainer .navContainer .navMenu .navLogo{
     border: 2px solid var(--border-color);
     border-radius: 1%;
@@ -244,34 +354,24 @@ img{
 
 .navbarContainer .navContainer .navMenu .navController{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
     align-items: center;
-}
-.navbarContainer .navContainer .navMenu .navController .navLogin{
-    display: flex;
-    align-items: center;
-
-}
-.navbarContainer .navContainer .navMenu .navController .navLogin .mainLink{
-    color: var(--link-color);
-    text-decoration: none;
+    width: 90px;
 }
 
-.navbarContainer .navContainer .navMenu .navController .navLogin img{
-    width: 100%;
-    background-size: cover;
-    background-clip: border-box;
-    background-position: center;
-    margin-right: 0.2rem;
-}
+
 
 .navbarContainer .navContainer .navMenu .navController .navTheme{
-    width: 20px;
-    height: 20px;
-    background-color: black;
-    border-radius: 50%;
     cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navController .navTheme .fab{
+    color: #ffffff;
+    font-size: 2rem;
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu:hover,
+.navbarContainer .navContainer .navMenu .navController .navTheme .fab:hover{
+    color: #000000b3;
 }
 .navbarContainer .navContainer .navMenu .navController .theme{
     width: 220px;
@@ -288,13 +388,15 @@ img{
     grid-template-rows: 40px 40px 40px;
     padding: 1rem;
     cursor: default;
-    transition: all 0.6s ease-in;
+    transition: all 0.4s ease-in-out;
     opacity: 0;
+    z-index: -1;
 }
 
 .navbarContainer .navContainer .navMenu .navController .active{
     opacity: 1;
-    transition: all 0.6s ease-in;
+    transition: all 0.4s ease-in-out;
+    z-index: 2;
 }
 
 .navbarContainer .navContainer .navMenu .navController .theme .item{
@@ -322,35 +424,50 @@ img{
 .navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(16){background-color: #4483b0 }
 
 
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu{
+    color: white;
+    font-size: 1.8rem;
+    padding-right: 1rem;
+    cursor: pointer;
 
+}
 
 /*  Start Home In navbar  */
+
 .navbarContainer .navContainer .navMenu .navMega .home{
-    /* width: 540px;
-    line-height: 1.6rem;
-    height: 250px;
-   display: flex;
-   /* flex-wrap: wrap; */ 
+    width: 620px;
+    display: grid;
+    grid-template-columns: 1fr;
+    cursor: default;
 }
-.navbarContainer .navContainer .navMenu .navMega .home .brand{
-    width: 570px;
-    line-height: normal;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-} 
-.navbarContainer .navContainer .navMenu .navMega .home .brand .childe{
-  width: 110px;
-  height: 50px;
-} 
-.navbarContainer .navContainer .navMenu .navMega .home .brand .childe > img{
- background-position: center;
- background-size: cover;
-  
-} 
-
-
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .allCategory{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .allCategory a h3{
+    color: var(--main-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .productCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 1.5rem;
+    justify-items: center;
+}
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .productCards .productCard{
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .productCards .productCard:hover,
+.navbarContainer .navContainer .navMenu .navMega .home .homeMvc .allCategory a h3:hover{
+    opacity: 0.7;
+}
 /*  End Home In navbar  */
 
 
@@ -358,110 +475,120 @@ img{
 /* Start Product In navbar */
 .navbarContainer .navContainer .navMenu .navMega .product{
     width: 750px;
-    line-height: 1.6rem;
-    overflow: hidden;
+    cursor: default;
+}
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer{
     display: grid;
-    grid-template-columns: 235px 235px 235px ;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 2rem;    
+    grid-template-columns: 1fr;
+    cursor: default;
 }
-.navbarContainer .navContainer .navMenu .navMega .product{
-    display: none;
-}
-
-.navbarContainer .navContainer .navMenu .navMega .product .headerProduct{
-    display: flex;
-    justify-content: space-between;
-}
-.navbarContainer .navContainer .navMenu .navMega .product .headerProduct .productContent{
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCategory{
     display: grid;
-    grid-template-columns: 50px 1fr;
-    align-items: center;
-    grid-gap: 0.5rem;
-    justify-content: start;
-    justify-items: start;
+    grid-template-columns: 60px 1fr 60px 1fr 60px 1fr;
+    grid-column-gap: 0.3rem;
+    grid-template-rows: 60px;
+    justify-content: center;
 }
-.navbarContainer .navContainer .navMenu .navMega .product .headerProduct .productContent .productImg{
-    width: 100%;
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCategory .categoryImage{
+    width: 60px;
+    height: 60px;
     overflow: hidden;
 }
-.navbarContainer .navContainer .navMenu .navMega .product .headerProduct .productContent .productImg img{
-    width: 100%;
-    border-radius: 50%;
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCategory .categoryInfo h2{
+    color: var(--main-color);
+    font-size: 1rem;
+    line-height: 2.5rem;
+    cursor: pointer;
 }
 
-
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct{
-   margin-top: 2rem; 
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productSlid:before{
+    content: "";
+    width: 400px;
+    height: 1px;
+    background-color: var(--main-color);
+    color: var(--main-color);
+    text-align: center;
+    position: absolute;
+    left: 20%;
 }
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct .card{
-    display: flex;
-    flex-direction: column;
-    padding: 0.1rem;
-    border: 4px solid rgb(98, 98, 131);
-    border-radius: 0.7rem;
-    max-width: 175px !important;
-    max-height: 250px !important;
-    justify-content: center;
-    justify-items: center;
-
-}
-
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct .cardImage{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productSlid .productSlideImage{
+    box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.6);
     overflow: hidden;
-}
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct .cardImage img{
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
-}
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct .cardInfo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.8);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: #fff;
-}
-
-
-.navbarContainer .navContainer .navMenu .navMega .product .footerProduct{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.navbarContainer .navContainer .navMenu .navMega h2{
-    font-size: 0.9rem;
-    font-weight: normal;
-}
-
-.navbarContainer .navContainer .navMenu .navMega h2:hover{
-    border-bottom: 2px solid #9882BB;
-}
-.navbarContainer .navContainer .navMenu .navMega .verticalLine{
-    height: 0.1rem;
-    width: 70%;
-    background: linear-gradient(34deg, rgba(36,3,0,1) 0%, rgba(121,9,38,1) 35%, rgba(255,186,0,1) 100%);
-    margin: 1px auto;
+    margin-top: 1.5rem;
+    height: 100px;
 
 }
-
-.navbarContainer .navContainer .navMenu .navMega .horizontalLine{
-    width: 0.1rem;
-    height: auto;
-    background: linear-gradient(34deg, rgba(36,3,0,1) 0%, rgba(121,9,38,1) 35%, rgba(255,186,0,1) 100%);
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 1.5rem;
 }
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCards .productCard{
+    height: 200px;
+    width: 150px;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    border: 2px solid var(--main-color);
+    border-radius: 1rem;
+}
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCards .productCard:hover,
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productCategory .categoryInfo h2:hover,
+.navbarContainer .navContainer .navMenu .navMega .product .productContainer .productSlid .productSlideImage:hover{
+    opacity: 0.7;
+}
+
 
 /* End Product In navbar */
+
+
+/* Start Brand In Navbar*/
+
+
+.navbarContainer .navContainer .navMenu .navMega .brand{
+    width: 650px;
+    cursor: default;
+}
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandImages{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandImages .brandImg{
+    height: 55px;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    margin-top: 2rem;
+
+}
+
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandCard .brandItem{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid var(--main-color);
+    border-radius: 1rem;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandCard .brandItem:hover,
+.navbarContainer .navContainer .navMenu .navMega .brand .brandMega .brandImages .brandImg:hover{
+    opacity: 0.7;
+}
+
+/* End Brand In Navbar*/
 
 
 /* End Nav Bar */

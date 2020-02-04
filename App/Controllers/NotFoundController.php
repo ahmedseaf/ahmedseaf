@@ -10,7 +10,9 @@ class NotFoundController extends Controller
 
     public function index()
     {
-        echo 'This Page Is Not Found ' ;
+        $title = $this->app->html->setTitle('404');
+        $view   = $this->app->view->render('admin/not-found');
+        return $this->app->webLayout->render($view, $title);
     }
 
 

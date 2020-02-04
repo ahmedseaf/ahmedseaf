@@ -82,7 +82,7 @@ class HomeModel extends Model
 
     public function getProductById($id)
     {
-        return $this->select('p.*', 'b.name AS `brand`', 'c.name  AS `category`',
+        return $this->select('p.*', 'b.name AS `brand`', 'b.id AS `brandId`', 'c.name  AS `category`',
             'i.name AS `Image`, i.status AS `Status`',
             's.name AS `subCategory`', 'm.name  AS `minCategory`', 'm.id AS `main_sub_id`')
             ->from('products p')
@@ -108,7 +108,7 @@ class HomeModel extends Model
             ->from('products p')
             ->join('LEFT JOIN user_product u ON p.id=u.product_id')
             ->join('LEFT JOIN product_image i ON p.id=i.product_id')
-            ->where('u.ip=? AND i.Status=?',$id,'enabled')
+            ->where('u.ip=? AND i.Status=? LIMIT 20',$id,'enabled')
             ->fetchAll();
     }
 
@@ -121,11 +121,20 @@ class HomeModel extends Model
             ->from("products p")
             ->join("LEFT JOIN user_product u ON p.id=u.product_id")
             ->join("LEFT JOIN product_image i ON p.id=i.product_id")
-            ->where("p.name LIKE '%$secondWords%' AND i.Status=?","enabled")
+            ->where("p.name LIKE '%$secondWords%' AND i.Status=? LIMIT 30","enabled")
             ->fetchAll();
+    }
 
 
+    public function likeBrand($productBrand)
+    {
+        return $this->select('p.*',
+            'i.name AS `Image`, i.status AS `Status`')
+            ->from('products p')
 
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('p.brand=? AND i.Status=?',$productBrand,'enabled')
+            ->fetchAll();
     }
 
 }

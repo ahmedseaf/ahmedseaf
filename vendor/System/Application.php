@@ -12,6 +12,7 @@ use Whoops\Handler\PrettyPageHandler;
  * @property mixed request
  * @property mixed file
  * @property mixed session
+ * @property mixed load
  */
 class Application
 {

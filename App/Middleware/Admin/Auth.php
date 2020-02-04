@@ -20,13 +20,13 @@ class Auth implements MiddlewareInterface
 
             $loginModel = $app->load->model('Login');
 
-            $ignorePages = ['/admin/login', '/admin/login/submit'];
+            $ignorePages = ['/user/login', '/user/login-user'];
 
             $currentRoute = $app->route->currentRouteUrl();
 
             if ( ($isNotLogged = ! $loginModel->isLogged() ) AND ! in_array($currentRoute , $ignorePages)) {
 
-                return $app->url->redirectTo('/admin/login');
+                return $app->url->redirectTo('/user/login');
 
             }
 

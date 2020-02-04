@@ -105,6 +105,7 @@
 
     <!-- Start Like Product Sliders  -->
     <div class="likeProduct">
+        <?php if(isset($likeProducts)) : if(count($likeProducts) > 1 ) : ?>
         <div class="container">
             <div class="productSliders">
                 <div class="slidersTitle">
@@ -153,8 +154,67 @@
                 </div>
             </div>
         </div>
+        <?php endif; endif; ?>
     </div>
     <!-- End Like Product Sliders  -->
+
+
+<!--    Start Select Like Brand Random-->
+
+    <div class="likeBrand">
+        <?php if(isset($likeBrands)) : if(count($likeBrands) > 1 ) : ?>
+        <div class="container">
+            <div class="productSliders">
+                <div class="slidersTitle">
+                    <h4>منتجات تابعة للعلامة التجارية</h4>
+                </div>
+
+                <div class="moveControl">
+                    <div id="prevSlide8" class="prevSlide"><i class="fas fa-arrow-left"></i></div>
+                    <div id="nextSlide8" class="nextSlide"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="products products8" >
+
+
+                    <?php if (isset($likeBrands)) : foreach ($likeBrands As $likeBrand) : ?>
+                        <div class="product product7" >
+                            <div class="productFlex">
+                                <div class="productImg">
+                                    <img src="<?php  echo assets('images/test/'. $likeBrand->Image)?>" alt="<?php echo $likeBrand->name?>">
+                                </div>
+                                <div class="productTitle">
+                                    <h3><?php echo $likeBrand->name?> </h3>
+                                </div>
+                                <div class="productStar">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="productPrice">
+                                    <h3> <?php echo $likeBrand->price?> <span><?php echo $likeBrand->currency?></span></h3>
+                                </div>
+                                <?php if ($likeBrand->discount > 0) : ?>
+                                    <div class="productDiscount">
+                                        <h4> <?php echo 'خصم  '.$likeBrand->discount .'  % ' ?> </h4>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="readMore">
+                                    <a href="<?php echo url('product/view/'.$likeBrand->id . '/' . rawurlencode(str_replace(' ', '-',$likeBrand->name)));?>"> <h3>مزيد من التفاصيل</h3></a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; endif; ?>
+
+                </div>
+            </div>
+        </div>
+        <?php endif;  endif;?>
+    </div>
+
+<!--    End Select Like Brand Random-->
 
 </div>
 

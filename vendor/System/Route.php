@@ -6,6 +6,10 @@ namespace System;
 
 use Exception;
 
+/**
+ * @property  html
+ * @property  html
+ */
 class Route
 {
     /***
@@ -188,11 +192,13 @@ class Route
                 return $output;
             }
         }
-        //TODO mack the Redirect To 404
 
-        echo 'This Page Not Found';
-        pre($this->app->request->url());
-        //return $this->app->url->redirectTo($this->notFound);
+
+
+        $title = $this->app->html->setTitle('404');
+        $view   = $this->app->view->render('admin/not-found');
+        return $this->app->webLayout->render($view, $title);
+
     }
 
 

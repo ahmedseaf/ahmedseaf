@@ -255,7 +255,15 @@ if(slideWidth8 != null) {
 //    $(this).toggleClass('far fas');
 // });
 
+// Change Menu Small
+const fav = $('.navbarContainer .navContainer .navMenu .navController .navSmallMenu .fas');
 
+fav.on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('fa-bars fa-angle-double-down');
+});
+// .navbarContainer .navContainer .navMenu .navController .navSmallMenu .fas
+//<i class="fas fa-angle-double-down"></i>
 
         // Start Product Page
 // For Show Phone Number
@@ -352,4 +360,9 @@ myThemes.forEach(myTheme => {
    }) ;
 });
 document.body.style.setProperty('--main-color', localStorage.getItem('change'));
+
+
+
+
+// For Last Login Page
 

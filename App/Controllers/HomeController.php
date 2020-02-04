@@ -99,8 +99,10 @@ class HomeController extends Controller
         $proName = $productName['name'];
 
 
-        $data['likeProducts'] = $this->load->model('Home')->getLikeProduct($proName);
+        $productBrand = $productName['brandId'];
 
+        $data['likeProducts'] = $this->load->model('Home')->getLikeProduct($proName);
+        $data['likeBrands'] = $this->load->model('Home')->likeBrand($productBrand);
 
         $view = $this->view->render('admin/main-page/product',$data);
         $title  = $this->html->setTitle($proName .' - شركة الحرية للتوريدات ');

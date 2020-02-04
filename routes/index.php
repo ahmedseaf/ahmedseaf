@@ -138,12 +138,14 @@ $app->route->group($blogOptions, function ($route){
 
 
     $route->add('/user/login', 'Admin/Login');
-    $route->add('/login/login', 'Admin/Login@login', 'POST');
-    $route->add('/login/forget', 'Admin/Login@forget', 'POST');
-    $route->add('/reserpassword', 'Admin/Login@reserpassword');
-    $route->add('/newpassword', 'Admin/Login@newpassword', 'POST');
-    $route->add('/login/register', 'Admin/Login@register', 'POST');
-    $route->add('/login/submit', 'Login@submit', 'POST');
+    $route->add('/user/login-user', 'Admin/Login@checkIfAdmin', 'POST');
+    $route->add('/user/login-admin', 'Admin/Login@adminLogin', 'POST');
+//    $route->add('/login/login', 'Admin/Login@login', 'POST');
+//    $route->add('/login/forget', 'Admin/Login@forget', 'POST');
+//    $route->add('/reserpassword', 'Admin/Login@reserpassword');
+//    $route->add('/newpassword', 'Admin/Login@newpassword', 'POST');
+//    $route->add('/login/register', 'Admin/Login@register', 'POST');
+//    $route->add('/login/submit', 'Login@submit', 'POST');
 
 
     $route->add('/logout', 'Logout');
@@ -165,7 +167,7 @@ $app->share('webLayout', function ($app){
 });
 
 
-$app->route->add('/404', 'NotFound');
+$app->route->add('/not-found/404', 'NotFound');
 $app->route->notFound('/404');
 
 
