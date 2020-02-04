@@ -43,7 +43,7 @@
                                <div class="productCategory">
                                    <?php if(isset($subCategories)) : foreach ($subCategories As $subCategory) : ?>
                                        <div class="categoryImage"><img src="<?php echo assets('images/'. $subCategory->image)?>" alt="<?php echo $subCategory->name?>"></div>
-                                       <a href="#"><div class="categoryInfo"><h2><?php echo $subCategory->name?></h2></div></a>
+                                       <a href="<?php echo url('/sub-category/filter/'.$subCategory->category_id. '/filter')?>"><div class="categoryInfo"><h2><?php echo $subCategory->name?></h2></div></a>
                                    <?php endforeach; endif; ?>
                                </div>
 
@@ -83,9 +83,10 @@
                                    <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
                                 </div>
                                 <div class="brandCard">
-                                    <a href="#"><div class="brandItem"><img src="https://placeimg.com/350/500/any" alt=""></div></a>
-                                    <a href="#"><div class="brandItem"><img src="https://placeimg.com/150/202/any" alt=""></div></a>
-                                    <a href="#"><div class="brandItem"><img src="https://placeimg.com/150/201/any" alt=""></div></a>
+                                    <?php if(isset($productCards2)) : foreach ($productCards2 As $productCard) : ?>
+                                    <a href="<?php echo $productCard->link?>"><div class="brandItem"><img src="<?php echo assets('images/'. $productCard->image)?>" alt="<?php echo $productCard->title?>"></div></a>
+
+                                    <?php endforeach; endif; ?>
                                 </div>
 
                             </div>
@@ -156,7 +157,7 @@
 
 
                             <?php if(isset($subCategories)) : foreach ($subCategories As $subCategory) : ?>
-                                <a href="#"><h3><?php echo $subCategory->name?></h3></a>
+                                <a href="<?php echo url('/sub-category/filter/'.$subCategory->category_id. '/filter')?>"><h3><?php echo $subCategory->name?></h3></a>
                                 <i class="fas fa-genderless"></i>
                             <?php endforeach; endif; ?>
 

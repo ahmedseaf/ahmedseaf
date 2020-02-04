@@ -48,6 +48,9 @@
                                     <option value="8">Tow Product 250*250</option>
                                     <option value="9">Navbar Product 350*500</option>
                                     <option value="10">Navbar Slide Product 700*100</option>
+                                    <option value="11">Product Filter Top 1200*140</option>
+                                    <option value="12">Product Filter Right 300*800</option>
+                                    <option value="13">All Category And Sub Category Right 300*400</option>
                             </select>
                         </div>
 

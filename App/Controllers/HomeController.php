@@ -115,6 +115,9 @@ class HomeController extends Controller
     {
 //pre($this->load->model('Home')->getAllCategory());
 
+        $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
+        $data['allCategoryAds']        = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
+
         $data['allCategory'] = $this->load->model('Home')->getAllCategory();
         $view = $this->view->render('admin/main-page/category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
@@ -129,10 +132,9 @@ class HomeController extends Controller
           return $this->productComingSoon();
 
         }
+        $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
+        $data['allCategoryAds']        = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
 
-//        $data['maincategory'] = $this->load->model('Home')->getAllMainSubCategory($subCategoryId);
-//       // $mainSubCategoryModel = (array) $mainSubCategoryModel;
-//       // $data['maincategory'] = array_get($mainSubCategoryModel, 'sub_category_id');
         $data['subcategories'] = $this->load->model('Home')->getAllSubCategory($subCategoryId);
         $view = $this->view->render('admin/main-page/sub-category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
@@ -151,6 +153,8 @@ class HomeController extends Controller
 
         }
         $data['mainSubcategories'] = $this->load->model('Home')->getAllMainSubCategory($mainSubCategoryId);
+        $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
+        $data['allCategoryAds']        = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
 
         $view = $this->view->render('admin/main-page/main-category', $data);
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
@@ -169,6 +173,9 @@ class HomeController extends Controller
             return $this->productComingSoon();
 
         }
+
+        $data['productFiltersTop']        = $this->load->model('MainPage')->selectBySlideNameNavbar(11, 1);
+        $data['productFiltersRight']        = $this->load->model('MainPage')->selectBySlideNameNavbar(12, 1);
 
         $data['products'] = $this->load->model('Home')->getProductByMainCategoryId($productId);
         $view = $this->view->render('admin/main-page/product-filter', $data);

@@ -424,3 +424,144 @@
     </div>
 </div>
 <!-- ------------ End Slide Navbar Product One Slide 700*100 -------------- -->
+
+
+
+
+
+<!-- ------------ Start Product Filter Top 1200*140 -------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Product Filter Top 1200*140 </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($productFiltersTop)) {
+                            foreach ($productFiltersTop AS $navSlide) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navSlide->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $navSlide->title ?>">
+                                    </td>
+                                    <td><?php echo  $navSlide->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navSlide->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End Product Filter Top 1200*140 -------------- -->
+
+
+
+<!-- ------------ Start Product Filter Right 300*800 -------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Product Filter Right 300*800 </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($productFiltersRight)) {
+                            foreach ($productFiltersRight AS $navSlide) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navSlide->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $navSlide->title ?>">
+                                    </td>
+                                    <td><?php echo  $navSlide->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navSlide->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End Product Filter Right 300*800 -------------- -->
+
+
+
+
+
+<!-- ------------ Start All Category And Sub Category Right 300*400-------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> All Category And Sub Category Right 300*400 </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($allCategoryAndSubRight)) {
+                            foreach ($allCategoryAndSubRight AS $navSlide) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navSlide->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $navSlide->title ?>">
+                                    </td>
+                                    <td><?php echo  $navSlide->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navSlide->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End All Category And Sub Category Right 300*400 -------------- -->
+
+
+
+
+

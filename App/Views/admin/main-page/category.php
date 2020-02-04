@@ -7,21 +7,21 @@
 
    <div class="mainCategory">
        <div class="categoryAds">
-           <div class="categoryImage">
-               <a href="#"><img src="https://placeimg.com/300/400/any" alt=""></a>
-           </div>
            <div class="categorySlide">
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/300/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
-               <div class="item"><a href="#"><img src="https://placeimg.com/300/301/any" alt=""></a></div>
+
+               <?php if (isset($repeatSliders)) {
+                   foreach ($repeatSliders AS $repeatSlider) : ?>
+                   <div class="item"><a href="<?php echo $repeatSlider->link; ?>"><img src="<?php echo assets('images/'. $repeatSlider->image) ?>" alt="<?php echo $repeatSlider->title; ?>"></a></div>
+               <?php endforeach; } ?>
            </div>
+
+           <div class="categoryImage">
+               <?php if (isset($allCategoryAds)) {
+               foreach ($allCategoryAds AS $allCategoryAd) : ?>
+                   <a href="<?php echo $allCategoryAd->link; ?>"><img src="<?php echo assets('images/'. $allCategoryAd->image) ?>" alt="<?php echo $allCategoryAd->title; ?>"></a>
+               <?php endforeach; } ?>
+           </div>
+
        </div>
        <div class="category">
 

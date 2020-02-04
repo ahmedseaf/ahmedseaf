@@ -1,13 +1,20 @@
 <div class="container" style="direction: rtl">
 
     <div class="topSlider">
-        <a href="#"><img src="https://placeimg.com/1200/140/any" alt=""></a>
+        <?php if (isset($productFiltersTop)) : foreach ($productFiltersTop AS $adsTop) : ?>
+
+        <a href="<?php echo $adsTop->link?>"><img src="<?php echo assets('/images/'.$adsTop->image)?>" alt="<?php echo $adsTop->title?>"></a>
+        <?php endforeach; endif;?>
+
     </div>
 
     <div class="productFilters">
         <div class="rightAds">
             <div class="topImage">
-                <a href="#"><img src="https://placeimg.com/300/850/any" alt=""></a>
+                <?php if (isset($productFiltersRight)) : foreach ($productFiltersRight AS $adsTop) : ?>
+
+                    <a href="<?php echo $adsTop->link?>"><img src="<?php echo assets('/images/'.$adsTop->image)?>" alt="<?php echo $adsTop->title?>"></a>
+                <?php endforeach; endif;?>
             </div>
         </div>
         <div class="productFilter">

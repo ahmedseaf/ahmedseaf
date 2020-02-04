@@ -29,17 +29,20 @@ class MainPageController extends Controller
 //       pre($this->load->model('MainPage')->selectBySlideNameNavbar(1,1000));
 //        pre(url('/'));
 
-        $title                      = $this->html->setTitle('Main Page Controllers ');
-        $data['mainSliders']        = $this->load->model('MainPage')->selectBySlideName(1);
-        $data['repeatSliders']      = $this->load->model('MainPage')->selectBySlideName(2);
-        $data['towSliders']         = $this->load->model('MainPage')->selectBySlideName(3);
-        $data['someSliders']        = $this->load->model('MainPage')->selectBySlideName(4);
-        $data['foreSliders']        = $this->load->model('MainPage')->selectBySlideName(5);
-        $data['fiveLargeSliders']   = $this->load->model('MainPage')->selectBySlideName(6);
-        $data['fiveSmallSliders']   = $this->load->model('MainPage')->selectBySlideName(7);
-        $data['towProducts']        = $this->load->model('MainPage')->selectBySlideName(8);
-        $data['navCards']           = $this->load->model('MainPage')->selectBySlideNameNavbar(9,200);
-        $data['navSlides']           = $this->load->model('MainPage')->selectBySlideName(10);
+        $title                          = $this->html->setTitle('Main Page Controllers ');
+        $data['mainSliders']            = $this->load->model('MainPage')->selectBySlideName(1);
+        $data['repeatSliders']          = $this->load->model('MainPage')->selectBySlideName(2);
+        $data['towSliders']             = $this->load->model('MainPage')->selectBySlideName(3);
+        $data['someSliders']            = $this->load->model('MainPage')->selectBySlideName(4);
+        $data['foreSliders']            = $this->load->model('MainPage')->selectBySlideName(5);
+        $data['fiveLargeSliders']       = $this->load->model('MainPage')->selectBySlideName(6);
+        $data['fiveSmallSliders']       = $this->load->model('MainPage')->selectBySlideName(7);
+        $data['towProducts']            = $this->load->model('MainPage')->selectBySlideName(8);
+        $data['navCards']               = $this->load->model('MainPage')->selectBySlideNameNavbar(9,200);
+        $data['navSlides']              = $this->load->model('MainPage')->selectBySlideName(10);
+        $data['productFiltersTop']      = $this->load->model('MainPage')->selectBySlideName(11);
+        $data['productFiltersRight']    = $this->load->model('MainPage')->selectBySlideName(12);
+        $data['allCategoryAndSubRight'] = $this->load->model('MainPage')->selectBySlideName(13);
 
         $data['result']             = $this->session->has('message') ? $this->session->pull('message') : null ;
         $view                       = $this->view->render('admin/main-page/main', $data);
