@@ -23,9 +23,10 @@
                                    <a href=""><h3>من نحن</h3></a>
                                </div>
                                <div class="productCards">
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/350/500/any" alt=""></div></a>
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/350/501/any" alt=""></div></a>
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/351/500/any" alt=""></div></a>
+                                   <?php if(isset($homeCards)) : foreach ($homeCards AS $homeCard) : ?>
+                                   <a href="<?php echo $homeCard->link?>"><div class="productCard"><img src="<?php echo assets('images/'.$homeCard->image)?>" alt="<?php echo $homeCard->title?>"></div></a>
+
+                                    <?php endforeach; endif; ?>
                                </div>
                            </div>
                          
@@ -47,13 +48,17 @@
                                </div>
 
                                 <div class="productSlid">
-                                    <a href="#"><div class="productSlideImage"><img src="https://placeimg.com/700/100/any" alt=""></div></a>
+                                    <?php if(isset($navSlides)) : foreach ($navSlides As $navSlide) : ?>
+                                        <a href="<?php echo $navSlide->link?>"><div class="productSlideImage"><img src="<?php echo assets('images/'. $navSlide->image)?>" alt="<?php echo $navSlide->title?>"></div></a>
+                                    <?php endforeach; endif; ?>
                                 </div>
                                <div class="productCards">
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/350/500/any" alt=""></div></a>
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/350/501/any" alt=""></div></a>
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/351/500/any" alt=""></div></a>
-                                   <a href="#"><div class="productCard"><img src="https://placeimg.com/350/502/any" alt=""></div></a>
+                                   <?php if(isset($productCards)) : foreach ($productCards As $productCard) : ?>
+
+                                   <a href="<?php echo $productCard->link?>"><div class="productCard"><img src="<?php echo assets('images/'. $productCard->image)?>" alt="<?php echo $productCard->title?>"></div></a>
+
+                                   <?php endforeach; endif; ?>
+
                                </div>
                            </div>
                         </div>
@@ -78,7 +83,7 @@
                                    <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
                                 </div>
                                 <div class="brandCard">
-                                    <a href="#"><div class="brandItem"><img src="https://placeimg.com/151/200/any" alt=""></div></a>
+                                    <a href="#"><div class="brandItem"><img src="https://placeimg.com/350/500/any" alt=""></div></a>
                                     <a href="#"><div class="brandItem"><img src="https://placeimg.com/150/202/any" alt=""></div></a>
                                     <a href="#"><div class="brandItem"><img src="https://placeimg.com/150/201/any" alt=""></div></a>
                                 </div>
@@ -131,7 +136,37 @@
                 </div>
 
                 <div class="navSmallMenu">
-                    <i class="fas fa-bars"></i>
+                    <div class="hiedMenu">
+                        <div class="menuSmall">
+
+                            <a href="<?php echo url('/')?>"><h3>الرئيسية</h3></a>
+                            <i class="fas fa-home"></i>
+
+                            <a href="#"><h3>من نحن</h3></a>
+                            <i class="fas fa-cannabis"></i>
+
+
+
+
+                            <a href="#"><h3>اتصل بنا</h3></a>
+                            <i class="far fa-address-card"></i>
+
+                            <a href="<?php echo url('/category/all')?>"><h3>الاقسام الرئيسية</h3></a>
+                            <i class="fab fa-buffer"></i>
+
+
+                            <?php if(isset($subCategories)) : foreach ($subCategories As $subCategory) : ?>
+                                <a href="#"><h3><?php echo $subCategory->name?></h3></a>
+                                <i class="fas fa-genderless"></i>
+                            <?php endforeach; endif; ?>
+
+
+                        </div>
+                    </div>
+                    <div class="iconMenu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+
                 </div>
             </div>
 

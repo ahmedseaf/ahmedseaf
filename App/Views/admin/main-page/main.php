@@ -26,7 +26,7 @@
                                 foreach ($mainSliders AS $mainSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $mainSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $mainSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $mainSlider->title ?>">
                                     </td>
                                     <td><?php echo  $mainSlider->title?> </td>
                                     <td>
@@ -67,7 +67,7 @@
                             foreach ($repeatSliders AS $repeatSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $repeatSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $repeatSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $repeatSlider->title ?>">
                                     </td>
                                     <td><?php echo  $repeatSlider->title?></td>
                                     <td>
@@ -108,7 +108,7 @@
                             foreach ($towSliders AS $towSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $towSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $towSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $towSlider->title ?>">
                                     </td>
                                     <td><?php echo  $towSlider->title?></td>
                                     <td>
@@ -149,7 +149,7 @@
                             foreach ($someSliders AS $someSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $someSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $someSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $someSlider->title ?>">
                                     </td>
                                     <td><?php echo  $someSlider->title?></td>
                                     <td>
@@ -191,7 +191,7 @@
                             foreach ($foreSliders AS $foreSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $foreSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $foreSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $foreSlider->title ?>">
                                     </td>
                                     <td><?php echo  $foreSlider->title?></td>
                                     <td>
@@ -234,7 +234,7 @@
                             foreach ($fiveLargeSliders AS $fiveLargeSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $fiveLargeSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $fiveLargeSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $fiveLargeSlider->title ?>">
                                     </td>
                                     <td><?php echo  $fiveLargeSlider->title?></td>
                                     <td>
@@ -276,7 +276,7 @@
                             foreach ($fiveSmallSliders AS $fiveSmallSlider) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $fiveSmallSlider->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $fiveSmallSlider->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $fiveSmallSlider->title ?>" >
                                     </td>
                                     <td><?php echo  $fiveSmallSlider->title?></td>
                                     <td>
@@ -318,7 +318,7 @@
                             foreach ($towProducts AS $towProduct) : ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo assets('images/'. $towProduct->image) ?>" style="width: 140px; height: 70px;" >
+                                        <img src="<?php echo assets('images/'. $towProduct->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $towProduct->title ?>">
                                     </td>
                                     <td><?php echo  $towProduct->title?></td>
                                     <td>
@@ -337,3 +337,90 @@
 
             <!--  End  Tow Product -->
 
+
+
+
+<!-- ------------ Start Navbar Card -------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Navbar Card </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($navCards)) {
+                            foreach ($navCards AS $navCard) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navCard->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $navCard->title ?>">
+                                    </td>
+                                    <td><?php echo  $navCard->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navCard->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End Navbar Card -------------- -->
+
+
+<!-- ------------ Start Slide Navbar Product One Slide 700*100 -------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Slide Navbar Product One Slide </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($navSlides)) {
+                            foreach ($navSlides AS $navSlide) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navSlide->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $navSlide->title ?>">
+                                    </td>
+                                    <td><?php echo  $navSlide->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navSlide->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End Slide Navbar Product One Slide 700*100 -------------- -->

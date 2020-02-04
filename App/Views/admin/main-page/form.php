@@ -24,6 +24,15 @@
                             <input class="form-control" type="text" name="title" placeholder="Image Title">
                         </div>
 
+                        <div class="form-group col-md-12">
+                            <select class="form-control" name="slideLink" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                                <option disabled selected>Choose Product Link</option>
+                                <?php if(isset($productsModel)) : foreach ($productsModel AS $pro) :?>
+                                <option value="<?php echo url('product/view/'.$pro->id. '/'. rawurldecode(str_replace(' ', '-',$pro->name)) ) ?>"><?php echo $pro->name?></option>
+                                <?php endforeach; endif;  ?>
+                            </select>
+                        </div>
+
                         <div class="clearfix"></div>
 
                         <div class="form-group col-md-6">
@@ -37,6 +46,8 @@
                                     <option value="6">Five Tabs Large 815*400</option>
                                     <option value="7">Five Tabs Small 190*190</option>
                                     <option value="8">Tow Product 250*250</option>
+                                    <option value="9">Navbar Product 350*500</option>
+                                    <option value="10">Navbar Slide Product 700*100</option>
                             </select>
                         </div>
 

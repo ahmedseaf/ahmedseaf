@@ -29,6 +29,7 @@ class HomeController extends Controller
         $data['fiveLargeSliders']   = $this->load->model('Home')->loadSliders(6, 1);
         $data['fiveSmallSliders']   = $this->load->model('Home')->loadSliders(7, 4);
         $data['towProducts']        = $this->load->model('Home')->loadSliders(8, 2);
+
         $title  = $this->html->setTitle('شركة الحرية للتوريدات');
         $view   = $this->view->render('home', $data);
         return $this->webLayout->render($view, $title);

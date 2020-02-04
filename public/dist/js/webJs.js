@@ -255,15 +255,25 @@ if(slideWidth8 != null) {
 //    $(this).toggleClass('far fas');
 // });
 
-// Change Menu Small
-const fav = $('.navbarContainer .navContainer .navMenu .navController .navSmallMenu .fas');
 
+const navHighet = $('.navbarContainer .navContainer').innerHeight();
+
+
+// Change Menu Small
+const fav = $('.navbarContainer .navContainer .navMenu .navController .navSmallMenu .iconMenu .fas');
 fav.on('click', function (e) {
     e.preventDefault();
     $(this).toggleClass('fa-bars fa-angle-double-down');
+    $('.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu').toggleClass('active');
 });
-// .navbarContainer .navContainer .navMenu .navController .navSmallMenu .fas
-//<i class="fas fa-angle-double-down"></i>
+
+
+
+
+
+
+
+
 
         // Start Product Page
 // For Show Phone Number

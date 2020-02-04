@@ -266,6 +266,8 @@ img{
 }
 .trigger-enter-active > .dropdown{
     opacity: 1 !important;
+
+
 }
 
 .navbarContainer .navContainer .dropdownBackground{
@@ -289,6 +291,7 @@ img{
     /*opacity: 1;*/
     display: block;
 }
+
 
 
 .navbarContainer .navContainer .navMenu .navMega ul{
@@ -369,7 +372,7 @@ img{
     color: #ffffff;
     font-size: 2rem;
 }
-.navbarContainer .navContainer .navMenu .navController .navSmallMenu:hover,
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .iconMenu:hover,
 .navbarContainer .navContainer .navMenu .navController .navTheme .fab:hover{
     color: #000000b3;
 }
@@ -424,20 +427,54 @@ img{
 .navbarContainer .navContainer .navMenu .navController .theme .item:nth-child(16){background-color: #4483b0 }
 
 
-.navbarContainer .navContainer .navMenu .navController .navSmallMenu{
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .iconMenu{
     color: white;
     font-size: 1.8rem;
     padding-right: 1rem;
     cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu{
+    height: 100vh;
+    width: 240px;
+    background-color: #000000b3;
+    position: absolute;
+    right: 0;
+    top: 57px;
+    z-index: 100;
+    transition: all 0.6s ease-in-out;
+    overflow: scroll;
+    transform: translateX(244px);
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu.active{
+    transform: translateX(10px) ;
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu .menuSmall{
+    width: 100%;
+    display: grid;
+    grid-template-columns:  1fr 2rem;
+    grid-gap: 0.3rem;
+    justify-items: self-end;
+    padding-right: 0.5rem;
+    padding-top: 3rem;
+    grid-row-gap: 1.4rem;
 
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu .menuSmall i{
+    color: white;
+    font-size: 1.6rem;
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu .menuSmall a h3{
+    color: #b6b6b6;
+
+}
+.navbarContainer .navContainer .navMenu .navController .navSmallMenu .hiedMenu .menuSmall a h3:hover{
+    color: white;
 }
 
 /*  Start Home In navbar  */
 
 .navbarContainer .navContainer .navMenu .navMega .home{
     width: 620px;
-    display: grid;
-    grid-template-columns: 1fr;
     cursor: default;
 }
 .navbarContainer .navContainer .navMenu .navMega .home .homeMvc .allCategory{

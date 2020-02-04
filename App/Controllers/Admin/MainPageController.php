@@ -21,6 +21,14 @@ class MainPageController extends Controller
     public function index() {
 // pre($this->load->model('MainPage')->selectBySlideName(4));
 
+
+
+
+
+      // pre($this->load->model('MainPage')->selectBySlideNameNavbar(1,2));
+//       pre($this->load->model('MainPage')->selectBySlideNameNavbar(1,1000));
+//        pre(url('/'));
+
         $title                      = $this->html->setTitle('Main Page Controllers ');
         $data['mainSliders']        = $this->load->model('MainPage')->selectBySlideName(1);
         $data['repeatSliders']      = $this->load->model('MainPage')->selectBySlideName(2);
@@ -30,6 +38,9 @@ class MainPageController extends Controller
         $data['fiveLargeSliders']   = $this->load->model('MainPage')->selectBySlideName(6);
         $data['fiveSmallSliders']   = $this->load->model('MainPage')->selectBySlideName(7);
         $data['towProducts']        = $this->load->model('MainPage')->selectBySlideName(8);
+        $data['navCards']           = $this->load->model('MainPage')->selectBySlideNameNavbar(9,200);
+        $data['navSlides']           = $this->load->model('MainPage')->selectBySlideName(10);
+
         $data['result']             = $this->session->has('message') ? $this->session->pull('message') : null ;
         $view                       = $this->view->render('admin/main-page/main', $data);
         return $this->Layout->render($view, $title);
@@ -45,6 +56,7 @@ class MainPageController extends Controller
 
     private function form()
     {
+        $data['productsModel'] = $this->load->model('Products')->all();
         $data['action']         = $this->url->link('/admin/main-page/submit');
         $data['heading']        = 'Add New Slide To Main Page';
         $data['buttonTitle']    = 'Add New Slide';

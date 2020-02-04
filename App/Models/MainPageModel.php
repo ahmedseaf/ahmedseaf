@@ -24,6 +24,7 @@ class MainPageModel extends Model
         $this->data('title', $this->request->post('title'))
              ->data('created',  date("Y/m/d H:i:s"))
              ->data('hint', $this->request->post('slideHint'))
+             ->data('link', $this->request->post('slideLink'))
              ->insert($this->table);
     }
 
@@ -44,6 +45,12 @@ class MainPageModel extends Model
    {
        return $this->query("SELECT * FROM mainPage WHERE hint=?",$hint)->fetchAll();
    }
+
+
+    public function selectBySlideNameNavbar($hint , $limit)
+    {
+        return $this->query("SELECT * FROM mainPage WHERE hint=? ORDER BY RAND() LIMIT $limit",$hint)->fetchAll();
+    }
 
 
 
