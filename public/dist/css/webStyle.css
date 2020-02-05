@@ -171,6 +171,7 @@ img{
     height: 2.5rem;
 }
 .containerForm .containerCover .loginBorder .loginForm form #aEmail,
+.containerForm .containerCover .loginBorder .loginForm form #aUser,
 .containerForm .containerCover .loginBorder .loginForm form #checkEmail,
 .containerForm .containerCover .loginBorder .loginForm form #submit,
 .containerForm .containerCover .loginBorder .loginForm form #aSubmit,

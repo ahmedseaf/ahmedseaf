@@ -140,6 +140,8 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/user/login', 'Admin/Login');
     $route->add('/user/login-user', 'Admin/Login@checkIfAdmin', 'POST');
     $route->add('/user/login-admin', 'Admin/Login@adminLogin', 'POST');
+    $route->add('/user/register', 'Admin/Login@newRegister');
+    $route->add('/user/post-register', 'Admin/Login@postRegister', 'POST');
 //    $route->add('/login/login', 'Admin/Login@login', 'POST');
 //    $route->add('/login/forget', 'Admin/Login@forget', 'POST');
 //    $route->add('/reserpassword', 'Admin/Login@reserpassword');

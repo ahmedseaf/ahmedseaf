@@ -80,7 +80,29 @@ class LoginController extends Controller
     }
 
 
+    public function newRegister()
+    {
+        $title = $this->html->setTitle('Register-Admin');
+        $view   = $this->view->render('admin/users/new-register');
+        return $this->webLayout->render($view, $title);
+    }
 
+    public function postRegister()
+    {
+        $errors =[];
+        if(isset($_POST['submitRegister']) AND ($_POST['submitRegister'] == 'Register')) {
+            if($this->isValidRegister()) {
+                $this->load->model('Login')->newUser();
+            }
+            else{
+                $errors[] = $this->validator->flattenMessages();
+            }
+
+        } else{
+            return $this->url->redirectTo('/');
+        }
+        return $this->url->redirectTo('/');
+    }
 
     public function isValidLogin() {
         $email = $this->request->post('email');
@@ -108,6 +130,16 @@ class LoginController extends Controller
 
 
 
+    private function isValidRegister(){
+        $this->validator->required('user_name', 'First Name  Name Is Required');
+        $this->validator->unique('user_name', ['users', 'user_name'], 'User Name already Exist');
+        $this->validator->required('email')->email('email');
+        $this->validator->unique('email', ['users', 'email'], 'Email already Exist');
+        $this->validator->required('password')->minLen('password', 3)->match('password', 'c_password', 'Confirm Password Should Match Password');
+
+        return $this->validator->passes();
+
+    }
 
 
 //    public function login()
