@@ -77,10 +77,17 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/product/save/:id',    'Product@save',     'POST');
     $route->add('/product/delete/:id',  'Product@delete',   'POST');
 
-    //$route->add('/product/deleteimg/:id',  'Product@deleteimg',   'POST');
 
     $route->add('/product/getsubcategoy',  'Product@getsubcategoy',   'POST');
     $route->add('/product/getmincategoy',  'Product@getmincategoy',   'POST');
+
+
+    $route->add('/product/faveproduct'  ,  'Product@faveproduct',      'POST');
+
+
+
+
+
     $route->add('/product/getimagedata/:id',  'Product@getimagedata', 'POST');
     $route->add('/product/uploadimage/:id',  'Product@uploadimage', 'POST');
     $route->add('/product/getdatamagebyid/:id',  'Product@getdatamagebyid', 'POST');
@@ -120,7 +127,11 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/sub-category/filter/:id/:text', 'Home@subCategory');
     $route->add('/main-category/filter/:id/:text', 'Home@mainCategory');
     $route->add('/product/filter/:id/:text', 'Home@productFilter');
+
+    $route->add('/product/brand/:id/:text', 'Home@getAllProductBrand');
+    $route->add('/product/sitemap', 'Home@getSiteMap');
     $route->add('/product/test', 'Home@test');
+    $route->add('/test', 'Home@test');
 
 
 
@@ -142,12 +153,7 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/user/login-admin', 'Admin/Login@adminLogin', 'POST');
     $route->add('/user/register', 'Admin/Login@newRegister');
     $route->add('/user/post-register', 'Admin/Login@postRegister', 'POST');
-//    $route->add('/login/login', 'Admin/Login@login', 'POST');
-//    $route->add('/login/forget', 'Admin/Login@forget', 'POST');
-//    $route->add('/reserpassword', 'Admin/Login@reserpassword');
-//    $route->add('/newpassword', 'Admin/Login@newpassword', 'POST');
-//    $route->add('/login/register', 'Admin/Login@register', 'POST');
-//    $route->add('/login/submit', 'Login@submit', 'POST');
+
 
 
     $route->add('/logout', 'Logout');

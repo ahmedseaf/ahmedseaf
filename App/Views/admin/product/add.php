@@ -17,6 +17,8 @@
            </select>
        </div>
 
+
+
 <!--        <div class="form-group col-md-12">-->
 <!--            <label for="title">Hint Description</label>-->
 <!--            <textarea class="form-control textarea" name="title" id="title" cols="30" rows="6" ></textarea>-->
@@ -43,18 +45,20 @@
             </select>
         </div>
 
+
+
         <div class="form-group col-md-3">
             <select class="form-control" name="brand" id="brand">
                 <option value="" disabled selected>Select Product Brand</option>
                 <?php foreach ($brands AS $brand) : ?>
-                <option value="<?php  echo $brand->id ; ?>"><?php  echo $brand->name ; ?></option>
+                    <option value="<?php  echo $brand->id ; ?>"><?php  echo $brand->name ; ?></option>
                 <?php  endforeach; ?>
             </select>
         </div>
 
 
 
-    <div class="form-group col-md-2">
+        <div class="form-group col-md-2">
         <label for="price">Price</label>
         <input class="form-control" type="number" name="price" id="price">
     </div>

@@ -137,4 +137,54 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
+
+    public function getAllProductByBrandId($brandId)
+    {
+        return $this->select('p.*', 'c.name  AS `category`',
+            'i.name AS `Image`, i.status AS `Status`',
+            'b.id AS `brandId`, b.name AS `brandName`, b.image AS `brandImage`')
+            ->from('products p')
+            ->join('LEFT JOIN categories c ON p.category_id=c.id')
+            ->join('LEFT JOIN brand b ON p.brand=b.id')
+            ->join('LEFT JOIN product_image i ON p.id=i.product_id')
+            ->where('b.id=? AND i.Status=?',$brandId,'enabled')
+            ->fetchAll();
+    }
+
+
+    public function getFaveProduct($limit)
+    {
+        return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`")
+            ->from("products p")
+            ->join("LEFT JOIN product_image i ON p.id=i.product_id")
+            ->where("p.fave=? AND i.Status=? LIMIT $limit","on","enabled")
+            ->fetchAll();
+    }
+
+    /**
+     * get all Product By Category Id
+     * @var $categoryId
+     * @return \stdClass product By Category
+     */
+    public function getProductByCategory($categoryId, $limit)
+    {
+        return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`")
+            ->from("products p")
+            ->join("LEFT JOIN product_image i ON p.id=i.product_id")
+            ->where("p.category_id=? AND i.Status=? LIMIT $limit",$categoryId,"enabled")
+            ->fetchAll();
+    }
+
+
+
+//    public function getProductBySubBrand()
+//    {
+//        return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`",
+//            '')
+//            ->from("products p")
+//            ->join("LEFT JOIN product_image i ON p.id=i.product_id")
+//            ->where("p.category_id=? AND i.Status=? LIMIT $limit",$categoryId,"enabled")
+//            ->fetchAll();
+//    }
+
 }

@@ -70,17 +70,9 @@
                         <div class="dropdown brand">
                             <div class="brandMega">
                                 <div class="brandImages">
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/450/260/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
-                                   <a href="#"><div class="brandImg"><img src="https://placeimg.com/100/60/any" alt=""></div></a>
+                                    <?php if(isset($brands)) : foreach ($brands As $brand) : ?>
+                                    <a href="<?php echo url('product/brand/'.$brand->id . '/' . rawurlencode(str_replace(' ', '-',$brand->name)));?>"><div class="brandImg"><img src="<?php echo assets('images/'. $brand->image)?>" alt="<?php echo $brand->name?>"></div></a>
+                                    <?php endforeach; endif; ?>
                                 </div>
                                 <div class="brandCard">
                                     <?php if(isset($productCards2)) : foreach ($productCards2 As $productCard) : ?>

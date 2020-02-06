@@ -256,7 +256,6 @@ if(slideWidth8 != null) {
 // });
 
 
-const navHighet = $('.navbarContainer .navContainer').innerHeight();
 
 
 // Change Menu Small

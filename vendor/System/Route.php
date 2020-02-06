@@ -193,11 +193,13 @@ class Route
             }
         }
 
+        echo 'This Page Not Found';
 
+        pre($this->app->request->url('/'));
 
-        $title = $this->app->html->setTitle('404');
-        $view   = $this->app->view->render('admin/not-found');
-        return $this->app->webLayout->render($view, $title);
+//        $title = $this->app->html->setTitle('404');
+//        $view   = $this->app->view->render('admin/not-found');
+//        return $this->app->webLayout->render($view, $title);
 
     }
 

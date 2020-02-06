@@ -293,7 +293,7 @@
     </div>
 </div>
 
-            <!--       End Five Tab Small -->
+    <!--       End Five Tab Small -->
 
 <div class="tableMainSlider">
     <div class="row">
@@ -562,6 +562,133 @@
 <!-- ------------ End All Category And Sub Category Right 300*400 -------------- -->
 
 
+<!-- ------------ Start All Brand-------------- -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> All Brand </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($allBrand)) {
+                            foreach ($allBrand AS $navSlide) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $navSlide->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $navSlide->title ?>">
+                                    </td>
+                                    <td><?php echo  $navSlide->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$navSlide->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------ End All Brand -------------- -->
 
 
 
+
+
+<!--     Start Five Slider Large - 2 -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Five Slider Large - 2 </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($fiveLargeSliders2)) {
+                            foreach ($fiveLargeSliders2 AS $fiveLargeSlider) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $fiveLargeSlider->image) ?>" style="width: 140px; height: 70px;"  alt="<?php echo $fiveLargeSlider->title ?>">
+                                    </td>
+                                    <td><?php echo  $fiveLargeSlider->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$fiveLargeSlider->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--     End Five Slider Large  - 2 -->
+
+
+<!--     StartFive Slider Large  - 2 -->
+<div class="tableMainSlider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="headerControl">
+                        <h3> Five Tab Small 2 </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center" id="table1">
+                        <thead>
+                        <tr>
+                            <th width="30%">Image</th>
+                            <th >Title</th>
+                            <th width="12%">Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (isset($fiveSmallSliders2)) {
+                            foreach ($fiveSmallSliders2 AS $fiveSmallSlider) : ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?php echo assets('images/'. $fiveSmallSlider->image) ?>" style="width: 140px; height: 70px;" alt="<?php echo $fiveSmallSlider->title ?>" >
+                                    </td>
+                                    <td><?php echo  $fiveSmallSlider->title?></td>
+                                    <td>
+                                        <button class="btn btn-outline-danger deleteSlide" data-slideId="<?php echo url('admin/main-page/delete/'.$fiveSmallSlider->id) ; ?>" > <i class="fas fa-trash"> Delete</i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--     End Five Tab Small - 2 -->

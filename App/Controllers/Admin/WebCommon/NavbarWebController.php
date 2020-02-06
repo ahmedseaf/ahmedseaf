@@ -21,12 +21,14 @@ class NavbarWebController extends Controller
     {
         $data['homeCards']          = $this->load->model('MainPage')->selectBySlideNameNavbar(9,3);
         $data['productCards']       = $this->load->model('MainPage')->selectBySlideNameNavbar(9,4);
-        $data['productCards2']       = $this->load->model('MainPage')->selectBySlideNameNavbar(9,4);
+        $data['productCards2']      = $this->load->model('MainPage')->selectBySlideNameNavbar(9,4);
         $data['navSlides']          = $this->load->model('Home')->loadSliders(10, 1);
-
+        $data['brands']             = $this->load->model('Brand')->all();
         $data['subCategories'] = $this->load->model('SubCategories')->all();
         return $this->view->render('/admin/webcommon/navbar', $data);
     }
+
+
 
 
 

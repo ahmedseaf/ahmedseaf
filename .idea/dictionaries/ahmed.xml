@@ -9,8 +9,10 @@
       <w>deleteimg</w>
       <w>deleteoptions</w>
       <w>dropdown</w>
+      <w>faveproduct</w>
       <w>getdatamagebyid</w>
       <w>getmincategoy</w>
+      <w>getsubbrand</w>
       <w>getsubcategoy</w>
       <w>gmail</w>
       <w>maincategory</w>
@@ -33,6 +35,7 @@
       <w>reserpassword</w>
       <w>rtrim</w>
       <w>seaf</w>
+      <w>sitemap</w>
       <w>smtp</w>
       <w>tawred</w>
       <w>textarea</w>

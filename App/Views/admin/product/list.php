@@ -41,6 +41,7 @@
                     <tr>
                         <th >Category</th>
                         <th >Name</th>
+                        <th >Fave</th>
                         <th >Price </th>
                         <th >Image </th>
 <!--                        <th >image </th>-->
@@ -52,6 +53,11 @@
                     <tr>
                         <td><?= $product->category ; ?></td>
                         <td><?= $product->name ; ?></td>
+                        <td>
+                            <div class="form-check">
+                                <input type="checkbox" value="enabled" class="form-check-input fave" id="fave" data-product-id="<?php echo $product->id?>" name="fave" <?php echo $product->fave != null ? 'checked' : '' ?> >
+                            </div>
+                        </td>
                         <td><?= $product->price ; ?></td>
                         <td >
                             <img src="<?php echo assets('images/test/'. $product->Image) ?>" style="width: 70px; height: 70px; border-radius:50%;" >

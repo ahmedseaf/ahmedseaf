@@ -941,6 +941,21 @@ $('#sub_category,#product_categories').change('change', function () {
 });
 
 
+// Product Fave
+$('.fave').on('click', function () {
+    let productId = $(this).attr('data-product-id');
+    let productValue = $(this).is(':checked');
+
+    $.ajax({
+        url: "http://mvc.com/admin/product/faveproduct",
+        method: "POST",
+        data:{product_value:productValue,productID:productId},
+
+    })
+});
+
+
+
 
 
 

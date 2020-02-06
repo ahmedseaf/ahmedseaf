@@ -51,6 +51,9 @@
                                     <option value="11">Product Filter Top 1200*140</option>
                                     <option value="12">Product Filter Right 300*800</option>
                                     <option value="13">All Category And Sub Category Right 300*400</option>
+                                    <option value="14">All Brand</option>
+                                    <option value="15">Five - 2 Tabs Large 815*400</option>
+                                    <option value="16">Five - 2 Tabs Small 190*190</option>
                             </select>
                         </div>
 

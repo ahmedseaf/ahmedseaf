@@ -28,7 +28,14 @@ class HomeController extends Controller
         $data['foreSliders']        = $this->load->model('Home')->loadSliders(5, 4);
         $data['fiveLargeSliders']   = $this->load->model('Home')->loadSliders(6, 1);
         $data['fiveSmallSliders']   = $this->load->model('Home')->loadSliders(7, 4);
+
+        $data['fiveLargeSliders2']   = $this->load->model('Home')->loadSliders(15, 1);
+        $data['fiveSmallSliders2']   = $this->load->model('Home')->loadSliders(16, 4);
+
         $data['towProducts']        = $this->load->model('Home')->loadSliders(8, 2);
+        $data['faveProducts']        = $this->load->model('Home')->getFaveProduct(30);
+        $data['machineProducts']        = $this->load->model('Home')->getProductByCategory(1, 30);
+        $data['handProducts']        = $this->load->model('Home')->getProductByCategory(13, 30);
 
         $title  = $this->html->setTitle('شركة الحرية للتوريدات');
         $view   = $this->view->render('home', $data);
@@ -191,8 +198,45 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
+
+
+    public function getAllProductBrand($brandId)
+    {
+        $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
+        $data['allCategoryAds']     = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
+        $data['allBrands']          = $this->load->model('Home')->getAllProductByBrandId($brandId);
+
+
+
+        $brandNameModel = $this->load->model('Home')->getAllProductByBrandId($brandId);
+        $brandNameModel = $this->ToArray($brandNameModel);
+
+        $brandName = $brandNameModel['brandName'];
+
+        $view = $this->view->render('admin/main-page/brand', $data);
+        $title  = $this->html->setTitle($brandName .' شركة الحرية للتوريدات | ');
+        return $this->webLayout->render($view, $title);
+
+    }
+
+
+
+    public function getSiteMap()
+    {
+        $data['productsModel'] = $this->load->model('Products')->all();
+        $view = $this->view->render('admin/main-page/sitemap', $data);
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات  ');
+        return $this->webLayout->render($view, $title);
+    }
+
+
     public function test()
     {
+
+
+
+
+
         //$mainSubCategoryModel = $this->load->model('Home')->getMainAndSubCategory(13);
         //$mainSubCategoryModel = (array) $mainSubCategoryModel;
       //  $mainSubCategoryModel =  $this->ToArray($mainSubCategoryModel);
@@ -204,8 +248,14 @@ class HomeController extends Controller
         //pre($this->load->model('Home')->getMainAndSubCategory(13));
 
 //        $productName = $this->load->model('Home')->getProductById(11);
-        $productName = $this->load->model('Home')->getLikeProduct('منتج نجارة 1');
+        $productName = $this->load->model('Home')->getProductByCategory(2, 30);
         pre($productName);
+
+//        $brandNameModel = $this->load->model('Home')->getAllProductByBrandId(6);
+//        $brandNameModel = $this->ToArray($brandNameModel);
+//
+//        $brandName = $brandNameModel['brandName'];
+//        pred($brandName);
 //        $productName = $this->ToArray($productName);
 //        pre($productName['name']);
        // $productName = (array) $productName;
@@ -213,6 +263,8 @@ class HomeController extends Controller
 //        $word = 'welcome Ahmed';
 //        $word = substr($word, 0, 9);
 //        echo $word;
+
+
     }
 
 }

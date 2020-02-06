@@ -43,7 +43,10 @@ class MainPageController extends Controller
         $data['productFiltersTop']      = $this->load->model('MainPage')->selectBySlideName(11);
         $data['productFiltersRight']    = $this->load->model('MainPage')->selectBySlideName(12);
         $data['allCategoryAndSubRight'] = $this->load->model('MainPage')->selectBySlideName(13);
+        $data['allBrand']               = $this->load->model('MainPage')->selectBySlideName(14);
 
+        $data['fiveLargeSliders2']       = $this->load->model('MainPage')->selectBySlideName(15);
+        $data['fiveSmallSliders2']       = $this->load->model('MainPage')->selectBySlideName(16);
         $data['result']             = $this->session->has('message') ? $this->session->pull('message') : null ;
         $view                       = $this->view->render('admin/main-page/main', $data);
         return $this->Layout->render($view, $title);

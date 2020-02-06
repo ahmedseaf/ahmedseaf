@@ -115,6 +115,7 @@ class ProductController extends Controller
 
     public function getsubcategoy()
     {
+
         return $this->load->model('Products')->getSubCategory();
     }
 
@@ -238,6 +239,13 @@ class ProductController extends Controller
         }
         return false;
 
+    }
+
+
+
+    public function faveproduct()
+    {
+        return $this->load->model('Products')->productFave();
     }
 
 
