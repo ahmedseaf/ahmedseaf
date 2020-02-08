@@ -68,6 +68,15 @@
                                 <p>Main Page Control</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?php echo url('admin/setting'); ?>" class="nav-link">
+                                <i class="fas fa-cogs nav-icon"></i> 
+                                <p>Settings</p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

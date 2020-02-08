@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo @$title ; ?></title>
 
-    <meta name="description" content="<?php echo $desc ;?>">
+    <link rel="shortcut icon" type="image/png" href="<?php echo $fave?>"/>
+
+
+
+
+    <meta name="description" content= "ماكينة قلوظة يابانى 300 وات مقاس من 1/2&amp;quot; الى 1 بوصة">
     <link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo assets('plugins/fontawesome-free/css/all.min.css') ; ?>">
     <link rel="stylesheet" href="<?php echo assets('dist/css/webStyle.css') ; ?>">

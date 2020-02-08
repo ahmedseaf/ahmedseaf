@@ -69,6 +69,16 @@ $app->route->group($adminOptions, function ($route) {
 
 
 
+    // Admin Setting
+    $route->add('/setting',             'Setting');
+    $route->add('/setting/add',         'Setting@add',      'POST');
+    $route->add('/setting/submit',      'Setting@submit',   'POST');
+    $route->add('/setting/edit/:id',    'Setting@edit',     'POST');
+    $route->add('/setting/save/:id',    'Setting@save',     'POST');
+    $route->add('/setting/delete/:id',  'Setting@delete',   'POST');
+
+
+
     // Admin Product
     $route->add('/product',             'Product');
     $route->add('/product/add',         'Product@add');
@@ -131,6 +141,7 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/product/brand/:id/:text', 'Home@getAllProductBrand');
     $route->add('/product/sitemap', 'Home@getSiteMap');
     $route->add('/product/test', 'Home@test');
+    $route->add('/header/test', 'Admin/WebCommon/HeaderWeb@test');
     $route->add('/test', 'Home@test');
 
 

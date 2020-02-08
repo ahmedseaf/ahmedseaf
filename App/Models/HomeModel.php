@@ -17,7 +17,6 @@ class HomeModel extends Model
         return $this->query("SELECT * FROM mainPage WHERE hint=? ORDER BY id DESC LIMIT $limit", $hint)->fetchAll();
     }
 
-
     public function bestOffer($limit)
     {
         return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
@@ -26,7 +25,6 @@ class HomeModel extends Model
             ->where('p.discount !=? AND i.Status=? ORDER BY discount DESC LIMIT '. $limit,0,'enabled')
             ->fetchAll();
     }
-
 
     public function newProducts($limit)
     {
@@ -37,8 +35,6 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
-
-
     public function allProducts($productId  )
     {
         return $this->select('p.*', 'i.name AS `Image`, i.status AS `Status`')
@@ -47,7 +43,6 @@ class HomeModel extends Model
             ->where('p.id=? AND i.Status=?', $productId,'enabled')
             ->fetchAll();
     }
-
 
     public function getAllCategory()
     {
@@ -59,12 +54,10 @@ class HomeModel extends Model
         return $this->query('SELECT * FROM sub_category WHERE category_id=?', $id)->fetchAll();
     }
 
-
     public function getAllMainSubCategory($id)
     {
         return $this->query('SELECT * FROM min_sub_category WHERE sub_category_id=?',$id)->fetchAll();
     }
-
 
     public function getProductByMainCategoryId($id)
     {
@@ -95,7 +88,6 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
-
     public function userProduct($id)
     {
         return $this->query("SELECT * FROM user_product WHERE product_id=?", $id)->fetchAll();
@@ -112,7 +104,6 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
-
     public function getLikeProduct($productName)
     {
         $secondWords = substr($productName, 0, 9);
@@ -125,7 +116,6 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
-
     public function likeBrand($productBrand)
     {
         return $this->select('p.*',
@@ -136,7 +126,6 @@ class HomeModel extends Model
             ->where('p.brand=? AND i.Status=?',$productBrand,'enabled')
             ->fetchAll();
     }
-
 
     public function getAllProductByBrandId($brandId)
     {
@@ -151,6 +140,10 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
+    public function getBrandById($brandId)
+    {
+        return $this->query("SELECT * FROM brand WHERE id=?", $brandId)->fetchAll();
+    }
 
     public function getFaveProduct($limit)
     {
@@ -161,11 +154,6 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
-    /**
-     * get all Product By Category Id
-     * @var $categoryId
-     * @return \stdClass product By Category
-     */
     public function getProductByCategory($categoryId, $limit)
     {
         return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`")
@@ -177,14 +165,5 @@ class HomeModel extends Model
 
 
 
-//    public function getProductBySubBrand()
-//    {
-//        return $this->select("p.*", "i.name AS `Image`, i.status AS `Status`",
-//            '')
-//            ->from("products p")
-//            ->join("LEFT JOIN product_image i ON p.id=i.product_id")
-//            ->where("p.category_id=? AND i.Status=? LIMIT $limit",$categoryId,"enabled")
-//            ->fetchAll();
-//    }
 
 }

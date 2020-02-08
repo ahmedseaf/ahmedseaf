@@ -344,9 +344,11 @@ img{
 
 
 .navbarContainer .navContainer .navMenu .navLogo{
-    border: 2px solid var(--border-color);
     border-radius: 1%;
-   
+    position: relative;
+    top: 25px;
+    width: 60%;
+    left: 2rem;
 }
 .navbarContainer .navContainer .navMenu .navLogo img{
     width: 100%;
@@ -1563,7 +1565,33 @@ display: block;
 /* End Site Map Page */
 
 
+/* Start Brand Page*/
+.container .brandTitle {
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+.container .brandHeaders{
+    max-height: 300px;
+    overflow: hidden;
+}
+.container .logoAndDescription{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+.container .logoAndDescription .description{
+    font-size: 1.2rem;
+    background-color: #e6e6e6;
+    padding: 1rem;
+}
 
+.container .logoAndDescription .logo{
+    width: 50%;
+    overflow: hidden;
+}
+/* End Brand Page*/
 
 
 

@@ -42,12 +42,6 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
-
-
-
-
-
-
     public function products( $productId)
     {
         $productModel = $this->load->model('Home')->allProducts( $productId);
@@ -65,17 +59,6 @@ class HomeController extends Controller
 
         return $this->webLayout->render($view, $title);
     }
-
-
-
-
-
-
-
-
-
-
-
 
     public function productView($productId)
     {
@@ -117,10 +100,8 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
-
     public function allCategory()
     {
-//pre($this->load->model('Home')->getAllCategory());
 
         $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
         $data['allCategoryAds']        = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
@@ -130,7 +111,6 @@ class HomeController extends Controller
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
-
 
     public function subCategory($subCategoryId)
     {
@@ -147,7 +127,6 @@ class HomeController extends Controller
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
-
 
     public function mainCategory($mainSubCategoryId)
     {
@@ -167,7 +146,6 @@ class HomeController extends Controller
         $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
         return $this->webLayout->render($view, $title);
     }
-
 
     public function productFilter($productId)
     {
@@ -190,7 +168,6 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
-
     private function productComingSoon()
     {
         $view = $this->view->render('admin/main-page/no-product');
@@ -198,13 +175,12 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
-
-
     public function getAllProductBrand($brandId)
     {
         $data['repeatSliders']      = $this->load->model('Home')->loadSliders(2, 7);
         $data['allCategoryAds']     = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
         $data['allBrands']          = $this->load->model('Home')->getAllProductByBrandId($brandId);
+        $data['brands']             = $this->load->model('Home')->getBrandById($brandId);
 
 
 
@@ -219,8 +195,6 @@ class HomeController extends Controller
 
     }
 
-
-
     public function getSiteMap()
     {
         $data['productsModel'] = $this->load->model('Products')->all();
@@ -229,13 +203,8 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title);
     }
 
-
     public function test()
     {
-
-
-
-
 
         //$mainSubCategoryModel = $this->load->model('Home')->getMainAndSubCategory(13);
         //$mainSubCategoryModel = (array) $mainSubCategoryModel;
@@ -248,7 +217,7 @@ class HomeController extends Controller
         //pre($this->load->model('Home')->getMainAndSubCategory(13));
 
 //        $productName = $this->load->model('Home')->getProductById(11);
-        $productName = $this->load->model('Home')->getProductByCategory(2, 30);
+        $productName = $this->load->model('Home')->getBrandById(6);
         pre($productName);
 
 //        $brandNameModel = $this->load->model('Home')->getAllProductByBrandId(6);

@@ -24,13 +24,11 @@ class CategoriesController extends Controller
         return $this->Layout->render($view, $title);
     }
 
-
     public function add() {
 
         $data['action'] = $this->url->link('/admin/categories/insert');
         return $this->view->render('admin/categories/add', $data);
     }
-
 
     public function insert()
     {
@@ -48,12 +46,10 @@ class CategoriesController extends Controller
         return $this->json($json);
     }
 
-
     private function isValid(){
          $this->validator->required('name', 'Category Name Is Required');
          return $this->validator->passes();
     }
-
 
     public function edit($id){
 
@@ -78,7 +74,6 @@ class CategoriesController extends Controller
         $title = $this->html->setTitle('Update Categories ');
         return $this->Layout->render($view, $title);
     }
-
 
     public function save($id)
     {
@@ -106,9 +101,6 @@ class CategoriesController extends Controller
         return $this->url->redirectTo('admin/categories');
     }
 
-
-
-
     public function delete($id) {
         $categoriesModel = $this->load->model('Categories');
         if(! $categoriesModel->exists($id)) {
@@ -133,8 +125,6 @@ class CategoriesController extends Controller
         }
         return false;
     }
-
-
 
     private function subCategoryExist($id)
     {

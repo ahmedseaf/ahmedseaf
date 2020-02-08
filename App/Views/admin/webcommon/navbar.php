@@ -6,7 +6,7 @@
         <div class="navMenu">
 
             <div class="navLogo">
-                <img src="https://placeimg.com/150/52/any" alt="">
+                <img src="<?php echo $logo?>" alt="">
             </div>
 
 

@@ -90,7 +90,7 @@ class Html
      * @param string $description
      * @return void
      */
-    public function setDecription($description)
+    public function setDescription($description)
     {
         $this->description = $description;
     }

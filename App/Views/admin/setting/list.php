@@ -1,12 +1,16 @@
 <div class="row">
     <div class="col-md-4">
+
+        <?php  if( count($showSettings) == 0 ) :?>
         <button class="btn btn-info mb-2 pull-right usersModal"
-                data-toggle="modal" data-modal-target="#add-brand-form"
-                data-target="<?php echo url('admin/brand/add') ; ?>">
+                data-toggle="modal" data-modal-target="#add-setting-form"
+                data-target="<?php echo url('admin/setting/add') ; ?>">
             اضافة ماركة جديدة  </button>
+        <?php endif;?>
     </div>
+
         <div class="col-md-8" id="message"></div>
-        <?php if(@$result) {?>
+        <?php if($result) {?>
             <div class="toast" role="alert" data-delay=5000 aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
 
@@ -39,45 +43,43 @@
                 <table class="table table-bordered" id="table">
                     <thead>
                     <tr>
-                        <th >Brand Name</th>
-                        <th >Title Hint </th>
-                        <th >image </th>
-                        <th >image Header </th>
+                        <th >Site Name</th>
+                        <th >Site Logo </th>
+                        <th >Site Fave </th>
                         <th style="width: 20%;">Control</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($brands AS $brand) :?>
+                    <?php if(isset($settings)) : foreach ($settings AS $setting) :?>
                     <tr>
-                        <td><?= $brand->name ; ?></td>
-                        <td><?= $brand->title ; ?></td>
+                        <td><?= $setting->site_name ; ?></td>
                         <td >
-                            <img src="<?php echo assets('images/'. $brand->image_header) ?>" style="width: 70px; height: 70px; border-radius:50%;" >
+                            <img src="<?php echo assets('images/'. $setting->logo) ?>" alt="<?php echo $setting->site_name?>" style="width: 70px; height: 70px; border-radius:50%;" >
                         </td>
 
                         <td >
-                            <img src="<?php echo assets('images/'. $brand->image) ?>" style="width: 70px; height: 70px; border-radius:50%;" >
+                            <img src="<?php echo assets('images/'. $setting->fave_icon) ?>" alt="<?php echo $setting->site_name?>" style="width: 70px; height: 70px; border-radius:50%;" >
                         </td>
 
                         <td>
                             <!--        Edit Button                    -->
                             <button class="usersModal btn btn-outline-info"
-                                    data-target="<?php echo url('admin/brand/edit/' . $brand->id) ?>"
-                                    data-modal-target="#edit-brand-<?php echo ( $brand->id)?>"> <i class="fas fa-edit">Edit</i>
+                                    data-target="<?php echo url('admin/setting/edit/' . $setting->id) ?>"
+                                    data-modal-target="#edit-setting-<?php echo ( $setting->id)?>"> <i class="fas fa-edit">Edit</i>
 
                             </button>
 
 
                         <!--        Delete Button                    -->
 
-                            <button  class="btn btn-outline-danger SubCategoryDelete"
-                            data-subcategoryid="<?php  echo url('admin/brand/delete/'.$brand->id); ?>"
-                            data-subcategory="<?php  echo '<b>'.$brand->name. '<b>' ; ?>"
-                            ><i class="fas fa-trash"> Delete</i></button>
+<!--                            <button  class="btn btn-outline-danger SubCategoryDelete"-->
+<!--                            data-subcategoryid="--><?php // echo url('admin/brand/delete/'.$setting->id); ?><!--"-->
+<!---->
+<!--                            ><i class="fas fa-trash"> Delete</i></button>-->
 
                         </td>
                     </tr>
-                    <?php endforeach;?>
+                    <?php endforeach; endif;?>
                     </tbody>
                 </table>
             </div>

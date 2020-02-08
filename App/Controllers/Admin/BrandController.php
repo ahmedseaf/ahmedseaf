@@ -95,9 +95,14 @@ class BrandController extends Controller
 
         $brands = (array) $brands ;
 
+        $data['imageHeader'] = '';
+        if(! empty($brands['image_header'])) {$data['imageHeader'] = $this->url->link('public/images/'. $brands['image_header']);}
+
         $data['image'] = '';
         if(! empty($brands['image'])) {$data['image'] = $this->url->link('public/images/'. $brands['image']);}
         $data['name']  = array_get($brands, 'name');
+        $data['title']  = array_get($brands, 'title');
+        $data['description']  = array_get($brands, 'description');
         return $this->view->render('/admin/brand/form', $data);
     }
 

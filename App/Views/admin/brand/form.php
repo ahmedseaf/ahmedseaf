@@ -18,9 +18,17 @@
 
 
 
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <input class="form-control" type="text"  value="<?php echo $name ?>"  name="name"  placeholder="Brand Name">
                             </div>
+
+                        <div class="form-group col-md-12">
+                            <input class="form-control" type="text"  value="<?php echo $title ?>"  name="title"  placeholder="Brand Title Hint">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <textarea class="form-control textarea" type="text"   name="description" id="description" cols="10" rows="10"> <?php echo $description ?></textarea>
+                        </div>
 
 
 
@@ -31,9 +39,23 @@
 
                             <!--       For Image                 -->
                             <div class="form-group col-md-6">
-                                <input class="form-control" type="file"  name="image"  >
+                                <label for="image_header">Image Headers</label>
+                                <input class="form-control" type="file"  name="image_header" id="image_header" >
                             </div>
 
+
+
+                        <?php if($imageHeader) {?>
+                            <div class="form-group col-md-6">
+                                <img class="form-control" style="width: 120px; height: 120px" src="<?php  echo $imageHeader; ?>">
+                            </div>
+                        <?php  } ?>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="Brand_Logo">Brand Logo</label>
+                            <input class="form-control" type="file"  name="image" id="Brand_Logo" >
+                        </div>
                             <?php if($image) {?>
                                 <div class="form-group col-md-6">
                                     <img class="form-control" style="width: 120px; height: 120px" src="<?php  echo $image; ?>">

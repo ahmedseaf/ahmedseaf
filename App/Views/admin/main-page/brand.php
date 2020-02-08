@@ -1,4 +1,17 @@
 <div class="container" style="direction: rtl">
+    <?php if (isset($brands)) :
+    foreach ($brands AS $allBrand) : ?>
+    <div class="brandTitle"><h1><?php echo $allBrand->title?></h1></div>
+    <div class="brandHeaders"><img src="<?php echo assets('images/'. $allBrand->image_header) ?>" alt="<?php echo $allBrand->title ?>"></div>
+    <div class="logoAndDescription">
+        <div class="description"><p><?php echo $allBrand->description?></p></div>
+        <div class="logo"><img src="<?php echo assets('images/'. $allBrand->image) ?>" alt="<?php echo $allBrand->name ?>"></div>
+    </div>
+
+    <?php endforeach; endif; ?>
+</div>
+
+<div class="container" style="direction: rtl">
 
 
     <div class="categoryHover"></div>
@@ -36,8 +49,7 @@
                            </div>
 
                    </div>
-               <?php endforeach;
-           endif; ?>
+               <?php endforeach; endif; ?>
 
 
 
