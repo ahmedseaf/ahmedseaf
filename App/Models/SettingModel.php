@@ -25,6 +25,12 @@ class SettingModel extends Model
         }
 
 
+        $imageHeaders = $this->uploadHeaders();
+        if($imageHeaders) {
+            $this->data('image_header', $imageHeaders);
+        }
+
+
 
         //site_name	site_description	keyword	facebook	twitter	google	youtube	instgram
 
@@ -53,6 +59,11 @@ class SettingModel extends Model
         $imageFave = $this->uploadImageFave();
         if($imageFave) {
             $this->data('fave_icon', $imageFave);
+        }
+
+        $imageHeaders = $this->uploadHeaders();
+        if($imageHeaders) {
+            $this->data('image_header', $imageHeaders);
         }
 
         $this->data('site_name', $this->request->post('site_name'))
@@ -92,6 +103,16 @@ class SettingModel extends Model
         return $image->moveTo($this->app->file->toPublic('images'));
     }
 
+
+    private function uploadHeaders() {
+
+        $image = $this->request->file('image_header');
+        if ( ! $image->exists()) {
+            return '' ;
+        }
+
+        return $image->moveTo($this->app->file->toPublic('images'));
+    }
 
 
 

@@ -64,6 +64,8 @@ class CategoriesController extends Controller
         $data['errors'] = $this->session->has('errors') ? implode('<br>', $this->session->pull('errors')) : null ;
         $data['categoryId']  = array_get($categoriesModel, 'id');
         $data['categoryName']  = array_get($categoriesModel, 'name');
+        $data['title']  = array_get($categoriesModel, 'title');
+        $data['description']  = array_get($categoriesModel, 'description');
         $data['categoryStatus']  = array_get($categoriesModel, 'status');
 
 

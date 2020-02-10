@@ -86,7 +86,7 @@ class SettingController extends Controller
 
             $data['action'] = $this->url->link('/admin/setting/save/' . $settings->id);
 
-            $data['heading'] = 'Edit <b>' . $settings->name . '</b>';
+            $data['heading'] = 'Edit <b>' . $settings->site_name . '</b>';
 
             $data['buttonTitle'] = 'Update Settings ';
 
@@ -111,6 +111,11 @@ class SettingController extends Controller
 
         $data['image_fave'] = '';
         if(! empty($settings['fave_icon'])) {$data['image_fave'] = $this->url->link('public/images/'. $settings['fave_icon']);}
+
+
+        $data['image_header'] = '';
+        if(! empty($settings['image_header'])) {$data['image_header'] = $this->url->link('public/images/'. $settings['image_header']);}
+
 
         $data['site_name']              = array_get($settings, 'site_name');
         $data['site_description']       = array_get($settings, 'site_description');

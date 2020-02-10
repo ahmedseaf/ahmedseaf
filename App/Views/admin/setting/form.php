@@ -52,6 +52,8 @@
                                 <img class="form-control" style="width: 120px; height: 120px" src="<?php  echo $image_logo; ?>">
                             </div>
                         <?php  } ?>
+
+
                         <div class="form-group col-md-6">
                             <label for="image_fave">Image FaveIcon</label>
                             <input class="form-control" type="file"  name="image_fave" id="image_fave" >
@@ -61,6 +63,18 @@
                                     <img class="form-control" style="width: 120px; height: 120px" src="<?php  echo $image_fave; ?>">
                                 </div>
                             <?php  } ?>
+
+                        <div class="form-group col-md-6">
+                            <label for="image_header">Image Headers</label>
+                            <input class="form-control" type="file"  name="image_header" id="image_header" >
+                        </div>
+                        <?php if($image_header) {?>
+                            <div class="form-group col-md-6">
+                                <img class="form-control" style="width: 120px; height: 120px" src="<?php  echo $image_header; ?>">
+                            </div>
+                        <?php  } ?>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>

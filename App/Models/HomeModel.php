@@ -163,7 +163,31 @@ class HomeModel extends Model
             ->fetchAll();
     }
 
+    public function getCategoryById($categoryId)
+    {
+        return $this->query("SELECT * FROM categories WHERE id=?", $categoryId)->fetchAll();
+    }
 
+    public function getSubCategoryById($categoryId)
+    {
+        return $this->query("SELECT * FROM sub_category WHERE id=?", $categoryId)->fetchAll();
+    }
+
+    public function getMainSubCategoryById($categoryId)
+    {
+        return $this->query("SELECT * FROM min_sub_category WHERE id=?", $categoryId)->fetchAll();
+    }
+
+    public function visitors($tableName ,$counter, $id)
+    {
+        $this->query("UPDATE $tableName SET visitor=? WHERE id=?",$counter, $id);
+
+    }
+
+    public function getBrandByProductBrand($brandId)
+    {
+        return $this->query("SELECT * FROM brand WHERE id=?", $brandId)->fetchAll();
+    }
 
 
 }

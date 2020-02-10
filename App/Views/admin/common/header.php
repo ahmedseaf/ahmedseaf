@@ -8,6 +8,10 @@
     <title><?php echo @$title ; ?></title>
 
 
+    <link rel="canonical" href="<?php echo url(isset($_SERVER['REQUEST_URI']) ? rawurldecode($_SERVER['REQUEST_URI']) : ''); ?>" />
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="<?php echo assets('plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') ; ?>">

@@ -17,6 +17,8 @@ class CategoriesModel extends Model
         }
         $this->data('name', $this->request->post('name'))
              ->data('status', $this->request->post('status'))
+             ->data('title', $this->request->post('title'))
+             ->data('description', $this->request->post('description'))
              ->insert($this->table);
     }
 
@@ -31,6 +33,8 @@ class CategoriesModel extends Model
 
         $this->data('name', $this->request->post('name'))
              ->data('status', $this->request->post('status'))
+            ->data('title', $this->request->post('title'))
+            ->data('description', $this->request->post('description'))
              ->where('id=?', $id)
                 ->update($this->table);
     }

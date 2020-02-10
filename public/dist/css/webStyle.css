@@ -1592,8 +1592,53 @@ display: block;
     overflow: hidden;
 }
 /* End Brand Page*/
+@media screen and (max-width: 500px) {
+    .container .aboutContainer{
+        grid-template-columns: 1fr !important;
+    }
+}
+.container .aboutContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+}
+
+.container .aboutContainer .aboutInfo .aboutCard{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    overflow: hidden;
+}
+.container .aboutContainer .aboutInfo .aboutCard .fas{
+    font-size: 50px;
+    color: var(--main-color);
+    justify-self: center;
+}
+
+.container .aboutContainer .aboutInfo .aboutCard p{
+    padding: 0.8rem;
+    background-color: #e3e3ee;
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+}
+.container .aboutContainer .aboutLogo .aboutLogoContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+.container .aboutContainer .aboutLogo .aboutLogoContainer .aboutImage{
+    max-width: 150px;
+    overflow: hidden;
+    border-radius: 0.3rem;
+}
+/* Start About US */
 
 
+
+/* End About US */
 
 
 

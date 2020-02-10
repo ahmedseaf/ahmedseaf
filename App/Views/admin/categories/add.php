@@ -29,6 +29,15 @@
                         <input class="form-control" type="text" name="name" id="cat_name" placeholder="Category Name">
                     </div>
 
+                        <div class="form-group col-md-12">
+                            <label for="title">Category Title</label>
+                            <input class="form-control" type="text" name="title" id="title" placeholder="Category Name">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="description">Category Description</label>
+                         <textarea class="form-control" name="description" id="description" cols="30" rows="10"><?php echo $description?></textarea>
+                        </div>
                     <!--       For Image                 -->
                     <div class="form-group col-md-6">
                         <input class="form-control" type="file"  name="image"  >

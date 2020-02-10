@@ -129,7 +129,7 @@ $app->route->group($blogOptions, function ($route){
 
     $route->add('/', 'Home');
     //$route->add('/product/:text/:id', 'Home@products');
-    $route->add('/product/:id/:text', 'Home@products');
+   // $route->add('/product/:id/:text', 'Home@products');
 
 
     $route->add('/product/view/:id/:text', 'Home@productView'); // صفحة المنج
@@ -143,6 +143,10 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/product/test', 'Home@test');
     $route->add('/header/test', 'Admin/WebCommon/HeaderWeb@test');
     $route->add('/test', 'Home@test');
+
+
+    //Start AboutUs
+    $route->add('/about/us', 'Admin/AboutUs@aboutUs');
 
 
 
