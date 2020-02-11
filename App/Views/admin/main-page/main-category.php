@@ -1,7 +1,5 @@
 <div class="container" style="direction: rtl">
-    <div class="preLine mb-2" >
-        <h4> <a href="#"> الرئيسية </a>   / <a href="#"> القسم الرئيسى </a> /  <a href="#">  القسم الفرعى </a> </h4>
-    </div>
+
 
     <div class="categoryHover"></div>
 

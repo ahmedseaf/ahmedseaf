@@ -115,6 +115,27 @@ $app->route->group($adminOptions, function ($route) {
     $route->add('/main-page/delete/:id',  'MainPage@delete',   'POST');
 
 
+    // Contact Page
+    $route->add('/contact', 'AboutUs');
+    $route->add('/contact/view/:id', 'AboutUs@contactlist');
+    $route->add('/contact/delete/:id', 'AboutUs@delete', 'POST');
+
+
+
+    $route->add('/about',               'AboutUs@aboutView');
+    $route->add('/about/add',           'AboutUs@addabout', 'POST');
+    $route->add('/about/adddata',       'AboutUs@addaboutdata', 'POST');
+    $route->add('/about/edit/:id',      'AboutUs@editabout', 'POST');
+    $route->add('/about/update/:id',      'AboutUs@updateabout', 'POST');
+    $route->add('/about/delete/:id',    'AboutUs@aboutdelete', 'POST');
+
+    $route->add('/company',             'OurCompany');
+    $route->add('/company/add',         'OurCompany@add',      'POST');
+    $route->add('/company/submit',      'OurCompany@submit',   'POST');
+    $route->add('/company/edit/:id',    'OurCompany@edit',     'POST');
+    $route->add('/company/save/:id',    'OurCompany@save',     'POST');
+    $route->add('/company/delete/:id',  'OurCompany@delete',   'POST');
+
 
 });
 
@@ -147,6 +168,8 @@ $app->route->group($blogOptions, function ($route){
 
     //Start AboutUs
     $route->add('/about/us', 'Admin/AboutUs@aboutUs');
+    $route->add('/contact/us', 'Admin/AboutUs@contactUs');
+    $route->add('/contact/message', 'Admin/AboutUs@insert', 'POST');
 
 
 

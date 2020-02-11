@@ -20,7 +20,7 @@
                            <div class="homeMvc">
                                <div class="allCategory">
                                    <a href="<?php echo url('/category/all')?>"><h3>الاقسام</h3></a>
-                                   <a href=""><h3>من نحن</h3></a>
+                                   <a href="<?php echo url('/about/us')?>"><h3>من نحن</h3></a>
                                </div>
                                <div class="productCards">
                                    <?php if(isset($homeCards)) : foreach ($homeCards AS $homeCard) : ?>
@@ -90,13 +90,9 @@
 
 
                     <li>
-                        <a class="mainLink" href="#">اتصل بنا</a>
+                        <a class="mainLink" href="<?php echo url('/contact/us')?>">اتصل بنا</a>
                         <div class="dropdown services" style="width: 350px">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                        <p style="text-align: center; font-size: 1.3rem">نسعد باتصالك بنا</p>
                         </div>
                     </li>
                 </ul>
@@ -135,13 +131,13 @@
                             <a href="<?php echo url('/')?>"><h3>الرئيسية</h3></a>
                             <i class="fas fa-home"></i>
 
-                            <a href="#"><h3>من نحن</h3></a>
+                            <a href="<?php echo url('/about/us')?>"><h3>من نحن</h3></a>
                             <i class="fas fa-cannabis"></i>
 
 
 
 
-                            <a href="#"><h3>اتصل بنا</h3></a>
+                            <a href="<?php echo url('/contact/us')?>"><h3>اتصل بنا</h3></a>
                             <i class="far fa-address-card"></i>
 
                             <a href="<?php echo url('/category/all')?>"><h3>الاقسام الرئيسية</h3></a>

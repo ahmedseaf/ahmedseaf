@@ -375,3 +375,47 @@ document.body.style.setProperty('--main-color', localStorage.getItem('change'));
 
 // For Last Login Page
 
+
+// For Contact Us Page
+
+$(document).on('click','#submitContact',  function (e) {
+    let btn = $(this);
+   e.preventDefault();
+   let form         = $('#contactForm');
+   let urlRequest   = form.attr('action');
+   let requestMethod       = form.attr('method');
+   let requestData  = form.serialize();
+   let message      = $('#resultContact');
+    message.addClass('danger').html();
+   $.ajax({
+       url: urlRequest,
+       method: requestMethod,
+       dataType: 'json',
+       data: requestData ,
+       success: function (data) {
+           if(data.errors) {
+               $('.container .contactContainer .contactInput .resultContact').css("display","block");
+               message.html(data.errors);
+           }
+           else if(data.success) {
+               $('.container .contactContainer .contactInput .resultContact').css("display","none");
+               $('.container .contactContainer .contactInput .resultContact').css("display","block");
+               message.html(data.success);
+               $('#emailContact').val('');$('#name').val('');
+               $('#phone').val(''); $('textarea').val('');$('#reCode').val('');
+               if(data.redirectTo) {
+                   setTimeout(function () {
+                       $('.container .contactContainer .contactInput .resultContact').css("display","none");
+                       window.location.href = data.redirectTo;
+                   }, 3000)
+               }
+           }
+
+
+       }
+
+   })
+
+});
+
+

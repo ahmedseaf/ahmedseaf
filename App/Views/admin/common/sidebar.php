@@ -29,7 +29,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Charts
+                            Admin
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -85,68 +85,102 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                            UI Elements
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                        <i class="nav-icon fas fa-crown"></i>
+
+                        <p> About<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ribbons</p>
+                            <a href="<?php echo url('admin/contact'); ?>" class="nav-link">
+                                <i class="fas fas fa-cube nav-icon"></i>
+                                <p> AboutUs</p>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Forms
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>jsGrid</p>
+                            <a href="<?php echo url('admin/about'); ?>" class="nav-link">
+                                <i class="fas fas fa-comment-dots nav-icon"></i>
+                                <p> ContactUs</p>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-header">EXAMPLES</li>
-
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
-                        <p>
-                            Extras
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Blank Page</p>
+                            <a href="<?php echo url('admin/company'); ?>" class="nav-link">
+                                <i class="fas fas fa-compress-arrows-alt nav-icon"></i>
+                                <p>Our Company</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="starter.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Starter Page</p>
-                            </a>
-                        </li>
+
+
                     </ul>
                 </li>
+
+<!--                <li class="nav-item has-treeview">-->
+<!--                    <a href="#" class="nav-link">-->
+<!--                        <i class="nav-icon fas fa-tree"></i>-->
+<!--                        <p>-->
+<!--                            UI Elements-->
+<!--                            <i class="fas fa-angle-left right"></i>-->
+<!--                        </p>-->
+<!--                    </a>-->
+<!--                    <ul class="nav nav-treeview">-->
+<!---->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="#" class="nav-link">-->
+<!--                                <i class="far fa-circle nav-icon"></i>-->
+<!--                                <p>Ribbons</p>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-item has-treeview">-->
+<!--                    <a href="#" class="nav-link">-->
+<!--                        <i class="nav-icon fas fa-edit"></i>-->
+<!--                        <p>-->
+<!--                            Forms-->
+<!--                            <i class="fas fa-angle-left right"></i>-->
+<!--                        </p>-->
+<!--                    </a>-->
+<!--                    <ul class="nav nav-treeview">-->
+<!---->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="#" class="nav-link">-->
+<!--                                <i class="far fa-circle nav-icon"></i>-->
+<!--                                <p>jsGrid</p>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li class="nav-header">EXAMPLES</li>-->
+<!---->
+<!--                <li class="nav-item has-treeview">-->
+<!--                    <a href="#" class="nav-link">-->
+<!--                        <i class="nav-icon far fa-plus-square"></i>-->
+<!--                        <p>-->
+<!--                            Extras-->
+<!--                            <i class="fas fa-angle-left right"></i>-->
+<!--                        </p>-->
+<!--                    </a>-->
+<!--                    <ul class="nav nav-treeview">-->
+<!---->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="#" class="nav-link">-->
+<!--                                <i class="far fa-circle nav-icon"></i>-->
+<!--                                <p>Blank Page</p>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="starter.html" class="nav-link">-->
+<!--                                <i class="far fa-circle nav-icon"></i>-->
+<!--                                <p>Starter Page</p>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
             </ul>
         </nav>

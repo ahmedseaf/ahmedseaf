@@ -1285,3 +1285,83 @@ $(document).ready(function () {
     }); // On Click
 
 }); // Document
+
+
+// Start For Contact Page Delete
+$(document).on('click', '.contactDelete', function (e) {
+    e.preventDefault();
+    let btn = $(this);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Are You sure to Delete this Contact",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+
+        if (result.value) {
+            $.ajax({
+                url: btn.attr('data-contactid'),
+                type: 'POST',
+                dataType: 'JSON',
+                 success: function (data) {
+                    if (data.success){
+                        Swal.fire(
+                            'Deleted!',
+                            data.success,
+                            'success'
+                        );
+                    }
+                    setTimeout(function () {
+
+                            window.location.href = btn.attr('data-redirect');
+
+                    },1000)
+                }
+            });
+        }
+    }); //Swal.fire
+
+});
+
+
+// Start Company Delete Page
+$(document).on('click', '.CompanyDelete', function (e) {
+    e.preventDefault();
+    let btn = $(this);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Are You sure to Delete this Company",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+
+        if (result.value) {
+            $.ajax({
+                url: btn.attr('data-companyid'),
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (data) {
+                    if (data.success){
+                        Swal.fire(
+                            'Deleted!',
+                            data.success,
+                            'success'
+                        );
+                    }
+                    setTimeout(function () {
+
+                        window.location.href = btn.attr('data-redirect');
+
+                    },1000)
+                }
+            });
+        }
+    }); //Swal.fire
+
+});

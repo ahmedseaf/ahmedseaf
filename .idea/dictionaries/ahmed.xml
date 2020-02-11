@@ -1,11 +1,16 @@
 <component name="ProjectDictionaryState">
   <dictionary name="ahmed">
     <words>
+      <w>addabout</w>
+      <w>addaboutdata</w>
+      <w>adddata</w>
       <w>addr</w>
       <w>affiliatetheme</w>
       <w>allcategory</w>
       <w>catid</w>
       <w>catname</w>
+      <w>contactlist</w>
+      <w>contactus</w>
       <w>currancy</w>
       <w>deleteimg</w>
       <w>deleteoptions</w>
@@ -28,6 +33,7 @@
       <w>mouseup</w>
       <w>navbar</w>
       <w>newpassword</w>
+      <w>ourcompany</w>
       <w>phpmailer</w>
       <w>productfilter</w>
       <w>productid</w>
@@ -43,6 +49,7 @@
       <w>smtp</w>
       <w>tawred</w>
       <w>textarea</w>
+      <w>updateabout</w>
       <w>uploadimage</w>
       <w>webcommon</w>
       <w>whatting</w>

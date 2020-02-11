@@ -55,25 +55,6 @@ class HomeController extends Controller
         return $this->webLayout->render($view, $title, $siteName, $siteHome, $siteDescription, $siteImage, $siteLogo, $siteVisitor);
     }
 
-//    public function products( $productId)
-//    {
-//        echo 'welcome';
-//        $productModel = $this->load->model('Home')->allProducts( $productId);
-//        $productModel = $this->ToArray($productModel);
-//        if(! $productModel['id']) {
-//
-//            return $this->url->redirectTo('/');
-//        }
-//
-//        $data['productTitle'] = $productModel['name'];
-//        $view = $this->view->render('admin/main-page/product', $data);
-//        $title  = $this->html->setTitle( $productModel['name'].' | '.' شركة الحرية للتوريدات');
-//
-//
-//
-//        return $this->webLayout->render($view, $title);
-//    }
-
     public function productView($productId)
     {
 
@@ -85,14 +66,10 @@ class HomeController extends Controller
         }
 
         $productSEO = $this->ToArray($productModel);
-        //  pre($productSEO);
+
         $counter = $productSEO['visitor'] + 1 ;
         $this->load->model('Home')->visitors(' products ' ,$counter, $productId);
 
- //       $brandId = $productSEO['brandId'];
-//        pre($productSEO);
-        // For Brand Details
-//        pre($this->load->model('Home')->getBrandByProductBrand($brandId));
 
         $data['options'] = $this->load->model('Products')->getOptions($productId);
         $data['images'] = $this->load->model('Products')->getAllImage($productId);
@@ -121,8 +98,6 @@ class HomeController extends Controller
         $data['likeProducts'] = $this->load->model('Home')->getLikeProduct($proName);
         $data['likeBrands'] = $this->load->model('Home')->likeBrand($productBrand);
 
-        $view = $this->view->render('admin/main-page/product',$data);
-        $title  = $this->html->setTitle($proName .' - شركة الحرية للتوريدات ');
 
         $productSEOId           = $productSEO['id'] ;
         $productName            = $productSEO['name'] ;
@@ -169,7 +144,8 @@ class HomeController extends Controller
         $braUrl             =  $this->html->setBrandUrl($brandUrl);
         $braVisitor         =  $this->html->setBrandVisitor($brandVisitor);
 
-
+        $view = $this->view->render('admin/main-page/product',$data);
+        $title  = $this->html->setTitle($proName .' - شركة الحرية للتوريدات ');
         return $this->webLayout->render($view, $title, $proId, $proName, $proDescription,
                                         $proImage, $proCategory, $proPrice, $proVisitor, $proDate,
                                         $braName,  $braDescription, $braImage, $braLogo,
@@ -228,7 +204,7 @@ class HomeController extends Controller
 
         $data['subcategories'] = $this->load->model('Home')->getAllSubCategory($subCategoryId);
         $view = $this->view->render('admin/main-page/sub-category', $data);
-        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        $title  = $this->html->setTitle( '  شركة الحرية للتوريدات ' . $productSEO['name']);
         return $this->webLayout->render($view, $title, $subPage, $subName, $subDesc, $subImage, $subVisitor, $subUrl );
     }
 
@@ -260,7 +236,7 @@ class HomeController extends Controller
         $data['allCategoryAds']        = $this->load->model('MainPage')->selectBySlideNameNavbar(13, 1);
 
         $view = $this->view->render('admin/main-page/main-category', $data);
-        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات'. $productSEO['name']);
         return $this->webLayout->render($view, $title, $mainName, $mainPage,  $mainDesc,$mainImage, $mainVisitor, $mainUrl );
     }
 
@@ -290,12 +266,12 @@ class HomeController extends Controller
         $proFUrl         = $this->html->setFilterUrl(url('product/filter/'.$productSEO['id'] . '/' . rawurldecode(str_replace(' ', '-',$productSEO['name']))) );
 
 
-        $data['productFiltersTop']        = $this->load->model('MainPage')->selectBySlideNameNavbar(11, 1);
+        $data['productFiltersTop']         = $this->load->model('MainPage')->selectBySlideNameNavbar(11, 1);
         $data['productFiltersRight']        = $this->load->model('MainPage')->selectBySlideNameNavbar(12, 1);
 
         $data['products'] = $this->load->model('Home')->getProductByMainCategoryId($productId);
         $view = $this->view->render('admin/main-page/product-filter', $data);
-        $title  = $this->html->setTitle(' شركة الحرية للتوريدات');
+        $title  = $this->html->setTitle(' شركة الحرية للتوريدات'. $productSEO['name']);
         return $this->webLayout->render($view, $title, $proFName, $proFPage,  $proFDesc, $proFImage, $proFVisitor, $proFUrl);
     }
 

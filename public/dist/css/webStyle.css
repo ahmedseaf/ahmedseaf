@@ -1592,6 +1592,10 @@ display: block;
     overflow: hidden;
 }
 /* End Brand Page*/
+
+
+/* Start About US */
+
 @media screen and (max-width: 500px) {
     .container .aboutContainer{
         grid-template-columns: 1fr !important;
@@ -1623,6 +1627,10 @@ display: block;
     border: 1px solid var(--main-color);
     border-radius: 0.5rem;
 }
+.container .aboutContainer .aboutInfo .aboutCard a{
+    text-decoration: none;
+    color: var(--main-color);
+}
 .container .aboutContainer .aboutLogo .aboutLogoContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1634,13 +1642,220 @@ display: block;
     overflow: hidden;
     border-radius: 0.3rem;
 }
-/* Start About US */
-
-
-
 /* End About US */
 
 
+/* Start Contact Us*/
+@media screen and (max-width: 500px) {
+    .container .contactContainer{
+        grid-template-columns: 1fr !important;
+    }
+}
+.container .contactContainer{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+}
+
+.container .contactContainer .contactInfo .aboutCard{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    overflow: hidden;
+}
+.container .contactContainer .contactInfo .aboutCard .fas{
+    font-size: 50px;
+    color: var(--main-color);
+    justify-self: center;
+}
+
+.container .contactContainer .contactInfo .aboutCard p{
+    padding: 0.8rem;
+    background-color: #e3e3ee;
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+}
+
+.container .contactContainer .contactInput .resultContact{
+   text-align: center;
+    padding: 20px;
+    border-radius: 0.4rem;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: teal; ;
+    display: none;
+}
 
 
+.container .contactContainer .contactInput .contactInputContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin-top: 2.5rem;
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input{
+    margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
+
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input input{
+    border: 0;
+    border-bottom: 3px solid var(--main-color);
+    width: 90%;
+    padding: 1rem;
+    background-color: #f3f7f7;
+    transition: all 0.2s ease-in;
+    font-size: 1.3rem;
+    color: var(--main-color);
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input input:focus{
+    outline: none;
+    border-bottom-color: teal;
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input > input:focus + label,
+.container .contactContainer .contactInput .contactInputContainer .form-control-input > input:valid + label{
+    transform: translateY(-34px);
+    opacity: 0.7;
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input label{
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    transition: all 0.4s ease-in;
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input select{
+    width: 90%;
+    margin-top: 1.5rem;
+    height: 2.4rem;
+    font-size: 1.2rem;
+    background-color: #f3f7f7;
+    border: 0;
+    border-bottom: 3px solid var(--main-color);
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-input select:focus{
+    outline: none;
+}
+
+.container .contactContainer .contactInput .contactInputContainer .form-control-text{
+    grid-column: span 2;
+}
+.container .contactContainer .contactInput .contactInputContainer .form-control-text textarea {
+    width: 95%;
+    border: 3px solid var(--main-color);
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-color: #f3f7f7;
+}
+
+.container .contactContainer .contactInput .contactInputContainer .submit{
+    grid-column: span 2;
+    margin: 1px auto;
+
+}
+.container .contactContainer .contactInput .contactInputContainer .submit input{
+    width: 300px;
+    height: 3rem;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 1.4rem;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.container .contactContainer .contactInput .contactInputContainer .submit input:hover{
+    background-color: teal;
+    color: black;
+}
+/* End Contact Us*/
+
+
+/* Start Footer Page */
+.footerContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.footerContainer .footerTop{
+    height: 140px;
+    background-color: #282828;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+.footerContainer .footerTop .logo{
+    width: 170px;
+    overflow: hidden;
+    padding: 40px;
+}
+.footerContainer .footerTop .about{
+    margin-top: 20px;
+    color: #e4b723;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+.footerContainer .footerTop .about .phone{
+    display: grid;
+    grid-template-columns: 30px 1fr ;
+    grid-gap: 0.2rem;
+}
+.footerContainer .footerBottom{
+    height: 220px;
+    background-color: #323232;
+}
+.footerContainer .footerBottom .social{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.footerContainer .footerBottom .social img{
+    width: 30px;
+    margin-right: 0.6rem;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+.footerContainer .footerBottom .social img:hover{
+    transform: scale(1.2);
+}
+.footerContainer .footerBottom .links{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    margin-right: 2rem;
+}
+
+.footerContainer .footerBottom .links .goLinks > p{
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.footerContainer .footerBottom .links .goLinks a p{
+    color: #e4b723;
+    font-size: 1rem;
+    margin-right: 0.3rem;
+    margin-top: 0.5rem;
+    transition: all 0.2s ease-in;
+}
+.footerContainer .footerBottom .links .goLinks a p:hover{
+    color: white;
+}
+
+.footerContainer .footerBottom .links .phone{
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-gap: 0.3rem;
+    margin-top: 1rem;
+}
+.footerContainer .footerBottom .links .phone .fas{
+    justify-self: center;
+    color: white;
+}
+.footerContainer .footerBottom .links .phone p{
+    color: #e4b723;
+    font-size: 1rem;
+}
+/* End Footer Page */
 
