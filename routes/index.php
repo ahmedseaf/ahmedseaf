@@ -157,28 +157,32 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/category/all', 'Home@allCategory');
     $route->add('/sub-category/filter/:id/:text', 'Home@subCategory');
     $route->add('/main-category/filter/:id/:text', 'Home@mainCategory');
-    $route->add('/product/filter/:id/:text', 'Home@productFilter');
+    $route->add('/product/filter/:id/:text',    'Home@productFilter');
 
-    $route->add('/product/brand/:id/:text', 'Home@getAllProductBrand');
-    $route->add('/product/sitemap', 'Home@getSiteMap');
-    $route->add('/product/test', 'Home@test');
-    $route->add('/header/test', 'Admin/WebCommon/HeaderWeb@test');
+    $route->add('/product/brand/:id/:text',     'Home@getAllProductBrand');
+    $route->add('/product/sitemap',             'Home@getSiteMap');
+    $route->add('/product/test',                'Home@test');
+    $route->add('/header/test',                 'Admin/WebCommon/HeaderWeb@test');
     $route->add('/test', 'Home@test');
 
 
+    // Nav bar Search
+    $route->add('/product/search',                 'Admin/WebCommon/NavbarWeb@search', 'POST');
+    $route->add('/product/check',                 'Admin/WebCommon/NavbarWeb@checksearch', 'POST');
+
     //Start AboutUs
-    $route->add('/about/us', 'Admin/AboutUs@aboutUs');
-    $route->add('/contact/us', 'Admin/AboutUs@contactUs');
+    $route->add('/about/us',        'Admin/AboutUs@aboutUs');
+    $route->add('/contact/us',      'Admin/AboutUs@contactUs');
     $route->add('/contact/message', 'Admin/AboutUs@insert', 'POST');
 
 
 
     $route->add('/contact', 'Contact');
-    $route->add('/test', 'Test');
-    $route->add('/test/add',        'Test@add',     'POST');
-    $route->add('/test/submit',     'Test@submit',  'POST');
-    $route->add('/test/radio',     'Test@radio');
-    $route->add('/test/getdata',     'Test@getdata',  'POST');
+    $route->add('/test/test', 'Test');
+    $route->add('/test/add',            'Test@add',     'POST');
+    $route->add('/test/submit',         'Test@submit',  'POST');
+    $route->add('/test/radio',          'Test@radio');
+    $route->add('/test/getdata',        'Test@getdata',  'POST');
 
     $route->add('/test/search',     'Test@search',  'POST');
     $route->add('/test/edit/:id',   'Test@edit' ,   'POST');
@@ -186,11 +190,11 @@ $app->route->group($blogOptions, function ($route){
     $route->add('/test/delete/:id', 'Test@delete',  'POST');
 
 
-    $route->add('/user/login', 'Admin/Login');
-    $route->add('/user/login-user', 'Admin/Login@checkIfAdmin', 'POST');
-    $route->add('/user/login-admin', 'Admin/Login@adminLogin', 'POST');
-    $route->add('/user/register', 'Admin/Login@newRegister');
-    $route->add('/user/post-register', 'Admin/Login@postRegister', 'POST');
+    $route->add('/user/login',          'Admin/Login');
+    $route->add('/user/login-user',     'Admin/Login@checkIfAdmin', 'POST');
+    $route->add('/user/login-admin',    'Admin/Login@adminLogin', 'POST');
+    $route->add('/user/register',       'Admin/Login@newRegister');
+    $route->add('/user/post-register',  'Admin/Login@postRegister', 'POST');
 
 
 

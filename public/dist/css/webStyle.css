@@ -478,6 +478,79 @@ img{
     color: white;
 }
 
+.navbarContainer .navContainer .navMenu .navController .navSearch{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
+
+.navbarContainer .navContainer .navMenu .navController .navSearch .search{
+    position: relative;
+
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .fas{
+    position: absolute;
+    font-size: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: white;
+    line-height: 2rem;
+    text-align: center;
+    cursor: pointer;
+    right: 0;
+    z-index: 2;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .fas:hover{
+    transform: scale(1.02);
+    background-color: teal;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch{
+    border: none;
+    border-bottom: 3px solid var(--main-color);
+    width: 300px;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    background-color: #f3f7f7;
+    right: 3rem;
+    position: absolute;
+    display: none;
+    top: 30px;
+    transition: all 0.9s ease-in;
+    padding-right: 1rem;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .searchFound{
+    width: 300px;
+    text-align: right;
+    display: none;
+    position: absolute;
+    right: 3rem;
+    top: 35px;
+    max-height: 300px;
+    overflow-y: scroll;
+    background-color: white;
+    overflow-x: hidden;
+    z-index: 555555;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .searchFound p{
+    padding: 7px;
+    font-size: 1.2rem;
+    color: #282828;
+    border: 1px solid var(--button-color);
+    cursor: pointer;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .searchFound p:hover{
+    background-color: var(--main-color);
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch.active{
+    top: 0;
+    display: block;
+}
+.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch:focus{
+    outline: none;
+    border-bottom-color: teal;
+}
 /*  Start Home In navbar  */
 
 .navbarContainer .navContainer .navMenu .navMega .home{
@@ -1856,6 +1929,28 @@ display: block;
 .footerContainer .footerBottom .links .phone p{
     color: #e4b723;
     font-size: 1rem;
+}
+.footerContainer .footerBottom .links .copyRight{
+    margin-top: 2rem;
+}
+.footerContainer .footerBottom .links .copyRight .copy{
+    font-size: 1rem;
+    color: #e4b723;
+}
+.footerContainer .footerBottom .links .copyRight .copy span{
+    font-size: 1.1rem;
+    color: #5ce087;
+}
+.footerContainer .footerBottom .links .copyRight .design{
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #e4b723;
+}
+.footerContainer .footerBottom .links .copyRight .design a{
+    color: #5ce087;
+}
+.footerContainer .footerBottom .links .copyRight .design a:hover{
+    color: #e4b723;
 }
 /* End Footer Page */
 

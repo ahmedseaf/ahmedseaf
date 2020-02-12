@@ -418,4 +418,44 @@ $(document).on('click','#submitContact',  function (e) {
 
 });
 
+// ----------------------------------------------------------------
+//          For Search WebSit
+//--------------------------------------------------------------------
+
+$('.navbarContainer .navContainer .navMenu .navController .navSearch .search .fas').on('click', function () {
+    $('.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch').toggleClass('active');
+});
+
+$(document).on('keyup','#allSearch',  function () {
+    let query = $(this).val();
+    let urlRequest = $(this).attr('data-request');
+    if (query !== '') {
+        $.ajax({
+            url: urlRequest,
+            method: "POST",
+            data:{query:query},
+            success:function (data) {
+                $('#searchFound').fadeIn();
+                $('#searchFound').focus();
+                $('#searchFound').html(data);
+            }
+        }); //End Ajax
+
+    }// End if
+    else {
+        $('#searchFound').html('');
+        $('#searchFound').fadeOut();
+    }
+});
+
+$(document).on('mouseover', '.searchData', function () {
+    let searchKey = $(this).html();
+    $('.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch').val(searchKey);
+});
+
+$(document).on('click', '.searchData', function () {
+    let searchKey = $(this).html();
+    $('.navbarContainer .navContainer .navMenu .navController .navSearch .search .inputSearch').val(searchKey);
+    $('#searchFound').fadeOut();
+});
 

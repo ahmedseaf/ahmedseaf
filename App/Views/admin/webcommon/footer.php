@@ -29,6 +29,7 @@
                 <div class="goLinks">
                     <p>روابط سريعة</p>
                     <a href="<?php echo url('/category/all')?>"><p>الاقسام الرئيسية</p></a>
+                    <a href=" https://wa.me/201224733621?text=welcom"><p>الاقسام الرئيسية</p></a>
                     <a href="<?php echo url('/about/us')?>"><p>حول الشركة</p></a>
                     <a href="<?php echo url('/contact/us')?>"><p>اتصل بنا</p></a>
                 </div>
@@ -49,6 +50,10 @@
                     <div><p><?php echo $info->fax?></p></div>
 
                     <?php endforeach; endif;?>
+                </div>
+                <div class="copyRight">
+                    <p class="copy">	<span>&copy;</span> جميع الحقوق محفوظة لشركة الحرية</p>
+                    <p class="design">تم التصميم والبرمجة بواسطة <a href="<?php echo url('/')?>">Ahmed Seaf</a></p>
                 </div>
             </div>
         </div>

@@ -342,9 +342,9 @@ class HomeController extends Controller
 
     public function test()
     {
-        $visitor = $this->session->get('userVisitors');
-        $visitor =(array) $visitor;
-        pre(count($visitor));
+//        $visitor = $this->session->get('userVisitors');
+//        $visitor =(array) $visitor;
+//        pre(count($visitor));
 
        // pre($this->cookie->get('userVisitors'));
 
@@ -365,6 +365,21 @@ class HomeController extends Controller
 //        $brandNameModel = $this->load->model('Home')->getAllProductByBrandId(6);
 //        $brandNameModel = $this->ToArray($brandNameModel);
 //
+        $keys = $this->load->model('Navbar')->checkSearch('ل');
+
+        $keys = json_decode(json_encode($keys), true);
+
+        foreach ($keys AS $key) {
+           foreach ($key AS $k => $v) {
+               echo $v;
+           }
+        }
+        //$keys = DB::ta
+//        foreach ($keys AS $key=>$value)
+//        {
+//            pre($key);
+//        }
+       // pre($key);
 //        $brandName = $brandNameModel['brandName'];
 //        pred($brandName);
 //        $productName = $this->ToArray($productName);

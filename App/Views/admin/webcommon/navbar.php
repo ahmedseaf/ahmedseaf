@@ -157,6 +157,20 @@
                     </div>
 
                 </div>
+
+                <div class="navSearch">
+                    <form action="<?php echo url('/product/search')?>" method="post">
+                        <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input class="inputSearch" data-request="<?php echo url('/product/check')?>"  dir="rtl" type="text" name="search" id="allSearch" autocomplete="off">
+                            <input type="hidden" name="check" value="search">
+                            <div class="searchFound" id="searchFound"">
+<!--                                <p id="searchData"></p>-->
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             

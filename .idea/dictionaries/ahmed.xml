@@ -9,6 +9,7 @@
       <w>allcategory</w>
       <w>catid</w>
       <w>catname</w>
+      <w>checksearch</w>
       <w>contactlist</w>
       <w>contactus</w>
       <w>currancy</w>
@@ -24,12 +25,14 @@
       <w>gmail</w>
       <w>hurria</w>
       <w>instgram</w>
+      <w>keyup</w>
       <w>maincategory</w>
       <w>minmax</w>
       <w>mousedown</w>
       <w>mouseenter</w>
       <w>mouseleave</w>
       <w>mousemove</w>
+      <w>mouseover</w>
       <w>mouseup</w>
       <w>navbar</w>
       <w>newpassword</w>
