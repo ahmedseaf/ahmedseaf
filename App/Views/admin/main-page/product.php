@@ -37,6 +37,10 @@
             </div>
 
             <div class="lineFore">
+                <div class="productCode" style="display: flex; margin-top: 1rem; margin-bottom: 1rem">
+                    <p style=" line-height: 2rem; padding-right: 3rem; font-size: 1.2rem; background-color: var(--main-color); color: white; width: 50%;">  رقم المنتج </p>
+                    <p style="width: 50%; background-color: var(--main-color); font-size: 1.2rem; line-height: 2rem; color: white"><?php echo $product->product_code?></p>
+                </div>
                 <div class="options">Options</div>
 
                 <?php if (isset($options)) : foreach ($options As $option) : ?>

@@ -13,7 +13,7 @@ class NavbarModel extends Model
             "i.name AS `Image`, i.status AS `Status`")
             ->from("products p")
             ->join("LEFT JOIN product_image i ON p.id=i.product_id")
-            ->where("i.Status=? AND  p.description LIKE '%$search%' ", "enabled")
+            ->where("i.Status=? AND  p.description LIKE '%$search%' OR p.product_code LIKE '%$search%'", "enabled")
             ->fetchAll();
     }
 

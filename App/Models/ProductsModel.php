@@ -32,7 +32,7 @@ class ProductsModel extends Model
 
 
     public function create()
-    { //    currency total price unit
+    { //    currency total price unit  product_code
 
         $lastProduct = $this->data('name', $this->request->post('name'))
             ->data('country', $this->request->post('country'))
@@ -49,6 +49,7 @@ class ProductsModel extends Model
             ->data('category_id', $this->request->post('categories'))
             ->data('sub_category_id', $this->request->post('sub_category'))
             ->data('min_sub_category_id', $this->request->post('min_sub_category'))
+            ->data('product_code', mt_rand(1455,4554) . mt_rand(4545,5467563) )
             ->insert($this->table)->lastId();
 
 

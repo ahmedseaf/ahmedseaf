@@ -29,7 +29,6 @@ class NavbarWebController extends Controller
     {
        // echo url(isset($_SERVER['REQUEST_URI']) ? rawurldecode($_SERVER['REQUEST_URI']) : '');
 
-
         $settings = $this->load->model('Setting')->all();
         $settings = $this->ToArray($settings);
         $data['logo'] = $this->url->link('public/images/'. $settings['logo']);
