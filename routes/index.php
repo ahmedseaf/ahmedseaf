@@ -178,7 +178,7 @@ $app->route->group($blogOptions, function ($route){
 
 
     $route->add('/contact', 'Contact');
-    $route->add('/test/test', 'Test');
+    $route->add('/test', 'Test');
     $route->add('/test/add',            'Test@add',     'POST');
     $route->add('/test/submit',         'Test@submit',  'POST');
     $route->add('/test/radio',          'Test@radio');

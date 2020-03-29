@@ -36,7 +36,7 @@
 
                         <div class="form-group col-md-12">
                             <label for="description">Category Description</label>
-                         <textarea class="form-control" name="description" id="description" cols="30" rows="10"><?php echo $description?></textarea>
+                         <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
                         </div>
                     <!--       For Image                 -->
                     <div class="form-group col-md-6">

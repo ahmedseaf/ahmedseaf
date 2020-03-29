@@ -29,7 +29,7 @@
                 <div class="goLinks">
                     <p>روابط سريعة</p>
                     <a href="<?php echo url('/category/all')?>"><p>الاقسام الرئيسية</p></a>
-                    <a href=" https://wa.me/201224733621?text=welcom"><p>الاقسام الرئيسية</p></a>
+<!--                    <a href=" https://wa.me/201224733621?text=welcom"><p>الاقسام الرئيسية</p></a>-->
                     <a href="<?php echo url('/about/us')?>"><p>حول الشركة</p></a>
                     <a href="<?php echo url('/contact/us')?>"><p>اتصل بنا</p></a>
                 </div>
